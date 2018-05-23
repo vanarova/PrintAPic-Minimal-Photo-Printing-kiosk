@@ -2,7 +2,8 @@
 
 -Burn image in raspberry
 -Enable remote connections in raspberry config.
--Install VNC
+- Enable vnc server, run command: sudo raspi-config and in interfacing-options, enable vnc
+-Install VNC on laptop
 -Connect a router to pi, configure static ip in router for pi.
 -Connect to router via laptop and connect via VNC, change password
 -install cups and follow below -
