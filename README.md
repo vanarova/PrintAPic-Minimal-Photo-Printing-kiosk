@@ -1,6 +1,6 @@
 # MobPrntBoooth
 
-- Burn image in raspberry
+- Burn image in raspberry (pi/jamun123)
 - Enable remote connections in raspberry config.
 - Enable vnc server, run command: sudo raspi-config and in interfacing-options, enable vnc
 - Install VNC on laptop
@@ -13,6 +13,7 @@ For old printer models - http://foo2zjs.rkkda.com/
 
 - install FTP server on raspberry-
 https://www.raspberrypi.org/documentation/remote-access/ftp.md
+upload/jamun123
 
 python access
 - sudo apt-get install libcups2-dev
