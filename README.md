@@ -5,7 +5,8 @@ https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0
 
 - Burn image in raspberry (pi/jamun123)
 - Enable remote connections in raspberry config.
-- Find PI's IP, connect via putty
+- Find PI's IP (by connecting with router and looking into its IP allocation table). For Pi zero, connect with wifi use wpa_supplicant.conf file for wifi credentials. Refer link: https://www.losant.com/blog/getting-started-with-the-raspberry-pi-zero-w-without-a-monitor
+- connect to PI via putty, use above ip address.
 - Enable vnc server, run command: sudo raspi-config and in interfacing-options, enable vnc
 - Install VNC on laptop
 - Connect a router to pi, configure static ip in router for pi.
