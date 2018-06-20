@@ -1,7 +1,11 @@
 # MobPrntBoooth
 
+Headless pi config steps --
+https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0
+
 - Burn image in raspberry (pi/jamun123)
 - Enable remote connections in raspberry config.
+- Find PI's IP, connect via putty
 - Enable vnc server, run command: sudo raspi-config and in interfacing-options, enable vnc
 - Install VNC on laptop
 - Connect a router to pi, configure static ip in router for pi.
