@@ -34,4 +34,7 @@ python access
 - sudo apt-get install libcups2-dev
 - pip install pycups
 
+
   
+# Notes for OCR --
+https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
