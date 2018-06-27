@@ -38,3 +38,4 @@ python access
   
 # Notes for OCR --
 https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
+https://github.com/priyankvex/Easy-Ocr-Scanner-Android
