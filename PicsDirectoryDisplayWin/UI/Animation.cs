@@ -1,12 +1,8 @@
 ﻿using PicsDirectoryDisplayWin.lib;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,10 +22,44 @@ namespace PicsDirectoryDisplayWin
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
         {
-            AllImages = new List<ChitraKiAlbumAurVivaran>();
+            //uint deviceCount = 0;
+            //PortableDeviceManager manager = new PortableDeviceManager();
+
+            //manager.RefreshDeviceList();
+
+
+            //manager.GetDevices(null, ref deviceCount)
+            //string strVal = string.Empty;
+            //string[] deviceIdDescriptionList = new string[deviceCount];
+            //manager.GetDevices(ref deviceIdDescriptionList[0], ref deviceCount);
+            //if (deviceCount > 0)
+            //{
+            //    string[] deviceIDs = new string[deviceCount];
+            //    manager.GetDevices(ref deviceIDs[0], ref deviceCount);
+            //    for (int ndxDevices = 0; ndxDevices < cDevices; ndxDevices++)
+            //    {
+            //        MessageBox.Show("Device[{0}]: " +
+            //                  ndxDevices + 1 + "          " + deviceIDs[0].ToString());
+            //        uint nameLength = 30;
+            //        ushort[] nameBuffer = new ushort[nameLength];
+            //        devMgr.GetDeviceFriendlyName(deviceIDs[0], ref nameBuffer[0], ref nameLength);
+
+            //        //convert to string
+            //        string friendlyName = "";
+            //        foreach (ushort letter in nameBuffer)
+            //            if (letter != 0) friendlyName += (char)letter;
+            //        MessageBox.Show("FriendlyName is " + friendlyName);
+            //    }
+
+
+
+
+
+
+                AllImages = new List<ChitraKiAlbumAurVivaran>();
             waiter = new Waiter();
             waiter.Show();
-            var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgress);
+            var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
             lib.ChitraKhoj imgSearch = new ChitraKhoj();
 
             Task waitToComplete = new Task(async ()=>
@@ -73,6 +103,7 @@ namespace PicsDirectoryDisplayWin
                 }
             }
 
+
             foreach (var item in AllImages)
             {
                 //Create Thumbnails
@@ -81,6 +112,7 @@ namespace PicsDirectoryDisplayWin
                     await CreateThumbnails(item);
                 });
                 task.Start();
+                ReportProgressForThumbnails(item.ImageDirName);
             }
             
             AllImages.Reverse();
@@ -107,7 +139,7 @@ namespace PicsDirectoryDisplayWin
                         Image i = Image.FromFile(item.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero);
                         if (!Directory.Exists(item.ImageDirName))
                             Directory.CreateDirectory(item.ImageDirName);
-                        i.Save(item.ImageDirName+"\\" + Converthex.ToString() + ".jpg");
+                        i.Save(item.ImageDirName+"\\" +  item.ImageName + ".jpg");
                         i.Dispose();
                     }
                     catch (OutOfMemoryException o)
@@ -127,11 +159,18 @@ namespace PicsDirectoryDisplayWin
             //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
         }
 
-        private void ReportProgress(ChitraKiAlbumAurVivaran obj)
+        private void ReportProgressForImageSearch(ChitraKiAlbumAurVivaran obj)
         {
             foundImageCount = (foundImageCount + obj.ImageDirTotalImages);
             waiter.FileFoundLabelText = foundImageCount.ToString()  + " images found";
             AllImages.Add(obj);
+        }
+
+        private void ReportProgressForThumbnails(string dirName)
+        {
+            //foundImageCount = (foundImageCount + obj.ImageDirTotalImages);
+            waiter.FileFoundLabelText = "Creating image thumbnails for : " + dirName;
+            //AllImages.Add(obj);
         }
 
 

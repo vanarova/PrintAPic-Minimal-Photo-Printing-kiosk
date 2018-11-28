@@ -12,7 +12,7 @@ namespace PicsDirectoryDisplayWin.lib
         static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
         int NoOfTotalDirsFound = 0;
         int IncludeDirectoryContainingMinImages = 2; int IncludeMaxImages = 20;
-        int MaxDirectoryToSearchLimit = 100;
+        int MaxDirectoryToSearchLimit = 50;
 
 
         public ChitraKhoj()
