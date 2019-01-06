@@ -10,10 +10,12 @@ namespace PicsDirectoryDisplayWin
 {
     public partial class Animation : Form
     {
-        Waiter waiter;
+        private string TestSearchDir = @"C:\Users\Arunav\Pictures\Camera Roll";
+        private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        private Waiter waiter;
         int foundImageCount = 0;
         bool searchDone = false;
-        int MaxThumbnailsToGenerate = 100; // set this to controls number max thumbnails t genertae and save for each found dir.
+        int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
         public Animation()
         {
@@ -22,52 +24,19 @@ namespace PicsDirectoryDisplayWin
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
         {
-            //uint deviceCount = 0;
-            //PortableDeviceManager manager = new PortableDeviceManager();
 
-            //manager.RefreshDeviceList();
-
-
-            //manager.GetDevices(null, ref deviceCount)
-            //string strVal = string.Empty;
-            //string[] deviceIdDescriptionList = new string[deviceCount];
-            //manager.GetDevices(ref deviceIdDescriptionList[0], ref deviceCount);
-            //if (deviceCount > 0)
-            //{
-            //    string[] deviceIDs = new string[deviceCount];
-            //    manager.GetDevices(ref deviceIDs[0], ref deviceCount);
-            //    for (int ndxDevices = 0; ndxDevices < cDevices; ndxDevices++)
-            //    {
-            //        MessageBox.Show("Device[{0}]: " +
-            //                  ndxDevices + 1 + "          " + deviceIDs[0].ToString());
-            //        uint nameLength = 30;
-            //        ushort[] nameBuffer = new ushort[nameLength];
-            //        devMgr.GetDeviceFriendlyName(deviceIDs[0], ref nameBuffer[0], ref nameLength);
-
-            //        //convert to string
-            //        string friendlyName = "";
-            //        foreach (ushort letter in nameBuffer)
-            //            if (letter != 0) friendlyName += (char)letter;
-            //        MessageBox.Show("FriendlyName is " + friendlyName);
-            //    }
-
-
-
-
-
-
-                AllImages = new List<ChitraKiAlbumAurVivaran>();
+            AllImages = new List<ChitraKiAlbumAurVivaran>();
             waiter = new Waiter();
             waiter.Show();
             var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
-            lib.ChitraKhoj imgSearch = new ChitraKhoj();
+            lib.ChitraKhoj imgSearch = new ChitraKhoj(TestSearchDir);
 
             Task waitToComplete = new Task(async ()=>
             {
                 await imgSearch.Search(progressIndicator);
                 if (InvokeRequired)
                 {
-                    Invoke((Action)Done);
+                    Invoke((Action<bool>)Done,false);
                     return;
                 }
             });
@@ -77,18 +46,10 @@ namespace PicsDirectoryDisplayWin
             //ramu.IskaamDekhteRahoAurKhatamHonePerSuchitKaro(longRunningWork, "Kaam khatam ho gaya hai");
         }
 
+  
    
-        private void longRunningWork(string value)
+        private void Done(bool IsWeb)
         {
-            System.Threading.Thread.Sleep(2000);
-            MessageBox.Show(value);
-            System.Threading.Thread.Sleep(2000);
-        }
-
-   
-        private void Done()
-        {
-
             //Bubble sort Images
             for (int write = 0; write < AllImages.Count; write++)
             {
@@ -103,7 +64,6 @@ namespace PicsDirectoryDisplayWin
                 }
             }
 
-
             foreach (var item in AllImages)
             {
                 //Create Thumbnails
@@ -117,9 +77,19 @@ namespace PicsDirectoryDisplayWin
             
             AllImages.Reverse();
             waiter.Close();
-            Gallery gallery = new Gallery();
-            gallery.AllImages = AllImages;
-            gallery.Show();
+            if (IsWeb)
+            {
+                SimpleGallery gallery = new SimpleGallery();
+                gallery.AllImages = AllImages;
+                gallery.Show();
+            }
+            else
+            {
+                DirectoryGallery gallery = new DirectoryGallery();
+                gallery.AllImages = AllImages;
+                gallery.Show();
+            }
+            
         }
 
         //TODO: group methods and write comments
@@ -173,7 +143,31 @@ namespace PicsDirectoryDisplayWin
             //AllImages.Add(obj);
         }
 
+        private void WifiConnect_Click(object sender, EventArgs e)
+        {
 
+            AllImages = new List<ChitraKiAlbumAurVivaran>();
+            waiter = new Waiter();
+            waiter.Show();
+            var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
+            lib.ChitraKhoj imgSearch = new ChitraKhoj(WebSiteSearchDir);
+
+            Task waitToComplete = new Task(async () =>
+            {
+                await imgSearch.Search(progressIndicator);
+                if (InvokeRequired)
+                {
+                Invoke((Action<bool>)Done,true);
+                    return;
+                }
+            });
+            waitToComplete.Start();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

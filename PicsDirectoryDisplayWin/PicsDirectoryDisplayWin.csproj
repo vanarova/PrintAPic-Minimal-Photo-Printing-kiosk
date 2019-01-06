@@ -82,11 +82,17 @@
     <Compile Include="UI\Animation.Designer.cs">
       <DependentUpon>Animation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Gallery.cs">
+    <Compile Include="UI\SimpleGallery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Gallery.Designer.cs">
-      <DependentUpon>Gallery.cs</DependentUpon>
+    <Compile Include="UI\SimpleGallery.Designer.cs">
+      <DependentUpon>SimpleGallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DirectoryGallery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DirectoryGallery.Designer.cs">
+      <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,8 +111,11 @@
     <EmbeddedResource Include="UI\Animation.resx">
       <DependentUpon>Animation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Gallery.resx">
-      <DependentUpon>Gallery.cs</DependentUpon>
+    <EmbeddedResource Include="UI\SimpleGallery.resx">
+      <DependentUpon>SimpleGallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DirectoryGallery.resx">
+      <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,7 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pics\div.png" />
+    <Content Include="pics\HE logo.png" />
+    <Content Include="pics\usb.svg" />
     <Content Include="pics\vst.png" />
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
