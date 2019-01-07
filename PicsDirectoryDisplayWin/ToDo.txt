@@ -1,1 +1,3 @@
 ﻿Max 20-25 pics can be printed at a time. Set limit on gallery page.
+make both windows full sreen
+make animation while loading second window

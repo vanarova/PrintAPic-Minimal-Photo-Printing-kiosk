@@ -39,3 +39,7 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntB
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x64\Debug\PicsDirectoryDisplayWin.exe
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x64\Debug\PicsDirectoryDisplayWin.pdb
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x64\Debug\PicsDirectoryDisplayWin.SimpleGallery.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x64\Debug\PicsDirectoryDisplayWin.exe.manifest
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x64\Debug\PicsDirectoryDisplayWin.application
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x64\Debug\PicsDirectoryDisplayWin.exe.manifest
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x64\Debug\PicsDirectoryDisplayWin.application

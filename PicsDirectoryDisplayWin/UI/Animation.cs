@@ -1,6 +1,7 @@
 ﻿using PicsDirectoryDisplayWin.lib;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
@@ -167,6 +168,13 @@ namespace PicsDirectoryDisplayWin
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Animation_Load(object sender, EventArgs e)
+        {
+            WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
+            DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
+            
         }
     }
 
