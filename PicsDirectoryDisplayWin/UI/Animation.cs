@@ -1,4 +1,6 @@
 ﻿using PicsDirectoryDisplayWin.lib;
+using PicsDirectoryDisplayWin.lib_ImgIO;
+using PicsDirectoryDisplayWin.UI;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,8 +13,9 @@ namespace PicsDirectoryDisplayWin
 {
     public partial class Animation : Form
     {
+        private ImageIO imageIO = new ImageIO();
         private string TestSearchDir = @"C:\Users\Arunav\Pictures\Camera Roll";
-        private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        //private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         private Waiter waiter;
         int foundImageCount = 0;
         bool searchDone = false;
@@ -51,26 +54,27 @@ namespace PicsDirectoryDisplayWin
    
         private void Done(bool IsWeb)
         {
+            imageIO.BubbleSortImages(AllImages);
             //Bubble sort Images
-            for (int write = 0; write < AllImages.Count; write++)
-            {
-                for (int sort = 0; sort < AllImages.Count - 1; sort++)
-                {
-                    if (AllImages[sort].ImageDirTotalImages > AllImages[sort + 1].ImageDirTotalImages)
-                    {
-                        var temp = AllImages[sort + 1];
-                        AllImages[sort + 1] = AllImages[sort];
-                        AllImages[sort] = temp;
-                    }
-                }
-            }
+            //for (int write = 0; write < AllImages.Count; write++)
+            //{
+            //    for (int sort = 0; sort < AllImages.Count - 1; sort++)
+            //    {
+            //        if (AllImages[sort].ImageDirTotalImages > AllImages[sort + 1].ImageDirTotalImages)
+            //        {
+            //            var temp = AllImages[sort + 1];
+            //            AllImages[sort + 1] = AllImages[sort];
+            //            AllImages[sort] = temp;
+            //        }
+            //    }
+            //}
 
             foreach (var item in AllImages)
             {
                 //Create Thumbnails
                 Task task = new Task(async () =>
                 {
-                    await CreateThumbnails(item);
+                    await imageIO.DirectConn_CreateThumbnails(item);
                 });
                 task.Start();
                 ReportProgressForThumbnails(item.ImageDirName);
@@ -95,40 +99,40 @@ namespace PicsDirectoryDisplayWin
 
         //TODO: group methods and write comments
 
-        private async Task CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
-        {
-            int count = 0;
-            await Task.Run(() =>
-            {
-                //Lets try and create thumbnails
-                foreach (var item in ImageDir.PeerImages)
-                {
-                    if (count >= MaxThumbnailsToGenerate)
-                        break;
-                    try
-                    {
-                        Image i = Image.FromFile(item.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero);
-                        if (!Directory.Exists(item.ImageDirName))
-                            Directory.CreateDirectory(item.ImageDirName);
-                        i.Save(item.ImageDirName+"\\" +  item.ImageName + ".jpg");
-                        i.Dispose();
-                    }
-                    catch (OutOfMemoryException o)
-                    {
-                        //TODO: Log o
-                        System.Threading.Thread.Sleep(100);
-                    }
-                    catch (Exception e)
-                    {
-                        //TODO: Log e
-                    }
-                    count++;
-                }
-            });
+        //private async Task CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
+        //{
+        //    int count = 0;
+        //    await Task.Run(() =>
+        //    {
+        //        //Lets try and create thumbnails
+        //        foreach (var item in ImageDir.PeerImages)
+        //        {
+        //            if (count >= MaxThumbnailsToGenerate)
+        //                break;
+        //            try
+        //            {
+        //                Image i = Image.FromFile(item.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero);
+        //                if (!Directory.Exists(item.ImageDirName))
+        //                    Directory.CreateDirectory(item.ImageDirName);
+        //                i.Save(item.ImageDirName+"\\" +  item.ImageName + ".jpg");
+        //                i.Dispose();
+        //            }
+        //            catch (OutOfMemoryException o)
+        //            {
+        //                //TODO: Log o
+        //                System.Threading.Thread.Sleep(100);
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                //TODO: Log e
+        //            }
+        //            count++;
+        //        }
+        //    });
            
            
-            //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
-        }
+        //    //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
+        //}
 
         private void ReportProgressForImageSearch(ChitraKiAlbumAurVivaran obj)
         {
@@ -146,23 +150,24 @@ namespace PicsDirectoryDisplayWin
 
         private void WifiConnect_Click(object sender, EventArgs e)
         {
+            WifiConnectHelp whelp = new WifiConnectHelp();
+            whelp.Show();
+            //AllImages = new List<ChitraKiAlbumAurVivaran>();
+            //waiter = new Waiter();
+            //waiter.Show();
+            //var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
+            //lib.ChitraKhoj imgSearch = new ChitraKhoj(WebSiteSearchDir);
 
-            AllImages = new List<ChitraKiAlbumAurVivaran>();
-            waiter = new Waiter();
-            waiter.Show();
-            var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
-            lib.ChitraKhoj imgSearch = new ChitraKhoj(WebSiteSearchDir);
-
-            Task waitToComplete = new Task(async () =>
-            {
-                await imgSearch.Search(progressIndicator);
-                if (InvokeRequired)
-                {
-                Invoke((Action<bool>)Done,true);
-                    return;
-                }
-            });
-            waitToComplete.Start();
+            //Task waitToComplete = new Task(async () =>
+            //{
+            //    await imgSearch.Search(progressIndicator);
+            //    if (InvokeRequired)
+            //    {
+            //    Invoke((Action<bool>)Done,true);
+            //        return;
+            //    }
+            //});
+            //waitToComplete.Start();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

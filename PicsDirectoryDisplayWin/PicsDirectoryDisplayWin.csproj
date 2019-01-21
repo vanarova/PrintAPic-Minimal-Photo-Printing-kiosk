@@ -104,25 +104,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="lib\Chowkidar.cs" />
-    <Compile Include="lib\ChitroKiAlbumAurVivaran.cs" />
-    <Compile Include="lib\ChitraKhoj.cs" />
+    <Compile Include="lib_ImgIO\ImageIO.cs" />
+    <Compile Include="lib_ImgSearch\Chowkidar.cs" />
+    <Compile Include="lib_ImgSearch\ChitroKiAlbumAurVivaran.cs" />
+    <Compile Include="lib_ImgSearch\ChitraKhoj.cs" />
     <Compile Include="UI\Animation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Animation.Designer.cs">
       <DependentUpon>Animation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SimpleGallery.cs">
+    <Compile Include="UI\WIFI\fileChangedNotify.cs" />
+    <Compile Include="UI\WIFI\SimpleGallery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SimpleGallery.Designer.cs">
+    <Compile Include="UI\WIFI\SimpleGallery.Designer.cs">
       <DependentUpon>SimpleGallery.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\DirectoryGallery.cs">
+    <Compile Include="UI\USB\DirectoryGallery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DirectoryGallery.Designer.cs">
+    <Compile Include="UI\USB\DirectoryGallery.Designer.cs">
       <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -139,19 +141,19 @@
     <Compile Include="UI\Waiter.Designer.cs">
       <DependentUpon>Waiter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\WifiConnectHelp.cs">
+    <Compile Include="UI\WIFI\WifiConnectHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\WifiConnectHelp.Designer.cs">
+    <Compile Include="UI\WIFI\WifiConnectHelp.Designer.cs">
       <DependentUpon>WifiConnectHelp.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="UI\Animation.resx">
       <DependentUpon>Animation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SimpleGallery.resx">
+    <EmbeddedResource Include="UI\WIFI\SimpleGallery.resx">
       <DependentUpon>SimpleGallery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\DirectoryGallery.resx">
+    <EmbeddedResource Include="UI\USB\DirectoryGallery.resx">
       <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="Properties\Resources.resx">
@@ -172,7 +174,7 @@
     <EmbeddedResource Include="UI\Waiter.resx">
       <DependentUpon>Waiter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\WifiConnectHelp.resx">
+    <EmbeddedResource Include="UI\WIFI\WifiConnectHelp.resx">
       <DependentUpon>WifiConnectHelp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
