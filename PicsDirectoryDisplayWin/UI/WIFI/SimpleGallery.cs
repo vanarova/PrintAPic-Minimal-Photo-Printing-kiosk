@@ -40,6 +40,7 @@ namespace PicsDirectoryDisplayWin
         private readonly Color SelectedColor = Color.Silver;
         private readonly Font SelectedFont = new Font(new Font("Arial", 10.0f), FontStyle.Bold);
         private readonly Font UnSelectedFont = new Font(new Font("Arial", 8.0f), FontStyle.Regular);
+        private int fileChangedCounter = 0;
         private event EventHandler fileChangedNotifer;
         private event EventHandler refreshGalleryNotifier;
         public bool FilesChanged {
@@ -75,7 +76,11 @@ namespace PicsDirectoryDisplayWin
 
         private void SimpleGallery_refreshGalleryNotifier(object sender, EventArgs e)
         {
-            ShowGallerySelectionImages(AllImages[0]);
+            if (AllImages.Count>0)
+            {
+                ShowGallerySelectionImages(AllImages[0]);
+            }
+            
         }
 
         private void SimpleGallery_fileChangedNotifer(object sender, EventArgs e)
@@ -394,13 +399,17 @@ namespace PicsDirectoryDisplayWin
 
         private void WebSiteUploadsWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
+            
             //Intro duce delay for processsing images
-            System.Threading.Thread.Sleep(RefreshResponseDelay);
-            if (InvokeRequired)
+            //System.Threading.Thread.Sleep(RefreshResponseDelay);
+            if (fileChangedCounter == 0 && InvokeRequired)
             {
                 Invoke(new Action(()=>{ FilesChanged = true; }));
             }
-            
+            //records file changed events. this will be read at Done(), 
+            //If new events comes, fileschanged property is set again.
+            fileChangedCounter++;
+
             //if (InvokeRequired && System.Diagnostics.Debugger.IsAttached)
             //{
             //    MessageBox.Show("file watcher, Invoke needed");
@@ -440,11 +449,22 @@ namespace PicsDirectoryDisplayWin
             {
                 Invoke(new Action(() => waiter.Close()));
                 Invoke(new Action(() => RefreshGalleryNotify = true));
+                if (fileChangedCounter > 1)
+                {// again raise event.
+                    Invoke(new Action(() => FilesChanged = true));
+                }
+                Invoke(new Action(() => fileChangedCounter = 0));
             }
             else
             {
                 waiter.Close();
                 RefreshGalleryNotify = true;
+               
+                if (fileChangedCounter > 1)
+                {// again raise event.
+                    FilesChanged = true;
+                }
+                fileChangedCounter = 0;
             }
             
         }
