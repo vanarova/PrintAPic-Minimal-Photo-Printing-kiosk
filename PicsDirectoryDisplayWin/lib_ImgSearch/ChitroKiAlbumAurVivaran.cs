@@ -11,6 +11,15 @@ namespace PicsDirectoryDisplayWin.lib
     {
         public string ImageName { get; set; }
         public string ImageFullName { get; set; }
+
+        public string ImageThumbnailFullName
+        {
+            get
+            {
+                return ImageDirFullName + "/thumbs/" + ImageName;
+            }
+        }
+
         public string ImageDirName { get; set; }
         public string ImageDirFullName { get; set; }
         public int ImageDirTotalImages { get; set; }

@@ -181,7 +181,8 @@ namespace PicsDirectoryDisplayWin
 
         private void SimpleGallery_Load(object sender, EventArgs e)
         {
-            ShowGallerySelectionImages(AllImages[0]);
+            //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
+            ShowGallerySelectionImages(AllImages[1]);
             FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
             {
                 Path = WebSiteSearchDir,
@@ -256,30 +257,30 @@ namespace PicsDirectoryDisplayWin
         /// <param name="width">The width to resize to.</param>
         /// <param name="height">The height to resize to.</param>
         /// <returns>The resized image.</returns>
-        private static Bitmap ResizeImage(Image image, int width, int height)
-        {
-            var destRect = new Rectangle(0, 0, width, height);
-            var destImage = new Bitmap(width, height);
+        //private static Bitmap ResizeImage(Image image, int width, int height)
+        //{
+        //    var destRect = new Rectangle(0, 0, width, height);
+        //    var destImage = new Bitmap(width, height);
 
-            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+        //    destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
 
-            using (var graphics = Graphics.FromImage(destImage))
-            {
-                graphics.CompositingMode = CompositingMode.SourceCopy;
-                graphics.CompositingQuality = CompositingQuality.HighQuality;
-                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                graphics.SmoothingMode = SmoothingMode.HighQuality;
-                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+        //    using (var graphics = Graphics.FromImage(destImage))
+        //    {
+        //        graphics.CompositingMode = CompositingMode.SourceCopy;
+        //        graphics.CompositingQuality = CompositingQuality.HighQuality;
+        //        graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+        //        graphics.SmoothingMode = SmoothingMode.HighQuality;
+        //        graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                using (var wrapMode = new ImageAttributes())
-                {
-                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
-                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
-                }
-            }
+        //        using (var wrapMode = new ImageAttributes())
+        //        {
+        //            wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+        //            graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+        //        }
+        //    }
 
-            return destImage;
-        }
+        //    return destImage;
+        //}
 
 
         //private Image resizeImage(Image imgToResize, Size size)
@@ -316,28 +317,28 @@ namespace PicsDirectoryDisplayWin
         //    return (Image)b;
         //}
 
-        private void CreateImageList(ChitraKiAlbumAurVivaran obj)
-        {
-            imgs.ImageSize = new Size(200, 200);
-            imgs.ColorDepth = ColorDepth.Depth32Bit;
-            List<Image> images = new List<Image>();
+        //private void CreateImageList(ChitraKiAlbumAurVivaran obj)
+        //{
+        //    imgs.ImageSize = new Size(200, 200);
+        //    imgs.ColorDepth = ColorDepth.Depth32Bit;
+        //    List<Image> images = new List<Image>();
 
-            foreach (var item in obj.PeerImages)
-            {
-                using (Image im = Image.FromFile(item.ImageFullName))
-                {
-                    //images.Add();
-                    var imtemp = ResizeImage(im, 200, 200);
-                    imgs.Images.Add(item.ImageKey, imtemp);
-                    //im.Dispose();// = null;
-                }
-            }
-        }
+        //    foreach (var item in obj.PeerImages)
+        //    {
+        //        using (Image im = Image.FromFile(item.ImageFullName))
+        //        {
+        //            //images.Add();
+        //            var imtemp = ResizeImage(im, 200, 200);
+        //            imgs.Images.Add(item.ImageKey, imtemp);
+        //            //im.Dispose();// = null;
+        //        }
+        //    }
+        //}
 
         private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
         {
             imglist.Clear();
-            CreateImageList(obj);
+            imageIO.CreateImageListFromThumbnails(obj,imgs);
             imglist.LargeImageList = imgs;
             foreach (var item in obj.PeerImages)
             {
@@ -435,13 +436,12 @@ namespace PicsDirectoryDisplayWin
             if (AllImages.Count != 0)
             {
                 imageIO.BubbleSortImages(AllImages);
-                foreach (var item in AllImages)
-                {
-                    //Create Thumbnails
-                    Task task = new Task(async () => { await imageIO.Wifi_CreateThumbnails(item); });
-                    task.Start();
-                    //ReportProgressForThumbnails(item.ImageDirName);
-                }
+               
+                //Create Thumbnails
+                //Task task = new Task(async () => { await imageIO.Wifi_CreateThumbnails(AllImages[0]); });
+                //task.Start();
+                //ReportProgressForThumbnails(item.ImageDirName);
+               
                 AllImages.Reverse();
             }
 

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +20,50 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
         public async Task DirectConn_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
         {
             await Wifi_CreateThumbnails(ImageDir);
+        }
+
+
+        public void CreateImageListFromThumbnails(ChitraKiAlbumAurVivaran obj, ImageList imgs)
+        {
+            imgs.ImageSize = new Size(200, 200);
+            imgs.ColorDepth = ColorDepth.Depth32Bit;
+            List<Image> images = new List<Image>();
+
+            foreach (var item in obj.PeerImages)
+            {
+                using (Image im = Image.FromFile(item.ImageThumbnailFullName))
+                {
+                    //images.Add();
+                    var imtemp = ResizeImage(im, 200, 200);
+                    imgs.Images.Add(item.ImageKey, imtemp);
+                    //im.Dispose();// = null;
+                }
+            }
+        }
+
+        private Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
         }
 
         //TODO : Not using thumbnails mechanism, use thumbnail, after done, get thumbnails and display.
@@ -74,6 +120,8 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
             Task waitToComplete = new Task(async () =>
             {
                 await imgSearch.Search(progressIndicator, Parentform, InvokeRequired);
+                await Wifi_CreateThumbnails(AllImages[0]);
+                
                 if (InvokeRequired)
                 {
                     Parentform.Invoke((Action<bool>)Done, true);
