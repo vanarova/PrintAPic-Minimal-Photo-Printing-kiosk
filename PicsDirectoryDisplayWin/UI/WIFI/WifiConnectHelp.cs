@@ -2,6 +2,7 @@
 using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -106,6 +107,10 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void WifiConnectHelp_Load_1(object sender, EventArgs e)
         {
+            //TODO : Memory leak was happeining from pic box, assign images like below, put urls in global file & resources
+            pictureBox7.BackgroundImage = new Bitmap(Globals.Arrow);
+            
+
             FileSystemWatcher fileSystemWatcher1 = new FileSystemWatcher
             {
                 Path = WebSiteSearchDir,
