@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PicsDirectoryDisplayWin.exe.manifest" size="8659">
+    <dependentAssembly dependencyType="install" codebase="PicsDirectoryDisplayWin.exe.manifest" size="8274">
       <assemblyIdentity name="PicsDirectoryDisplayWin.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6QpBEaVS1VHywHRXfOVYxQ1DMkNZak5Xbj6/gUEfFgQ=</dsig:DigestValue>
+        <dsig:DigestValue>yigi0wIqP37V/+0OsxT8OMLkFp//Fi9/o2y6dUownTA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

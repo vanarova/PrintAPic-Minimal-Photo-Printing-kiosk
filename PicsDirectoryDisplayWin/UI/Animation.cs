@@ -14,7 +14,7 @@ namespace PicsDirectoryDisplayWin
     public partial class Animation : Form
     {
         private ImageIO imageIO = new ImageIO();
-        private string TestSearchDir = @"C:\Users\Arunav\Pictures\Camera Roll";
+        //private string TestSearchDir = @"C:\Users\Arunav\Pictures\Camera Roll";
         //private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         private Waiter waiter;
         int foundImageCount = 0;
@@ -33,7 +33,7 @@ namespace PicsDirectoryDisplayWin
             waiter = new Waiter();
             waiter.Show();
             var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
-            lib.ChitraKhoj imgSearch = new ChitraKhoj(TestSearchDir);
+            lib.ChitraKhoj imgSearch = new ChitraKhoj(Globals.USBSearchPath);
 
             Task waitToComplete = new Task(async ()=>
             {
@@ -148,26 +148,16 @@ namespace PicsDirectoryDisplayWin
             //AllImages.Add(obj);
         }
 
+       
+
+
         private void WifiConnect_Click(object sender, EventArgs e)
         {
+
+
             WifiConnectHelp whelp = new WifiConnectHelp();
             whelp.Show();
-            //AllImages = new List<ChitraKiAlbumAurVivaran>();
-            //waiter = new Waiter();
-            //waiter.Show();
-            //var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
-            //lib.ChitraKhoj imgSearch = new ChitraKhoj(WebSiteSearchDir);
 
-            //Task waitToComplete = new Task(async () =>
-            //{
-            //    await imgSearch.Search(progressIndicator);
-            //    if (InvokeRequired)
-            //    {
-            //    Invoke((Action<bool>)Done,true);
-            //        return;
-            //    }
-            //});
-            //waitToComplete.Start();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -2,12 +2,7 @@
 using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,6 +53,7 @@ namespace PicsDirectoryDisplayWin.UI
                 //Create Thumbnails
                 Task task = new Task(async () => { await imageIO.Wifi_CreateThumbnails(item); });
                 task.Start();
+                task.Wait();
                 //ReportProgressForThumbnails(item.ImageDirName);
             }
 
@@ -115,9 +111,24 @@ namespace PicsDirectoryDisplayWin.UI
                 Path = WebSiteSearchDir,
                 EnableRaisingEvents = true
             };
-            //fileSystemWatcher1.Changed += FileSystemWatcher1_Changed;
+            //delete all pics from previous session. Before events are registed
+            try
+            {
+                imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
+                if (imageIO.DoesAnyFileExists(Globals.WebSiteSearchDir) > 0)
+                    imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
+            }
+            catch (Exception ex)
+            {
+                if (System.Diagnostics.Debugger.IsAttached)
+                    MessageBox.Show(ex.Message);
+            }
+           
+                
+
             fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
             fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
+           
         }
     }
 }

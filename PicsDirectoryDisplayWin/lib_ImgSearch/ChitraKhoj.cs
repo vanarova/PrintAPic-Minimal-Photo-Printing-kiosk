@@ -23,7 +23,7 @@ namespace PicsDirectoryDisplayWin.lib
         }
 
         void WalkDirectoryTree(System.IO.DirectoryInfo root, IProgress<ChitraKiAlbumAurVivaran> progress,
-            Form form = null, bool InvokeRequired = false)
+            Form form = null, bool InvokeRequired = false, int searchDepth =1)
         {
             System.IO.FileInfo[] files = null;
             System.IO.DirectoryInfo[] subDirs = null;
@@ -112,11 +112,15 @@ namespace PicsDirectoryDisplayWin.lib
                 // Now find all the subdirectories under this directory.
                 subDirs = root.GetDirectories();
 
-                foreach (System.IO.DirectoryInfo dirInfo in subDirs)
+                if (searchDepth >0)
                 {
-                    // Resursive call for each subdirectory.
-                    WalkDirectoryTree(dirInfo, progress);
+                    foreach (System.IO.DirectoryInfo dirInfo in subDirs)
+                    {
+                        // Resursive call for each subdirectory.
+                        WalkDirectoryTree(dirInfo, progress);
+                    }
                 }
+               
             }
         }
 
@@ -136,11 +140,11 @@ namespace PicsDirectoryDisplayWin.lib
 
         }
 
-       public async Task Search(IProgress<ChitraKiAlbumAurVivaran> progress,Form form = null, bool InvokeRequired = false)
+       public async Task Search(IProgress<ChitraKiAlbumAurVivaran> progress,Form form = null, bool InvokeRequired = false,int searchDepth =1)
         {
             await Task.Run(() =>
             {
-                WalkDirectoryTree(new System.IO.DirectoryInfo(SearchDirectory), progress,form, InvokeRequired);
+                WalkDirectoryTree(new System.IO.DirectoryInfo(SearchDirectory), progress,form, InvokeRequired, searchDepth);
             });
 
             //foreach (string s in log)

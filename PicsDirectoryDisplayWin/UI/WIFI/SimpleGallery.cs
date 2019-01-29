@@ -182,7 +182,7 @@ namespace PicsDirectoryDisplayWin
         private void SimpleGallery_Load(object sender, EventArgs e)
         {
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
-            ShowGallerySelectionImages(AllImages[1]);
+            ShowGallerySelectionImages(AllImages[0]);
             FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
             {
                 Path = WebSiteSearchDir,
@@ -335,11 +335,14 @@ namespace PicsDirectoryDisplayWin
         //    }
         //}
 
+
+
         private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
         {
             imglist.Clear();
             imageIO.CreateImageListFromThumbnails(obj,imgs);
             imglist.LargeImageList = imgs;
+            CheckForMaxImageWarning();
             foreach (var item in obj.PeerImages)
             {
                 // image key is the image sleected from imagelist collection, key must present in imagelist above
@@ -355,8 +358,20 @@ namespace PicsDirectoryDisplayWin
             ////imglist.Show();
         }
 
+        private void CheckForMaxImageWarning()
+        {
+            if (AllImages.Count != 0 && AllImages[0].PeerImages.Count == 20)
+            {
+                warningTxt.Text = "Max Images 20 per session";
+            }
+            else if (AllImages.Count != 0 && AllImages[0].PeerImages.Count < 20)
+            {
+                warningTxt.Text = "";
+            }
+        }
 
-     
+
+
         /// <summary>
         /// Shows sleected images, first convert images to a collection. then remove extra controls from form and'
         /// show only images selcted.
@@ -433,15 +448,23 @@ namespace PicsDirectoryDisplayWin
             //    }
             //}
 
+            foreach (var item in AllImages)
+            {
+                //Create Thumbnails
+                Task task = new Task(async () =>
+                {
+                    await imageIO.DirectConn_CreateThumbnails(item);
+                });
+                task.Start();
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(() => ReportProgressForThumbnails(item.ImageDirName)));
+                }
+            }
+
             if (AllImages.Count != 0)
             {
                 imageIO.BubbleSortImages(AllImages);
-               
-                //Create Thumbnails
-                //Task task = new Task(async () => { await imageIO.Wifi_CreateThumbnails(AllImages[0]); });
-                //task.Start();
-                //ReportProgressForThumbnails(item.ImageDirName);
-               
                 AllImages.Reverse();
             }
 
@@ -454,12 +477,14 @@ namespace PicsDirectoryDisplayWin
                     Invoke(new Action(() => FilesChanged = true));
                 }
                 Invoke(new Action(() => fileChangedCounter = 0));
+                Invoke(new Action(() => CheckForMaxImageWarning()));
+                
             }
             else
             {
                 waiter.Close();
                 RefreshGalleryNotify = true;
-               
+                CheckForMaxImageWarning();
                 if (fileChangedCounter > 1)
                 {// again raise event.
                     FilesChanged = true;
@@ -467,6 +492,13 @@ namespace PicsDirectoryDisplayWin
                 fileChangedCounter = 0;
             }
             
+        }
+
+        private void ReportProgressForThumbnails(string dirName)
+        {
+            //foundImageCount = (foundImageCount + obj.ImageDirTotalImages);
+            waiter.FileFoundLabelText = "Creating image thumbnails for : " + dirName;
+            //AllImages.Add(obj);
         }
 
         private void ReportProgress(ChitraKiAlbumAurVivaran obj)

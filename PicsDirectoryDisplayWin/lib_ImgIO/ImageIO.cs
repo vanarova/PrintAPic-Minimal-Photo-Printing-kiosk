@@ -15,11 +15,25 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
     class ImageIO
     {
 
-        int MaxThumbnailsToGenerate = 20;
+        //int MaxThumbnailsToGenerate = 20;
 
         public async Task DirectConn_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
         {
             await Wifi_CreateThumbnails(ImageDir);
+        }
+
+        public void DeleteAllFilesInDrectoryAndSubDirs(string path)
+        {
+            string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+            foreach (string file in files)
+                File.Delete(file);
+
+        }
+
+        public int DoesAnyFileExists(string path)
+        {
+           return Directory.GetFiles(path, "*", SearchOption.AllDirectories).Length;
+
         }
 
 
@@ -75,14 +89,15 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                 //Lets try and create thumbnails
                 foreach (var item in ImageDir.PeerImages)
                 {
-                    if (count >= MaxThumbnailsToGenerate)
-                        break;
+                    //if (count >= MaxThumbnailsToGenerate)
+                    //    break;
                     try
                     {
                         Image i = Image.FromFile(item.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero);
                         if (!Directory.Exists(item.ImageDirName))
                             Directory.CreateDirectory(item.ImageDirName);
-                        i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
+                        //i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
+                        i.Save(item.ImageThumbnailFullName);
                         i.Dispose();
                     }
                     catch (OutOfMemoryException o)
@@ -119,8 +134,11 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
             Task waitToComplete = new Task(async () =>
             {
-                await imgSearch.Search(progressIndicator, Parentform, InvokeRequired);
-                await Wifi_CreateThumbnails(AllImages[0]);
+                await imgSearch.Search(progressIndicator, Parentform, InvokeRequired, 0);
+                if (AllImages.Count>0)
+                {
+                     await Wifi_CreateThumbnails(AllImages[0]);
+                }
                 
                 if (InvokeRequired)
                 {

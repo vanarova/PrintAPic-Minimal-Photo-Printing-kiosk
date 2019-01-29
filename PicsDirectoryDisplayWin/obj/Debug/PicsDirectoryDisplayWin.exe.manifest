@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="10016744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="10115560">
       <assemblyIdentity name="PicsDirectoryDisplayWin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7p5GFVUY+/NLotNsoMrNSHEPbUIRG8sSdafloBBcNCo=</dsig:DigestValue>
+        <dsig:DigestValue>fZ+RusdpzzDsZD1lYrzoTaQqEsjJT8Rv2aRjr9G/OR4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -153,15 +153,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Q2PNfVuGccckQs4aG/wQ1k69JLLXGLVL1PzQJeSWcpg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="ToDo.txt" size="144">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Z2JH2WoC1AJz0r1x+SJkSMBLXDcrurHLVE3f3vNrpj8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

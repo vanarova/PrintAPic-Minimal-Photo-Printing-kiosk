@@ -104,6 +104,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals.cs" />
     <Compile Include="lib_ImgIO\ImageIO.cs" />
     <Compile Include="lib_ImgSearch\Chowkidar.cs" />
     <Compile Include="lib_ImgSearch\ChitroKiAlbumAurVivaran.cs" />
@@ -197,7 +198,7 @@
     <Content Include="pics\HE logo.png" />
     <Content Include="pics\usb.svg" />
     <Content Include="pics\vst.png" />
-    <Content Include="ToDo.txt" />
+    <Compile Include="ToDo.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
