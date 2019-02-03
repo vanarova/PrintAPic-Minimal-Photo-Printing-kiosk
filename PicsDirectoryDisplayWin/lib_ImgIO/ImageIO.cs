@@ -104,7 +104,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
         }
 
         //TODO : Not using thumbnails mechanism, use thumbnail, after done, get thumbnails and display.
-        public async Task Wifi_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
+        public async Task Wifi_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir, bool forceCreateAll = false)
         {
             int count = 0; Image tempImg=null; Image thmImg=null;
             await Task.Run(() =>
@@ -112,15 +112,21 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
             //Lets try and create thumbnails
             foreach (var item in ImageDir.PeerImages)
             {
-                //if (count >= MaxThumbnailsToGenerate)
-                //    break;
+                if (forceCreateAll == false && Directory.Exists(item.ImageDirName) && File.Exists(item.ImageThumbnailFullName))
+                {
+                     continue; //thumbnail already exists , skip
+                }
+                else if (!Directory.Exists(item.ImageDirName))
+                {
+                    Directory.CreateDirectory(item.ImageDirName);
+                }
                 try
                 {
                         using (tempImg = GetImage(item.ImageFullName))
                         {
                             thmImg = tempImg.GetThumbnailImage(200, 200, null, IntPtr.Zero);
-                            if (!Directory.Exists(item.ImageDirName))
-                                Directory.CreateDirectory(item.ImageDirName);
+                            //if (!Directory.Exists(item.ImageDirName))
+                            //    Directory.CreateDirectory(item.ImageDirName);
                             //i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
                             thmImg.Save(item.ImageThumbnailFullName);
                         }

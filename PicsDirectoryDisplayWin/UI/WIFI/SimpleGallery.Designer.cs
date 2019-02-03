@@ -107,10 +107,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_Back);
             this.flowLayoutPanel1.Controls.Add(this.btn_Next);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(796, 382);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(773, 382);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 68);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(534, 68);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // pictureBox4
@@ -136,9 +136,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(103, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 53);
+            this.button1.Size = new System.Drawing.Size(98, 65);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Start";
+            this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -150,10 +150,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Back.AutoSize = true;
             this.btn_Back.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(181, 0);
+            this.btn_Back.Location = new System.Drawing.Point(204, 0);
             this.btn_Back.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(169, 72);
+            this.btn_Back.Size = new System.Drawing.Size(169, 75);
             this.btn_Back.TabIndex = 3;
             this.btn_Back.Text = "Back";
             this.btn_Back.UseVisualStyleBackColor = true;
@@ -166,10 +166,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Next.AutoSize = true;
             this.btn_Next.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Next.Location = new System.Drawing.Point(350, 0);
+            this.btn_Next.Location = new System.Drawing.Point(373, 0);
             this.btn_Next.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Next.Name = "btn_Next";
-            this.btn_Next.Size = new System.Drawing.Size(161, 72);
+            this.btn_Next.Size = new System.Drawing.Size(161, 75);
             this.btn_Next.TabIndex = 4;
             this.btn_Next.Text = "Next";
             this.btn_Next.UseVisualStyleBackColor = true;

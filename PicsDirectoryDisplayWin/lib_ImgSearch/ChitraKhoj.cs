@@ -13,9 +13,9 @@ namespace PicsDirectoryDisplayWin.lib
         private String SearchDirectory;
         static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
         private int NoOfTotalDirsFound = 0;
-        private readonly int IncludeDirectoryContainingMinImages = 1;
-        private readonly int IncludeMaxImages = 20;
-        private readonly int MaxDirectoryToSearchLimit = 50;
+        //private readonly int IncludeDirectoryContainingMinImages = 1;
+        //private readonly int IncludeMaxImages = 20;
+        //private readonly int MaxDirectoryToSearchLimit = 50;
 
         public ChitraKhoj(string searchDirectory)
         {
@@ -27,7 +27,7 @@ namespace PicsDirectoryDisplayWin.lib
         {
             System.IO.FileInfo[] files = null;
             System.IO.DirectoryInfo[] subDirs = null;
-            if (NoOfTotalDirsFound > MaxDirectoryToSearchLimit)
+            if (NoOfTotalDirsFound > Globals.MaxDirectoryToSearchLimit)
                 return;
             // First, process all the files directly under this folder
             try
@@ -54,11 +54,11 @@ namespace PicsDirectoryDisplayWin.lib
                 int count = 0; List<ChitraKiAlbumAurVivaran> peerImages = new List<ChitraKiAlbumAurVivaran>();
                 int ImageLimit;
                 // if image count is lower than min images, leave this directory
-                if (files.Length < IncludeDirectoryContainingMinImages)
+                if (files.Length < Globals.IncludeDirectoryContainingMinImages)
                     return;
 
-                if (files.Length > IncludeMaxImages)
-                    ImageLimit = IncludeMaxImages;
+                if (files.Length > Globals.IncludeMaxImages)
+                    ImageLimit = Globals.IncludeMaxImages;
                 else
                     ImageLimit = files.Length;
                 foreach (System.IO.FileInfo fi in files)

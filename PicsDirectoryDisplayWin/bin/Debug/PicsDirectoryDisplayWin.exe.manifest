@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="8504296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="8504808">
       <assemblyIdentity name="PicsDirectoryDisplayWin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hNHpSwAJv+VB16f+b9EvUn7FJm42ZVfWmk6x2/0gW2M=</dsig:DigestValue>
+        <dsig:DigestValue>oFulXH3YXSzUYcEZnetBKIPH8Mdfjofr/wB78kN5WBY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

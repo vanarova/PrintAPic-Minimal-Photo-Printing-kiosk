@@ -11,8 +11,36 @@ namespace PicsDirectoryDisplayWin
 
     public static class Globals
     {
+        //public static int NoOfTotalDirsFound = 0;
+        public static readonly int IncludeDirectoryContainingMinImages = 1;
+        public static readonly int IncludeMaxImages = 20;
+        public static readonly int MaxDirectoryToSearchLimit = 50;
         public static string USBSearchPath = "";// @"C:\Users\Arunav\Pictures\Camera Roll";
         public static string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        //private static int _filesInWebSearchDir;
+        //private static int _filesInThumbsDir;
+
+
+        //public static int FilesInWebSearchDir
+        //{
+        //    get
+        //    {
+        //        if (_filesInWebSearchDir == 0)
+        //            _filesInWebSearchDir = new DirectoryInfo(WebSiteSearchDir).GetFiles().Length;
+
+        //        return _filesInWebSearchDir;
+        //    }
+        //}
+        //public static int FilesInThumbsDir
+        //{
+        //    get
+        //    {
+        //        if (_filesInThumbsDir == 0)
+        //            _filesInThumbsDir = new DirectoryInfo(Globals.WebSiteSearchDir + "\\thumbs").GetFiles().Length;
+
+        //        return _filesInThumbsDir;
+        //    }
+        //}
     }
 
         public static class GlobalImageCache
@@ -26,6 +54,7 @@ namespace PicsDirectoryDisplayWin
         private static string HorseAnim = @"..\..\pics\Horse_gallop.gif";
         private static string Logo = @"..\..\pics\HE logo.png";
 
+       
 
 
         private static Image _LogoImg;

@@ -23,6 +23,7 @@ namespace PicsDirectoryDisplayWin
     {
         private int foundImageCount = 0;
 
+        private Timer timer;
         //TODO : Remove this timer, make a queue to process multiple requests, process only, first and last request.
         private int RefreshResponseDelay = 1000; //milisec
         private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
@@ -40,7 +41,7 @@ namespace PicsDirectoryDisplayWin
         private readonly Color SelectedColor = Color.Silver;
         private readonly Font SelectedFont = new Font(new Font("Arial", 10.0f), FontStyle.Bold);
         private readonly Font UnSelectedFont = new Font(new Font("Arial", 8.0f), FontStyle.Regular);
-        private int fileChangedCounter = 0;
+       // private int fileChangedCounter = 0;
         private event EventHandler fileChangedNotifer;
         private event EventHandler refreshGalleryNotifier;
         public bool FilesChanged {
@@ -184,15 +185,46 @@ namespace PicsDirectoryDisplayWin
             tb.BackgroundImage = GlobalImageCache.TableBgImg;
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
             ShowGallerySelectionImages(AllImages[0]);
-            FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
-            {
-                Path = WebSiteSearchDir,
-                EnableRaisingEvents = true
-            };
-            //fileSystemWatcher1.Changed += FileSystemWatcher1_Changed;
-            WebSiteUploadsWatcher.Created += WebSiteUploadsWatcher_Changed;
-            WebSiteUploadsWatcher.Deleted += WebSiteUploadsWatcher_Changed;
+
+            timer = new Timer();
+            timer.Interval = 3000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+            //FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
+            //{
+            //    Path = WebSiteSearchDir,
+            //    EnableRaisingEvents = true
+            //};
+            ////fileSystemWatcher1.Changed += FileSystemWatcher1_Changed;
+            //WebSiteUploadsWatcher.Created += WebSiteUploadsWatcher_Changed;
+            //WebSiteUploadsWatcher.Deleted += WebSiteUploadsWatcher_Changed;
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+           int FilesInWebSearchDir = new DirectoryInfo(WebSiteSearchDir).GetFiles().Length;
+           int FilesInThumbsDir = new DirectoryInfo(Globals.WebSiteSearchDir + "\\thumbs").GetFiles().Length;
+            if (AllImages[0] != null && 
+                AllImages[0].PeerImages.Count != FilesInWebSearchDir)
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(() => { FilesChanged = true; }));
+                }
+                else
+                {
+                    FilesChanged = true;
+                }
+                return;
+            }
+
+           
+
+            if (FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir<20)
+                RefreshThumbnails();
+        }
+
+
 
 
         /// <summary>
@@ -201,6 +233,8 @@ namespace PicsDirectoryDisplayWin
         /// <param name="imageKeys"></param>
         private void ShowSelectedImages(List<string> imageKeys)
         {
+            previewImages.Images.Clear();
+            galleryPreview.Clear(); //galleryPreview.LargeImageList.Images.Clear();
             foreach (var item in imageKeys)
             {
                 string[] imgDetails = item.Split('|');
@@ -340,7 +374,7 @@ namespace PicsDirectoryDisplayWin
 
         private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
         {
-            imglist.Clear();
+            imglist.Clear();//imglist.LargeImageList.Images.Clear();
             imageIO.CreateImageListFromThumbnails(obj,imgs);
             imglist.LargeImageList = imgs;
             CheckForMaxImageWarning();
@@ -361,11 +395,11 @@ namespace PicsDirectoryDisplayWin
 
         private void CheckForMaxImageWarning()
         {
-            if (AllImages.Count != 0 && AllImages[0].PeerImages.Count == 20)
+            if (AllImages.Count != 0 && AllImages[0].PeerImages.Count == Globals.IncludeMaxImages)
             {
-                warningTxt.Text = "Max Images 20 per session";
+                warningTxt.Text = "Max Image count:" + Globals.IncludeMaxImages + ".";
             }
-            else if (AllImages.Count != 0 && AllImages[0].PeerImages.Count < 20)
+            else if (AllImages.Count != 0 && AllImages[0].PeerImages.Count < Globals.IncludeMaxImages)
             {
                 warningTxt.Text = "";
             }
@@ -417,25 +451,16 @@ namespace PicsDirectoryDisplayWin
         private void WebSiteUploadsWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
             
-            //Intro duce delay for processsing images
-            //System.Threading.Thread.Sleep(RefreshResponseDelay);
-            if (fileChangedCounter == 0 && InvokeRequired)
-            {
-                //System.Threading.Thread.Sleep(1000);
-                Invoke(new Action(()=>{ FilesChanged = true; }));
-            }
-            //records file changed events. this will be read at Done(), 
-            //If new events comes, fileschanged property is set again.
-            fileChangedCounter++;
-
-            //if (InvokeRequired && System.Diagnostics.Debugger.IsAttached)
+            
+            //if (fileChangedCounter == 0 && InvokeRequired)
             //{
-            //    MessageBox.Show("file watcher, Invoke needed");
+            //    //System.Threading.Thread.Sleep(1000);
+            //    Invoke(new Action(()=>{ FilesChanged = true; }));
             //}
-            //AllImages = new List<ChitraKiAlbumAurVivaran>();
-            //waiter = new Waiter();
-            //imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, WebSiteSearchDir,
-            //    this, waiter, ReportProgress, Done);
+           
+            //fileChangedCounter++;
+
+        
         }
 
         private void Done(bool IsWeb)
@@ -464,21 +489,21 @@ namespace PicsDirectoryDisplayWin
                 }
             }
 
-            if (AllImages.Count != 0)
-            {
-                imageIO.BubbleSortImages(AllImages);
-                AllImages.Reverse();
-            }
+            //if (AllImages.Count != 0)
+            //{
+            //    imageIO.BubbleSortImages(AllImages);
+            //    AllImages.Reverse();
+            //}
 
             if (InvokeRequired)
             {
                 Invoke(new Action(() => waiter.Close()));
                 Invoke(new Action(() => RefreshGalleryNotify = true));
-                if (fileChangedCounter > 1)
-                {// again raise event.
-                    Invoke(new Action(() => FilesChanged = true));
-                }
-                Invoke(new Action(() => fileChangedCounter = 0));
+                //if (fileChangedCounter > 1)
+                //{// again raise event.
+                //    Invoke(new Action(() => FilesChanged = true));
+                //}
+                //Invoke(new Action(() => fileChangedCounter = 0));
                 Invoke(new Action(() => CheckForMaxImageWarning()));
                 
             }
@@ -487,11 +512,11 @@ namespace PicsDirectoryDisplayWin
                 waiter.Close();
                 RefreshGalleryNotify = true;
                 CheckForMaxImageWarning();
-                if (fileChangedCounter > 1)
-                {// again raise event.
-                    FilesChanged = true;
-                }
-                fileChangedCounter = 0;
+                //if (fileChangedCounter > 1)
+                //{// again raise event.
+                //    FilesChanged = true;
+                //}
+                //fileChangedCounter = 0;
             }
             
         }
@@ -517,7 +542,7 @@ namespace PicsDirectoryDisplayWin
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void RefreshThumbnails()
         {
             //Create Thumbnails
             Task task = new Task(async () =>
@@ -529,12 +554,12 @@ namespace PicsDirectoryDisplayWin
             {
                 Invoke(new Action(() => ReportProgressForThumbnails(AllImages[0].ImageDirName)));
             }
-
             RefreshGalleryNotify = true;
-            //AllImages = new List<ChitraKiAlbumAurVivaran>();
-            //waiter = new Waiter();
-            //imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, WebSiteSearchDir,
-            //    this, waiter, ReportProgress, Done);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshThumbnails();
         }
     }
 
