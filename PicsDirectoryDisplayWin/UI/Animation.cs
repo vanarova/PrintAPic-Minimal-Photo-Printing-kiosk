@@ -28,26 +28,28 @@ namespace PicsDirectoryDisplayWin
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
         {
+            PickDropGallery pickDropGallery = new PickDropGallery();
+            pickDropGallery.Show();
 
-            AllImages = new List<ChitraKiAlbumAurVivaran>();
-            waiter = new Waiter();
-            waiter.Show();
-            var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
-            lib.ChitraKhoj imgSearch = new ChitraKhoj(Globals.USBSearchPath);
+            // Old implemetation of seacrhing images is commented.
+            //AllImages = new List<ChitraKiAlbumAurVivaran>();
+            //waiter = new Waiter();
+            //waiter.Show();
+            //var progressIndicator = new Progress<ChitraKiAlbumAurVivaran>(ReportProgressForImageSearch);
+            //lib.ChitraKhoj imgSearch = new ChitraKhoj(Globals.USBSearchPath);
 
-            Task waitToComplete = new Task(async ()=>
-            {
-                await imgSearch.Search(progressIndicator);
-                if (InvokeRequired)
-                {
-                    Invoke((Action<bool>)Done,false);
-                    return;
-                }
-            });
-            waitToComplete.Start();
+            //Task waitToComplete = new Task(async ()=>
+            //{
+            //    await imgSearch.Search(progressIndicator);
+            //    if (InvokeRequired)
+            //    {
+            //        Invoke((Action<bool>)Done,false);
+            //        return;
+            //    }
+            //});
+            //waitToComplete.Start();
 
-            //Chowkidar ramu = new Chowkidar();
-            //ramu.IskaamDekhteRahoAurKhatamHonePerSuchitKaro(longRunningWork, "Kaam khatam ho gaya hai");
+            
         }
 
   
@@ -167,6 +169,7 @@ namespace PicsDirectoryDisplayWin
 
         private void Animation_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = GlobalImageCache.TableBgImg;
             WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
             DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
             

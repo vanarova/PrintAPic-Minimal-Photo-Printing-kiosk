@@ -33,6 +33,8 @@
             this.tb = new System.Windows.Forms.TableLayoutPanel();
             this.imglist = new System.Windows.Forms.ListView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.warningTxt = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Next = new System.Windows.Forms.Button();
@@ -56,20 +58,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.imgs = new System.Windows.Forms.ImageList(this.components);
             this.previewImages = new System.Windows.Forms.ImageList(this.components);
-            this.warningTxt = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tb.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // tb
             // 
-            this.tb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb.BackgroundImage")));
             this.tb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tb.ColumnCount = 2;
             this.tb.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -113,6 +112,25 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 68);
             this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(88, 31);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // warningTxt
+            // 
+            this.warningTxt.AutoSize = true;
+            this.warningTxt.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.warningTxt.Location = new System.Drawing.Point(97, 0);
+            this.warningTxt.Name = "warningTxt";
+            this.warningTxt.Size = new System.Drawing.Size(0, 33);
+            this.warningTxt.TabIndex = 6;
             // 
             // button1
             // 
@@ -403,25 +421,6 @@
             this.previewImages.ImageSize = new System.Drawing.Size(16, 16);
             this.previewImages.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // warningTxt
-            // 
-            this.warningTxt.AutoSize = true;
-            this.warningTxt.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.warningTxt.Location = new System.Drawing.Point(97, 0);
-            this.warningTxt.Name = "warningTxt";
-            this.warningTxt.Size = new System.Drawing.Size(0, 33);
-            this.warningTxt.TabIndex = 6;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(88, 31);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
             // SimpleGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -437,12 +436,12 @@
             this.tb.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }

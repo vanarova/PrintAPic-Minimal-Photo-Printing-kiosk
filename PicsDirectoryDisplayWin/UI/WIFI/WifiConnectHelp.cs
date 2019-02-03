@@ -108,8 +108,14 @@ namespace PicsDirectoryDisplayWin.UI
         private void WifiConnectHelp_Load_1(object sender, EventArgs e)
         {
             //TODO : Memory leak was happeining from pic box, assign images like below, put urls in global file & resources
-            pictureBox7.BackgroundImage = new Bitmap(Globals.Arrow);
-            
+            pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
+            pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
+            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            pictureBox4.Image = GlobalImageCache.wifiStepImg;
+            pictureBox3.Image = GlobalImageCache.BrowserStepImg;
+            pictureBox2.Image = GlobalImageCache.WifiIconImg;
+
+            //pictureBox1.Image = GlobalImageCache.HorseAnimImg;
 
             FileSystemWatcher fileSystemWatcher1 = new FileSystemWatcher
             {

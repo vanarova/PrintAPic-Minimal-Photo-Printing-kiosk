@@ -16,7 +16,7 @@ namespace PicsDirectoryDisplayWin.lib
         {
             get
             {
-                return ImageDirFullName + "/thumbs/" + ImageName;
+                return ImageDirFullName + "\\thumbs\\" + ImageName;
             }
         }
 

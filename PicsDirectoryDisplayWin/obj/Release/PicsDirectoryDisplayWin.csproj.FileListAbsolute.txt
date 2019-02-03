@@ -25,3 +25,4 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntB
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.csproj.CopyComplete
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.exe
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.pdb
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.PickDropGallery.resources

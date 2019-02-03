@@ -65,3 +65,4 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntB
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.exe
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.pdb
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.csprojAssemblyReference.cache
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.PickDropGallery.resources

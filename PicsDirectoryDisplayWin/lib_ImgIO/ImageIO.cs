@@ -45,12 +45,16 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
             foreach (var item in obj.PeerImages)
             {
-                using (Image im = Image.FromFile(item.ImageThumbnailFullName))
+                if (File.Exists(item.ImageThumbnailFullName))
                 {
-                    //images.Add();
-                    var imtemp = ResizeImage(im, 200, 200);
-                    imgs.Images.Add(item.ImageKey, imtemp);
-                    //im.Dispose();// = null;
+              
+                    using (Image im = Image.FromFile(item.ImageThumbnailFullName))
+                    {
+                        //images.Add();
+                        var imtemp = ResizeImage(im, 200, 200);
+                        imgs.Images.Add(item.ImageKey, imtemp);
+                        //im.Dispose();// = null;
+                    }
                 }
             }
         }
@@ -80,34 +84,61 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
             return destImage;
         }
 
+        public Image GetImage(string path)
+        {
+            FileStream fread = null;
+            try
+            {
+                using (fread = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 4096, FileOptions.None))
+                    return Image.FromStream(fread);
+            }
+            finally
+            {
+                if (fread != null)
+                {
+                    fread.Close(); fread.Dispose();
+                }
+
+            }
+
+        }
+
         //TODO : Not using thumbnails mechanism, use thumbnail, after done, get thumbnails and display.
         public async Task Wifi_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
         {
-            int count = 0;
+            int count = 0; Image tempImg=null; Image thmImg=null;
             await Task.Run(() =>
             {
-                //Lets try and create thumbnails
-                foreach (var item in ImageDir.PeerImages)
+            //Lets try and create thumbnails
+            foreach (var item in ImageDir.PeerImages)
+            {
+                //if (count >= MaxThumbnailsToGenerate)
+                //    break;
+                try
                 {
-                    //if (count >= MaxThumbnailsToGenerate)
-                    //    break;
-                    try
-                    {
-                        Image i = Image.FromFile(item.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero);
-                        if (!Directory.Exists(item.ImageDirName))
-                            Directory.CreateDirectory(item.ImageDirName);
-                        //i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
-                        i.Save(item.ImageThumbnailFullName);
-                        i.Dispose();
+                        using (tempImg = GetImage(item.ImageFullName))
+                        {
+                            thmImg = tempImg.GetThumbnailImage(200, 200, null, IntPtr.Zero);
+                            if (!Directory.Exists(item.ImageDirName))
+                                Directory.CreateDirectory(item.ImageDirName);
+                            //i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
+                            thmImg.Save(item.ImageThumbnailFullName);
+                        }
                     }
                     catch (OutOfMemoryException o)
                     {
                         //TODO: Log o
-                        System.Threading.Thread.Sleep(100);
+                        //System.Threading.Thread.Sleep(100);
                     }
                     catch (Exception e)
                     {
                         //TODO: Log e
+                    }finally
+                    {
+                        if (tempImg !=null)
+                            tempImg.Dispose();
+                        if (thmImg!= null)
+                            thmImg.Dispose();
                     }
                     count++;
                 }

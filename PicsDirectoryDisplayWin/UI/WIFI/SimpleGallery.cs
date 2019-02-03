@@ -181,6 +181,7 @@ namespace PicsDirectoryDisplayWin
 
         private void SimpleGallery_Load(object sender, EventArgs e)
         {
+            tb.BackgroundImage = GlobalImageCache.TableBgImg;
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
             ShowGallerySelectionImages(AllImages[0]);
             FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
@@ -420,6 +421,7 @@ namespace PicsDirectoryDisplayWin
             //System.Threading.Thread.Sleep(RefreshResponseDelay);
             if (fileChangedCounter == 0 && InvokeRequired)
             {
+                //System.Threading.Thread.Sleep(1000);
                 Invoke(new Action(()=>{ FilesChanged = true; }));
             }
             //records file changed events. this will be read at Done(), 
@@ -517,6 +519,18 @@ namespace PicsDirectoryDisplayWin
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Create Thumbnails
+            Task task = new Task(async () =>
+            {
+                await imageIO.DirectConn_CreateThumbnails(AllImages[0]);
+            });
+            task.Start();
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => ReportProgressForThumbnails(AllImages[0].ImageDirName)));
+            }
+
+            RefreshGalleryNotify = true;
             //AllImages = new List<ChitraKiAlbumAurVivaran>();
             //waiter = new Waiter();
             //imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, WebSiteSearchDir,

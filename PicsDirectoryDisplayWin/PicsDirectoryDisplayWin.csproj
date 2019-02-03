@@ -115,6 +115,12 @@
     <Compile Include="UI\Animation.Designer.cs">
       <DependentUpon>Animation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\USB\PickDropGallery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\USB\PickDropGallery.Designer.cs">
+      <DependentUpon>PickDropGallery.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\WIFI\fileChangedNotify.cs" />
     <Compile Include="UI\WIFI\SimpleGallery.cs">
       <SubType>Form</SubType>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Animation.resx">
       <DependentUpon>Animation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\USB\PickDropGallery.resx">
+      <DependentUpon>PickDropGallery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\WIFI\SimpleGallery.resx">
       <DependentUpon>SimpleGallery.cs</DependentUpon>
