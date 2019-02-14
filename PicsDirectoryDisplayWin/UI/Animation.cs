@@ -156,7 +156,7 @@ namespace PicsDirectoryDisplayWin
         private void WifiConnect_Click(object sender, EventArgs e)
         {
 
-
+            this.Visible = false;
             WifiConnectHelp whelp = new WifiConnectHelp();
             whelp.Show();
 
@@ -172,7 +172,7 @@ namespace PicsDirectoryDisplayWin
             this.BackgroundImage = GlobalImageCache.TableBgImg;
             WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
             DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
-            
+            label4.Text = ConfigurationManager.AppSettings["HindiIntro"];
         }
     }
 

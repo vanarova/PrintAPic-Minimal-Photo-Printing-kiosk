@@ -45,26 +45,30 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.loadingImageslabel = new System.Windows.Forms.Label();
+            this.LoadingImagesPBar = new System.Windows.Forms.ProgressBar();
             this.imgs = new System.Windows.Forms.ImageList(this.components);
             this.previewImages = new System.Windows.Forms.ImageList(this.components);
+            this.LoadingImagesProgBar = new System.Windows.Forms.ProgressBar();
             this.tb.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb
@@ -76,6 +80,7 @@
             this.tb.Controls.Add(this.imglist, 1, 0);
             this.tb.Controls.Add(this.flowLayoutPanel1, 1, 1);
             this.tb.Controls.Add(this.tableLayoutPanel1, 0, 0);
+            this.tb.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb.Location = new System.Drawing.Point(0, 0);
             this.tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,7 +122,8 @@
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(3, 20);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(88, 31);
             this.pictureBox4.TabIndex = 7;
@@ -126,10 +132,11 @@
             // warningTxt
             // 
             this.warningTxt.AutoSize = true;
-            this.warningTxt.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.warningTxt.Location = new System.Drawing.Point(97, 0);
+            this.warningTxt.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.warningTxt.Location = new System.Drawing.Point(97, 18);
+            this.warningTxt.Margin = new System.Windows.Forms.Padding(3, 18, 3, 0);
             this.warningTxt.Name = "warningTxt";
-            this.warningTxt.Size = new System.Drawing.Size(0, 33);
+            this.warningTxt.Size = new System.Drawing.Size(0, 29);
             this.warningTxt.TabIndex = 6;
             // 
             // button1
@@ -187,17 +194,16 @@
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.label9, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label11, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label13, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.label14, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -281,21 +287,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "GST 18% :";
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Smile of the Ocean", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(3, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 100);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Photo Box";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -336,20 +327,6 @@
             this.label11.Size = new System.Drawing.Size(28, 18);
             this.label11.TabIndex = 11;
             this.label11.Text = "A5";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(156, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(96, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
             // 
             // label13
             // 
@@ -409,6 +386,55 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Bill info..";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 2);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(249, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel2.Controls.Add(this.loadingImageslabel);
+            this.flowLayoutPanel2.Controls.Add(this.LoadingImagesPBar);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 385);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(255, 62);
+            this.flowLayoutPanel2.TabIndex = 6;
+            // 
+            // loadingImageslabel
+            // 
+            this.loadingImageslabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.loadingImageslabel.AutoSize = true;
+            this.loadingImageslabel.Location = new System.Drawing.Point(3, 0);
+            this.loadingImageslabel.Name = "loadingImageslabel";
+            this.loadingImageslabel.Padding = new System.Windows.Forms.Padding(0, 15, 0, 5);
+            this.loadingImageslabel.Size = new System.Drawing.Size(128, 37);
+            this.loadingImageslabel.TabIndex = 1;
+            this.loadingImageslabel.Text = "Loading Images ....";
+            // 
+            // LoadingImagesPBar
+            // 
+            this.LoadingImagesPBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LoadingImagesPBar.Location = new System.Drawing.Point(3, 40);
+            this.LoadingImagesPBar.MarqueeAnimationSpeed = 40;
+            this.LoadingImagesPBar.Name = "LoadingImagesPBar";
+            this.LoadingImagesPBar.Size = new System.Drawing.Size(249, 16);
+            this.LoadingImagesPBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.LoadingImagesPBar.TabIndex = 0;
+            // 
             // imgs
             // 
             this.imgs.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -420,6 +446,16 @@
             this.previewImages.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.previewImages.ImageSize = new System.Drawing.Size(16, 16);
             this.previewImages.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // LoadingImagesProgBar
+            // 
+            this.LoadingImagesProgBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LoadingImagesProgBar.Location = new System.Drawing.Point(3, 40);
+            this.LoadingImagesProgBar.MarqueeAnimationSpeed = 40;
+            this.LoadingImagesProgBar.Name = "LoadingImagesProgBar";
+            this.LoadingImagesProgBar.Size = new System.Drawing.Size(249, 16);
+            this.LoadingImagesProgBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.LoadingImagesProgBar.TabIndex = 0;
             // 
             // SimpleGallery
             // 
@@ -439,9 +475,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -456,7 +494,6 @@
         private System.Windows.Forms.ImageList previewImages;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
@@ -466,7 +503,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -475,6 +511,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label warningTxt;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label loadingImageslabel;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar LoadingImagesPBar;
+        private System.Windows.Forms.ProgressBar LoadingImagesProgBar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

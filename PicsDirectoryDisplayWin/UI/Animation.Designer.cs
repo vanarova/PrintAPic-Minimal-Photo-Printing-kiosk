@@ -94,9 +94,9 @@
             this.label4.Font = new System.Drawing.Font("DevLys 010 ", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(260, 385);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(297, 35);
+            this.label4.Size = new System.Drawing.Size(122, 35);
             this.label4.TabIndex = 19;
-            this.label4.Text = "सरल हिंदी अनुवाद के साथ ";
+            this.label4.Text = "सरल हिंदी";
             // 
             // Animation
             // 

@@ -204,24 +204,38 @@ namespace PicsDirectoryDisplayWin
         {
            int FilesInWebSearchDir = new DirectoryInfo(WebSiteSearchDir).GetFiles().Length;
            int FilesInThumbsDir = new DirectoryInfo(Globals.WebSiteSearchDir + "\\thumbs").GetFiles().Length;
+            bool isloading = false;
             if (AllImages[0] != null && 
-                AllImages[0].PeerImages.Count != FilesInWebSearchDir)
+                AllImages[0].PeerImages.Count != FilesInWebSearchDir && AllImages[0].PeerImages.Count < 20)
             {
                 if (InvokeRequired)
                 {
                     Invoke(new Action(() => { FilesChanged = true; }));
+                    isloading = true;
                 }
                 else
                 {
                     FilesChanged = true;
+                    isloading = true;
                 }
                 return;
             }
 
-           
+            if (imglist.Items.Count != imglist.LargeImageList.Images.Count)
+            {
+                RefreshGalleryNotify = true;
+                isloading = true;
+            }
 
-            if (FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir<20)
+            if (FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < 20)
+            {
                 RefreshThumbnails();
+                isloading = true;
+            }
+                      
+            loadingImageslabel.Visible = isloading;
+            LoadingImagesPBar.Visible = isloading;
+                      
         }
 
 
@@ -234,6 +248,8 @@ namespace PicsDirectoryDisplayWin
         private void ShowSelectedImages(List<string> imageKeys)
         {
             previewImages.Images.Clear();
+            if (galleryPreview.LargeImageList != null && galleryPreview.LargeImageList.Images.Count>0)
+                galleryPreview.LargeImageList.Images.Clear();
             galleryPreview.Clear(); //galleryPreview.LargeImageList.Images.Clear();
             foreach (var item in imageKeys)
             {
@@ -374,6 +390,11 @@ namespace PicsDirectoryDisplayWin
 
         private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
         {
+            if (imglist.LargeImageList != null && imglist.LargeImageList.Images.Count >0)
+            {
+                imglist.LargeImageList.Images.Clear();
+            }
+            
             imglist.Clear();//imglist.LargeImageList.Images.Clear();
             imageIO.CreateImageListFromThumbnails(obj,imgs);
             imglist.LargeImageList = imgs;
