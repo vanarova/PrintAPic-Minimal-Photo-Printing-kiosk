@@ -66,3 +66,8 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntB
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.pdb
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.csprojAssemblyReference.cache
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.PickDropGallery.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\Spire.License.dll
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\Spire.Pdf.dll
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\Microsoft.mshtml.dll
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\Spire.License.xml
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\Spire.Pdf.xml

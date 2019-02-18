@@ -16,6 +16,7 @@ namespace PicsDirectoryDisplayWin
         private ImageIO imageIO = new ImageIO();
         //private string TestSearchDir = @"C:\Users\Arunav\Pictures\Camera Roll";
         //private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        private WifiConnectHelp whelp;
         private Waiter waiter;
         int foundImageCount = 0;
         bool searchDone = false;
@@ -24,6 +25,10 @@ namespace PicsDirectoryDisplayWin
         public Animation()
         {
             InitializeComponent();
+            this.BackgroundImage = GlobalImageCache.TableBgImg;
+            WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
+            DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
+            label4.Text = ConfigurationManager.AppSettings["HindiIntro"];
         }
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
@@ -155,11 +160,16 @@ namespace PicsDirectoryDisplayWin
 
         private void WifiConnect_Click(object sender, EventArgs e)
         {
-
             this.Visible = false;
-            WifiConnectHelp whelp = new WifiConnectHelp();
-            whelp.Show();
-
+            if (whelp == null)
+            {
+                whelp = new WifiConnectHelp() { AnimationForm = this };
+                whelp.Show();
+            }
+            else
+            {
+                whelp.Visible = true;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -169,10 +179,13 @@ namespace PicsDirectoryDisplayWin
 
         private void Animation_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = GlobalImageCache.TableBgImg;
-            WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
-            DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
-            label4.Text = ConfigurationManager.AppSettings["HindiIntro"];
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 

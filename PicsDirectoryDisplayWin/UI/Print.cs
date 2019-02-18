@@ -1,14 +1,11 @@
 ﻿using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using Spire.Pdf;
+using Spire.Pdf.Graphics;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace PicsDirectoryDisplayWin.UI
 {
@@ -23,16 +20,88 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            Start();
+            //Start();
+            PrintUsingSpirePDF();
         }
 
+        private void PrintUsingSpirePDF()
+        {
+            ///Create a pdf document
+            Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
+
+            //Set the margin
+            PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
+            PdfMargins margin = new PdfMargins();
+            margin.Top = unitCvtr.ConvertUnits(1f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Bottom = margin.Top;
+            //TODO: Add margins in global settings xml file.
+            margin.Left = unitCvtr.ConvertUnits(0.75f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Right = margin.Left;
+
+            //Create one page
+            PdfPageBase page = doc.Pages.Add(PdfPageSize.A4, margin);
+            
+           
+
+            //TransformText(page);
+            DrawImage(page);
+            //TransformImage(page);
+
+            //Save the document
+            doc.SaveToFile("Image.pdf");
+            doc.Close();
+
+            //Launch the Pdf file
+            PDFDocumentViewer("Image.pdf");
+        }
+
+        private void DrawImage(PdfPageBase page)
+        {
+            PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
+            
+            float heightBtwImages = unitCvtr.ConvertUnits(0.75f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            //Load an image
+            PdfImage image = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\nasa-89125-unsplash - Copy.jpg");
+            PdfImage image2 = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\20160530_200327.jpg");
+            
+
+            //float width = image.Width * 0.75f;
+            //float height = image.Height * 0.75f;
+            //float x = (page.Canvas.ClientSize.Width - width) / 2;
+
+            //Draw the image
+            //page.Canvas.DrawImage(image, x, 60, width, height);
+            float rectangleHeight = page.Canvas.ClientSize.Height/2- heightBtwImages;
+            page.Canvas.DrawImage(image, new System.Drawing.RectangleF(0, 0, page.Canvas.ClientSize.Width, rectangleHeight));
+            page.Canvas.DrawImage(image2, new System.Drawing.RectangleF(0, rectangleHeight + heightBtwImages, page.Canvas.ClientSize.Width, rectangleHeight));
+
+            //if (image2.Height > image2.Width)
+            //{
+            //    //Rotate image
+            //    PdfTemplate template = new PdfTemplate(page.Canvas.ClientSize.Width, rectangleHeight);
+            //    template.Graphics.RotateTransform(90);
+            //    template.Graphics.DrawImage(image2, new System.Drawing.RectangleF(0, rectangleHeight + heightBtwImages, page.Canvas.ClientSize.Width, rectangleHeight));
+
+            //}
+
+           
+        }
+
+        private void PDFDocumentViewer(string fileName)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(fileName);
+            }
+            catch { }
+        }
 
         public void Start()
         {
            
            
            string filename = String.Format("{0}_tempfile.pdf", Guid.NewGuid().ToString("D").ToUpper());
-            var s_document = new PdfDocument();
+            var s_document = new PdfSharp.Pdf.PdfDocument();
             s_document.Info.Title = "PDFsharp XGraphic Sample";
             s_document.Info.Author = "Stefan Lange";
             s_document.Info.Subject = "Created with code snippets that show the use of graphical functions";

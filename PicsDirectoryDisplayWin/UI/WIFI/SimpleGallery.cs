@@ -3,6 +3,7 @@ using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -21,16 +22,35 @@ namespace PicsDirectoryDisplayWin
     /// </summary>
     public partial class SimpleGallery : Form
     {
-        private int foundImageCount = 0;
+        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
+        public Form WifiConnectHelpObject { get; set; }
+        public Form AnimationFormObject { get; set; }
+        public List<string> SelectedImageKeys { get; set; }
+        public bool FilesChanged
+        {
+            set
+            {
+                if (fileChangedNotifer != null)
+                    fileChangedNotifer(this, new EventArgs());
+            }
+        }
 
+        public bool RefreshGalleryNotify
+        {
+            set
+            {
+                if (fileChangedNotifer != null)
+                    refreshGalleryNotifier(this, new EventArgs());
+            }
+        }
+
+
+        private int foundImageCount = 0;
         private Timer timer;
         //TODO : Remove this timer, make a queue to process multiple requests, process only, first and last request.
         private int RefreshResponseDelay = 1000; //milisec
         private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         private Waiter waiter = new Waiter();
-        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
-        public List<string> SelectedImageKeys { get; set; }
-
         private bool SelectionChanged = false;
         private readonly ImageIO imageIO = new ImageIO();
         //gallery preview listview
@@ -44,19 +64,7 @@ namespace PicsDirectoryDisplayWin
        // private int fileChangedCounter = 0;
         private event EventHandler fileChangedNotifer;
         private event EventHandler refreshGalleryNotifier;
-        public bool FilesChanged {
-            set {
-                if (fileChangedNotifer != null)
-                fileChangedNotifer(this, new EventArgs()); }
-             }
-
-        public bool RefreshGalleryNotify {
-            set {
-                if (fileChangedNotifer != null)
-                    refreshGalleryNotifier(this, new EventArgs());
-            }
-        } 
-
+     
         public SimpleGallery()
         {
             InitializeComponent();
@@ -73,6 +81,24 @@ namespace PicsDirectoryDisplayWin
             string checkUnicode = "2714"; // ballot box -1F5F9
             int value = int.Parse(checkUnicode, System.Globalization.NumberStyles.HexNumber);
             CheckSymbol = char.ConvertFromUtf32(value).ToString();
+
+            RefreshButton.Text = ConfigurationManager.AppSettings["RefreshButton"];
+            btn_Next.Text = ConfigurationManager.AppSettings["NextButton"];
+            btn_Back.Text = ConfigurationManager.AppSettings["BackButton"];
+            label6.Text = ConfigurationManager.AppSettings["BillInfo"];
+            label12.Text = ConfigurationManager.AppSettings["PrintSizeText"];
+            label11.Text = ConfigurationManager.AppSettings["PrintSizeValue"];
+            label4.Text = ConfigurationManager.AppSettings["CostText"];
+            label8.Text = ConfigurationManager.AppSettings["CostValue"];
+            label5.Text = ConfigurationManager.AppSettings["NoOfPicsText"];
+            label_PicsCount.Text = ConfigurationManager.AppSettings["NoOfPicsInitialValue"];
+            label10.Text = ConfigurationManager.AppSettings["AmountText"];
+            label9.Text = ConfigurationManager.AppSettings["AmountInitialValue"];
+            label2.Text = ConfigurationManager.AppSettings["GSTText"];
+            label1.Text = ConfigurationManager.AppSettings["GSTValue"];
+            label14.Text = ConfigurationManager.AppSettings["TotalText"];
+            label13.Text = ConfigurationManager.AppSettings["TotalValue"];
+            warningTxt.Text = ConfigurationManager.AppSettings["WarningText"];
         }
 
         private void SimpleGallery_refreshGalleryNotifier(object sender, EventArgs e)
@@ -182,6 +208,7 @@ namespace PicsDirectoryDisplayWin
 
         private void SimpleGallery_Load(object sender, EventArgs e)
         {
+
             tb.BackgroundImage = GlobalImageCache.TableBgImg;
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
             ShowGallerySelectionImages(AllImages[0]);
@@ -466,7 +493,17 @@ namespace PicsDirectoryDisplayWin
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            PrepareFormForGallerySelection();
+            WifiConnectHelpObject.Visible = false;
+            ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).DeleteAllImages();
+            ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).IamAlreadyCalledOnce = false;
+            if (imglist!= null && imglist.LargeImageList != null && imglist.LargeImageList.Images != null)
+                imglist.LargeImageList.Images.Clear();
+            imglist.Clear();
+            timer.Stop();
+            timer.Dispose();
+            this.Close();
+            this.Dispose();
+            AnimationFormObject.Visible = true;
         }
 
         private void WebSiteUploadsWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,10 @@ namespace PicsDirectoryDisplayWin
         [STAThread]
         static void Main()
         {
+            //ConfigurationManager.AppSettings.Add("Bill Info", "Billing Info --");
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Animation());

@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             this.DirectConnectButton.Name = "DirectConnectButton";
             this.DirectConnectButton.Size = new System.Drawing.Size(175, 80);
             this.DirectConnectButton.TabIndex = 0;
-            this.DirectConnectButton.Text = "USB Stick";
+            this.DirectConnectButton.Text = "USB Text";
             this.DirectConnectButton.UseVisualStyleBackColor = true;
             this.DirectConnectButton.Click += new System.EventHandler(this.DirectConnectButton_Click);
             // 
@@ -58,7 +59,7 @@
             this.WifiConnect.Name = "WifiConnect";
             this.WifiConnect.Size = new System.Drawing.Size(185, 80);
             this.WifiConnect.TabIndex = 1;
-            this.WifiConnect.Text = "Wifi Connect";
+            this.WifiConnect.Text = "Wifi Text";
             this.WifiConnect.UseCompatibleTextRendering = true;
             this.WifiConnect.UseVisualStyleBackColor = true;
             this.WifiConnect.Click += new System.EventHandler(this.WifiConnect_Click);
@@ -98,19 +99,45 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "सरल हिंदी";
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Teal;
+            this.button1.Location = new System.Drawing.Point(866, 502);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(61, 33);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Close";
+            this.button1.UseCompatibleTextRendering = true;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Animation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(931, 538);
+            this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.WifiConnect);
             this.Controls.Add(this.DirectConnectButton);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Animation";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Animation";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Animation_Load);
@@ -128,5 +155,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }

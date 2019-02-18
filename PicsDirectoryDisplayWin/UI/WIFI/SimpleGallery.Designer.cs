@@ -35,7 +35,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.warningTxt = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RefreshButton = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Next = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -108,14 +108,14 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
             this.flowLayoutPanel1.Controls.Add(this.warningTxt);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.RefreshButton);
             this.flowLayoutPanel1.Controls.Add(this.btn_Back);
             this.flowLayoutPanel1.Controls.Add(this.btn_Next);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(773, 382);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(757, 382);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(534, 68);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(550, 68);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // pictureBox4
@@ -139,15 +139,20 @@
             this.warningTxt.Size = new System.Drawing.Size(0, 29);
             this.warningTxt.TabIndex = 6;
             // 
-            // button1
+            // RefreshButton
             // 
-            this.button1.Location = new System.Drawing.Point(103, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 65);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.RefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RefreshButton.AutoSize = true;
+            this.RefreshButton.Location = new System.Drawing.Point(100, 0);
+            this.RefreshButton.Margin = new System.Windows.Forms.Padding(0);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(120, 75);
+            this.RefreshButton.TabIndex = 5;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Back
             // 
@@ -157,7 +162,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Back.AutoSize = true;
             this.btn_Back.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(204, 0);
+            this.btn_Back.Location = new System.Drawing.Point(220, 0);
             this.btn_Back.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(169, 75);
@@ -173,7 +178,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Next.AutoSize = true;
             this.btn_Next.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Next.Location = new System.Drawing.Point(373, 0);
+            this.btn_Next.Location = new System.Drawing.Point(389, 0);
             this.btn_Next.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Next.Name = "btn_Next";
             this.btn_Next.Size = new System.Drawing.Size(161, 75);
@@ -508,7 +513,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label warningTxt;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
