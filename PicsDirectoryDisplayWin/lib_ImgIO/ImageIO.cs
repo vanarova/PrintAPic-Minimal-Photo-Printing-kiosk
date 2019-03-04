@@ -124,6 +124,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                 {
                         using (tempImg = GetImage(item.ImageFullName))
                         {
+                            
                             thmImg = tempImg.GetThumbnailImage(200, 200, null, IntPtr.Zero);
                             //if (!Directory.Exists(item.ImageDirName))
                             //    Directory.CreateDirectory(item.ImageDirName);

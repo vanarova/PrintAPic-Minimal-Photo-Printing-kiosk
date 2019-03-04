@@ -486,6 +486,7 @@ namespace PicsDirectoryDisplayWin
         {
             this.Visible = false;
             print = new UI.Print();
+
             print.SelectedImages = SelectedImageKeys;
             print.Show();
 

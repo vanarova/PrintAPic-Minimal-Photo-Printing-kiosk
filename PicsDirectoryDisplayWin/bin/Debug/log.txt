@@ -1,0 +1,36 @@
+2019-03-02 21:10:43.0606|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:23:59.0166|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:29:28.0245|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:30:01.6828|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:31:25.7691|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:31:56.8568|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:36:19.8046|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:40:05.7461|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:47:17.9210|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:47:33.8911|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:49:50.0772|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:51:05.3212|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:54:02.9214|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-02 23:54:30.4227|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 00:05:11.3076|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 11:37:47.3225|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 11:39:38.3689|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:00:56.4713|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:04:34.1079|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:04:36.2485|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:12:32.8097|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:12:33.9892|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:17:28.5234|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-03 21:17:29.1075|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:06:04.7859|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:06:05.7326|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-04 00:06:05.7326|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:06:07.3859|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:06:37.6634|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:09:01.5215|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:09:01.5395|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-04 00:09:01.5395|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:09:01.5395|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-04 00:12:48.4522|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-04 00:12:48.4701|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-04 00:12:48.4701|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image

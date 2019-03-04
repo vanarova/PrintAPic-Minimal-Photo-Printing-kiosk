@@ -4,6 +4,7 @@ using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -11,6 +12,8 @@ namespace PicsDirectoryDisplayWin.UI
 {
     public partial class Print : Form
     {
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        public enum AspectRatio {S4x3,LessThanS4x3, GreaterThanS4x3 };
         public List<string> SelectedImages { get; set; }
         public Print()
         {
@@ -21,30 +24,90 @@ namespace PicsDirectoryDisplayWin.UI
         private void btn_print_Click(object sender, EventArgs e)
         {
             //Start();
-            PrintUsingSpirePDF();
+
+            //DetectImageAspectRatio();
+            SelectedImages.Add(@"C:\inetpub\wwwroot\ps\Uploads\22.jpg");
+            SelectedImages.Add(@"C:\inetpub\wwwroot\ps\Uploads\ww.jpg");
+            
+            //PdfImage image2 = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\20160530_200327.jpg");
+
+            //Call below code in pair, insode a for loop.
+            //List<PdfImage> pdfImages = new List<PdfImage>();
+
+            for (int i = 0; i < SelectedImages.Count; i = i + 2)
+            {
+                //first image on page
+                PdfImage image1 = PdfImage.FromFile(SelectedImages[i].Split('|')[0]); //Take Image name from image key
+                
+                //second image on page
+                PdfImage image2 = PdfImage.FromFile(SelectedImages[i + 1].Split('|')[0]);
+                AspectRatio aspectRatio2 = DetectImageAspectRatioAndRotateImage(image2);
+                AspectRatio aspectRatio1 = DetectImageAspectRatioAndRotateImage(image1);
+                SetPageMarginGeneratePDF_ImageRatio4x3(image1, image2, aspectRatio1,aspectRatio2);
+                
+            }
+           
         }
 
-        private void PrintUsingSpirePDF()
+        private AspectRatio DetectImageAspectRatioAndRotateImage(PdfImage image)
         {
+            logger.Info("Printing image");
+            float width = image.Width;
+            float height = image.Height;
+            if (width<height)
+              logger.Error("Image rotation is needed");
+
+            float ap = width / height;
+            if (Math.Abs(Math.Round(ap,2) - 1.33)<0.1) //compare with 4/3 aspect ratio, if equal
+                return AspectRatio.S4x3;
+            if (Math.Abs(Math.Round(ap, 2) - 1.33) > 0.1 
+                && (Math.Round(ap, 2) - 1.33) <0) // -ve value means aspect ratio is lower than 4x3
+                return AspectRatio.LessThanS4x3;
+            if (Math.Abs(Math.Round(ap, 2) - 1.33) > 0.1
+                && (Math.Round(ap, 2) - 1.33) > 0) // +ve value means aspect ratio is higher than 4x3, could be 3x2 = 1.5
+                return AspectRatio.GreaterThanS4x3;
+            return AspectRatio.S4x3;
+        }
+
+        private void SetPageMarginGeneratePDF_ImageRatio4x3(PdfImage img1, PdfImage img2, 
+            AspectRatio aspectRatioImage1 = AspectRatio.S4x3, AspectRatio aspectRatioImage2 = AspectRatio.S4x3)
+        {
+            float MARGINTOP_BOTTOM = 0.75f; float MARGINLEFT_RIGHT = 1.25f;
+            float DISTANCE_BTW_IMAGES = 0.5F;
             ///Create a pdf document
             Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
 
             //Set the margin
             PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
             PdfMargins margin = new PdfMargins();
-            margin.Top = unitCvtr.ConvertUnits(1f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Top = InPoints(MARGINTOP_BOTTOM);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
             margin.Bottom = margin.Top;
             //TODO: Add margins in global settings xml file.
-            margin.Left = unitCvtr.ConvertUnits(0.75f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Left = InPoints(MARGINLEFT_RIGHT); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
             margin.Right = margin.Left;
 
             //Create one page
             PdfPageBase page = doc.Pages.Add(PdfPageSize.A4, margin);
-            
-           
+
+            float A4Height = unitCvtr.ConvertUnits(PdfPageSize.A4.Height, PdfGraphicsUnit.Point, PdfGraphicsUnit.Centimeter);
+            float A4Width = unitCvtr.ConvertUnits(PdfPageSize.A4.Width, PdfGraphicsUnit.Point, PdfGraphicsUnit.Centimeter);
+
+            //After margin
+            float A4PostMarginWidth = PdfPageSize.A4.Width - (margin.Left * 2); // left,right margins
+            //In centimeter :
+            label6.Text = InCentimeter(A4PostMarginWidth);
+
+            //Adjust width, height with 4:3 ratio in PDF points :
+            float A4PostMarginWidthPts4x3 = PdfPageSize.A4.Width - (margin.Left * 2); // left,right margins
+            float A4PostMarginHeightPts4x3 = A4PostMarginWidthPts4x3 * 0.75f;  // height = 3/4 * width
+
+            //In centimeter = 
+            label8.Text = InCentimeter(A4PostMarginWidthPts4x3);
+            label9.Text = InCentimeter(A4PostMarginHeightPts4x3);
 
             //TransformText(page);
-            DrawImage(page);
+            DrawImagesInPage(img1,img2,page, A4PostMarginWidthPts4x3, A4PostMarginHeightPts4x3,
+                DISTANCE_BTW_IMAGES, aspectRatioImage1, aspectRatioImage2);
             //TransformImage(page);
 
             //Save the document
@@ -55,15 +118,37 @@ namespace PicsDirectoryDisplayWin.UI
             PDFDocumentViewer("Image.pdf");
         }
 
-        private void DrawImage(PdfPageBase page)
+        private string InCentimeter(float value)
         {
-            PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
-            
-            float heightBtwImages = unitCvtr.ConvertUnits(0.75f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
-            //Load an image
-            PdfImage image = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\nasa-89125-unsplash - Copy.jpg");
-            PdfImage image2 = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\20160530_200327.jpg");
-            
+           return new PdfUnitConvertor().ConvertUnits(value, PdfGraphicsUnit.Point, PdfGraphicsUnit.Centimeter).ToString();
+        }
+
+        private float InPoints(float value)
+        {
+            return new PdfUnitConvertor().ConvertUnits(value, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+        }
+
+
+
+
+        private void DrawImagesInPage(PdfImage img1, PdfImage img2, PdfPageBase page, float w, float h,
+            float distance_btw_images, AspectRatio aspectRatioImage1 , AspectRatio aspectRatioImage2 )
+        {
+            float heightBtwImages = InPoints(distance_btw_images);
+            //PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
+            DrawImageInFrame_wxh(img1, page, 0, w, h, aspectRatioImage1);
+            DrawImageInFrame_wxh(img2, page, h+heightBtwImages, w, h, aspectRatioImage2);
+            //if (img2 != null)
+            //{
+            //    if (aspectRatioImage2 == AspectRatio.S4x3)
+            //    {
+
+            //        page.Canvas.DrawImage(img2, new System.Drawing.RectangleF(0, h + heightBtwImages, w, h));
+            //    }
+
+            //}
+
+
 
             //float width = image.Width * 0.75f;
             //float height = image.Height * 0.75f;
@@ -71,9 +156,10 @@ namespace PicsDirectoryDisplayWin.UI
 
             //Draw the image
             //page.Canvas.DrawImage(image, x, 60, width, height);
-            float rectangleHeight = page.Canvas.ClientSize.Height/2- heightBtwImages;
-            page.Canvas.DrawImage(image, new System.Drawing.RectangleF(0, 0, page.Canvas.ClientSize.Width, rectangleHeight));
-            page.Canvas.DrawImage(image2, new System.Drawing.RectangleF(0, rectangleHeight + heightBtwImages, page.Canvas.ClientSize.Width, rectangleHeight));
+            //float rectangleHeight = page.Canvas.ClientSize.Height/2- heightBtwImages;
+            ////unitCvtr.ConvertUnits(rectangleHeight,PdfGraphicsUnit.)
+            //page.Canvas.DrawImage(image, new System.Drawing.RectangleF(0, 0, page.Canvas.ClientSize.Width, rectangleHeight));
+            //page.Canvas.DrawImage(image2, new System.Drawing.RectangleF(0, rectangleHeight + heightBtwImages, page.Canvas.ClientSize.Width, rectangleHeight));
 
             //if (image2.Height > image2.Width)
             //{
@@ -84,7 +170,44 @@ namespace PicsDirectoryDisplayWin.UI
 
             //}
 
-           
+
+        }
+
+        private void DrawImageInFrame_wxh(PdfImage img, PdfPageBase page,float y, float w, float h, AspectRatio aspectRatioImage1)
+        {
+            PdfBrush brush = new PdfSolidBrush(Color.Silver);
+            // float heightBtwImages = unitCvtr.ConvertUnits(0.5f, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            
+            //Load an image
+            //PdfImage image = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\nasa-89125-unsplash - Copy.jpg");
+            //PdfImage image2 = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\20160530_200327.jpg");
+            if (img != null)
+            {
+                if (aspectRatioImage1 == AspectRatio.S4x3)
+                {
+                    page.Canvas.DrawImage(img, new System.Drawing.RectangleF(0, 0, w, h));
+                }
+                else
+                {
+                    page.Canvas.DrawRectangle(brush, new Rectangle(new Point(0, (int)y), new Size(Convert.ToInt32(w), Convert.ToInt32(h))));
+                }
+                if (aspectRatioImage1 == AspectRatio.GreaterThanS4x3)
+                {
+                    float new_h = w * img.Height / img.Width;
+                    float new_MarginTopBottom = (h - new_h) / 2;
+                    page.Canvas.DrawImage(img, new System.Drawing.RectangleF(0,y+ new_MarginTopBottom, w, new_h)); //use width of frame, adjust height.
+
+                }
+                if (aspectRatioImage1 == AspectRatio.LessThanS4x3)
+                {
+                    float new_w = h * img.Width / img.Height;
+                    float new_MarginLeftRight = (w - new_w) / 2;
+                    page.Canvas.DrawImage(img, new System.Drawing.RectangleF(new_MarginLeftRight, y, new_w, h)); //use width of frame, adjust height.
+                    //Graphics.FromImage(img.);
+
+                }
+            }
+
         }
 
         private void PDFDocumentViewer(string fileName)

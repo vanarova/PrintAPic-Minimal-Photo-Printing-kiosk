@@ -187,6 +187,12 @@ namespace PicsDirectoryDisplayWin
             this.Close();
             this.Dispose();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Print pf = new Print();
+            pf.Show();
+        }
     }
 
 }
