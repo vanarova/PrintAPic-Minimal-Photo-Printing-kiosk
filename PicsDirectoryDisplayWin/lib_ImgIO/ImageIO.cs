@@ -1,4 +1,6 @@
-﻿using PicsDirectoryDisplayWin.lib;
+﻿using ImageProcessor;
+using ImageProcessor.Imaging.Formats;
+using PicsDirectoryDisplayWin.lib;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -84,6 +86,82 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
             return destImage;
         }
 
+
+
+        //public Image GetImageWithImageProcessorLib(string path)
+        //{
+        //    byte[] photoBytes = File.ReadAllBytes(path);
+        //    // Format is automatically detected though can be changed.
+        //    ISupportedImageFormat format = new JpegFormat { Quality = 70 };
+        //    Size size = new Size(150, 0);
+        //    using (MemoryStream inStream = new MemoryStream(photoBytes))
+        //                {
+        //                    using (MemoryStream outStream = new MemoryStream())
+        //                    {
+        //                        // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+        //                        using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+        //                        {
+        //                            // Load, resize, set the format and quality and save an image.
+        //                            imageFactory.Load(inStream)
+        //                                        .Resize(size)
+        //                                        .Format(format)
+        //                                        .Save(outStream);
+        //                        }
+        //                        // Do something with the stream.
+        //                    }
+        //                }
+
+        //}
+
+
+
+        public void RotateImageWithImageProcessorLib(string path)
+        {
+            int exifOrientationID = 0x112;
+            byte[] photoBytes = File.ReadAllBytes(path);
+            // Format is automatically detected though can be changed.
+            //ISupportedImageFormat format = new JpegFormat { Quality = 70 };
+            //Size size = new Size(150, 0);
+            using (MemoryStream inStream = new MemoryStream(photoBytes))
+            {
+                using (MemoryStream outStream = new MemoryStream())
+                {
+                    // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+                    using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+                    {
+                        // Load, resize, set the format and quality and save an image.
+                       imageFactory.Load(inStream);
+                        var prop = imageFactory.ExifPropertyItems[exifOrientationID];
+                        //remove key if width is greater then height
+                        //imageFactory.ExifPropertyItems.TryRemove()
+                        //insert a rotate key if width is smaller then height
+                        imageFactory.ExifPropertyItems.TryUpdate()
+                        int val = BitConverter.ToUInt16(prop.Value, 0);
+
+                        var rot = RotateFlipType.RotateNoneFlipNone;
+
+                        if (val == 3 || val == 4)
+                            rot = RotateFlipType.Rotate180FlipNone;
+                        else if (val == 5 || val == 6)
+                            rot = RotateFlipType.Rotate90FlipNone;
+                        else if (val == 7 || val == 8)
+                            rot = RotateFlipType.Rotate270FlipNone;
+
+                        if (val == 2 || val == 4 || val == 5 || val == 7)
+                            rot |= RotateFlipType.RotateNoneFlipX;
+
+                        //if (rot != RotateFlipType.RotateNoneFlipNone)
+                            //img.RotateFlip(rot);
+
+
+                    }
+                    // Do something with the stream.
+                }
+            }
+
+        }
+
+
         public Image GetImage(string path)
         {
             FileStream fread = null;
@@ -124,7 +202,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                 {
                         using (tempImg = GetImage(item.ImageFullName))
                         {
-                            
+                            RotateImageWithImageProcessorLib(item.ImageFullName);
                             thmImg = tempImg.GetThumbnailImage(200, 200, null, IntPtr.Zero);
                             //if (!Directory.Exists(item.ImageDirName))
                             //    Directory.CreateDirectory(item.ImageDirName);
