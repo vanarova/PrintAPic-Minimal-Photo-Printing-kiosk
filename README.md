@@ -31,7 +31,9 @@ python access
 
 # FOR Router configuration
 https://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/
-
+For DNSMasq
+https://wiki.debian.org/HowTo/dnsmasq
+https://qiita.com/bmj0114/items/9c24d863bcab1a634503
 
   
 # Notes for OCR --
