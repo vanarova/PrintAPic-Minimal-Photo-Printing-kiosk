@@ -20,11 +20,6 @@ For old printer models - http://foo2zjs.rkkda.com/
 https://www.raspberrypi.org/documentation/remote-access/ftp.md
 upload/jamun123
 
-
-
-
-
-
 if needed------
 
 command line options cups
@@ -33,6 +28,9 @@ https://www.cups.org/doc/options.html
 python access
 - sudo apt-get install libcups2-dev
 - pip install pycups
+
+# FOR Router configuration
+https://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/
 
 
   
