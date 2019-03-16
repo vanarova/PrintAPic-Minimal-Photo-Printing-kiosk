@@ -30,12 +30,15 @@ python access
 - pip install pycups
 
 # FOR Router configuration
-Install RaspApi
-Set port redirection - > 
+- Install RaspApi
+- Set port redirection - > 
 The easiest way to come about this is properly installing dnsmasq (which is a DNS cacheing server) then in the folder /etc/dnsmasq.d add a file for each domain you want to redirect.
 For instance this is the contents of /etc/dnsmasq.d/hotmail.com on my system:
 address=/hotmail.com/127.0.0.1
 address=/www.hotmail.com/127.0.0.1
+#Add domains which you want to force all urls to an IP address here.
+address=/#/192.168.1.245
+
   
 # Notes for OCR --
 https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
