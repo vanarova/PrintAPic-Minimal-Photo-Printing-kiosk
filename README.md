@@ -30,11 +30,12 @@ python access
 - pip install pycups
 
 # FOR Router configuration
-https://www.instructables.com/id/Use-Raspberry-Pi-3-As-Router/
-For DNSMasq
-https://wiki.debian.org/HowTo/dnsmasq
-https://qiita.com/bmj0114/items/9c24d863bcab1a634503
-
+Install RaspApi
+Set port redirection - > 
+The easiest way to come about this is properly installing dnsmasq (which is a DNS cacheing server) then in the folder /etc/dnsmasq.d add a file for each domain you want to redirect.
+For instance this is the contents of /etc/dnsmasq.d/hotmail.com on my system:
+address=/hotmail.com/127.0.0.1
+address=/www.hotmail.com/127.0.0.1
   
 # Notes for OCR --
 https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
