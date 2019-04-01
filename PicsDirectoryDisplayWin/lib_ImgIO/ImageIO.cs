@@ -21,7 +21,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         public async Task DirectConn_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
         {
-            await Wifi_CreateThumbnails(ImageDir);
+            await Wifi_RotateImageIfNeeded_CreateThumbnails(ImageDir);
         }
 
         public void DeleteAllFilesInDrectoryAndSubDirs(string path)
@@ -135,7 +135,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                         //remove key if width is greater then height
                         //imageFactory.ExifPropertyItems.TryRemove()
                         //insert a rotate key if width is smaller then height
-                        imageFactory.ExifPropertyItems.TryUpdate()
+                        //imageFactory.ExifPropertyItems.TryUpdate()
                         int val = BitConverter.ToUInt16(prop.Value, 0);
 
                         var rot = RotateFlipType.RotateNoneFlipNone;
@@ -181,8 +181,8 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         }
 
-        //TODO : Not using thumbnails mechanism, use thumbnail, after done, get thumbnails and display.
-        public async Task Wifi_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir, bool forceCreateAll = false)
+
+        public async Task Wifi_RotateImageIfNeeded_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir, bool forceCreateAll = false)
         {
             int count = 0; Image tempImg=null; Image thmImg=null;
             await Task.Run(() =>
@@ -200,15 +200,60 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                 }
                 try
                 {
-                        using (tempImg = GetImage(item.ImageFullName))
+
+                    int exifOrientationID = 0x112;
+                    byte[] photoBytes = File.ReadAllBytes(item.ImageFullName);
+                    using (MemoryStream inStream = new MemoryStream(photoBytes))
+                    {
+                        using (MemoryStream outStream = new MemoryStream())
                         {
-                            RotateImageWithImageProcessorLib(item.ImageFullName);
-                            thmImg = tempImg.GetThumbnailImage(200, 200, null, IntPtr.Zero);
-                            //if (!Directory.Exists(item.ImageDirName))
-                            //    Directory.CreateDirectory(item.ImageDirName);
-                            //i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
-                            thmImg.Save(item.ImageThumbnailFullName);
+                            // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+                            using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+                            {
+                                // Load, resize, set the format and quality and save an image.
+                                imageFactory.Load(inStream);
+                                thmImg = imageFactory.Image.GetThumbnailImage(200, 200, null, IntPtr.Zero);
+                                using (var fs = new FileStream(item.ImageThumbnailFullName, FileMode.Create))
+                                {
+                                   //fs.Write(result.DocumentBytes, 0, result.DocumentBytes.Length);
+                                    thmImg.Save(fs, ImageFormat.Jpeg);    
+                                }
+                               
+                                PropertyItem prop;
+                                thmImg.Save(item.ImageThumbnailFullName,ImageFormat.Jpeg);
+                                imageFactory.ExifPropertyItems.TryGetValue(exifOrientationID,out prop);
+
+                                //Image orientation is correct, remove orientation key, its not needed.
+                                if (imageFactory.Image.Width > imageFactory.Image.Height && prop != null)
+                                {
+                                    PropertyItem tval ;
+                                    imageFactory.ExifPropertyItems.TryRemove(exifOrientationID, out tval);
+                                    imageFactory.Save(item.ImageFullName);
+                                }
+                                //Rotate image, remove orientation key, its not needed.
+                                if (imageFactory.Image.Width < imageFactory.Image.Height && prop != null)
+                                {
+                                    imageFactory.Rotate(90);
+                                    PropertyItem tval;
+                                    imageFactory.ExifPropertyItems.TryRemove(exifOrientationID, out tval);
+                                    imageFactory.Save(item.ImageFullName);
+                                }
+                                //Rotate image, no orientation key
+                                else if (imageFactory.Image.Width < imageFactory.Image.Height && prop == null)
+                                {
+                                    imageFactory.Rotate(90);
+                                    imageFactory.Save(item.ImageFullName);
+                                }
+                            }
+                            // Do something with the stream.
                         }
+                    }
+
+
+
+
+                        
+                        //}
                     }
                     catch (OutOfMemoryException o)
                     {
@@ -220,6 +265,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                         //TODO: Log e
                     }finally
                     {
+                        
                         if (tempImg !=null)
                             tempImg.Dispose();
                         if (thmImg!= null)
@@ -232,6 +278,65 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
             //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
         }
+
+
+
+
+
+
+        //public async Task Wifi_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir, bool forceCreateAll = false)
+        //{
+        //    int count = 0; Image tempImg = null; Image thmImg = null;
+        //    await Task.Run(() =>
+        //    {
+        //        //Lets try and create thumbnails
+        //        foreach (var item in ImageDir.PeerImages)
+        //        {
+        //            if (forceCreateAll == false && Directory.Exists(item.ImageDirName) && File.Exists(item.ImageThumbnailFullName))
+        //            {
+        //                continue; //thumbnail already exists , skip
+        //            }
+        //            else if (!Directory.Exists(item.ImageDirName))
+        //            {
+        //                Directory.CreateDirectory(item.ImageDirName);
+        //            }
+        //            try
+        //            {
+        //                using (tempImg = GetImage(item.ImageFullName))
+        //                {
+        //                    RotateImageWithImageProcessorLib(item.ImageFullName);
+        //                    thmImg = tempImg.GetThumbnailImage(200, 200, null, IntPtr.Zero);
+        //                    //if (!Directory.Exists(item.ImageDirName))
+        //                    //    Directory.CreateDirectory(item.ImageDirName);
+        //                    //i.Save(item.ImageDirName + "\\" + item.ImageName + ".jpg");
+        //                    thmImg.Save(item.ImageThumbnailFullName);
+        //                }
+        //            }
+        //            catch (OutOfMemoryException o)
+        //            {
+        //                //TODO: Log o
+        //                //System.Threading.Thread.Sleep(100);
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                //TODO: Log e
+        //            }
+        //            finally
+        //            {
+        //                if (tempImg != null)
+        //                    tempImg.Dispose();
+        //                if (thmImg != null)
+        //                    thmImg.Dispose();
+        //            }
+        //            count++;
+        //        }
+        //    });
+
+
+        //    //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
+        //}
+
+
 
 
         public void Wifi_CheckForImages(List<ChitraKiAlbumAurVivaran> AllImages, bool InvokeRequired, string WebSiteSearchDir,
@@ -253,7 +358,7 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                 await imgSearch.Search(progressIndicator, Parentform, InvokeRequired, 0);
                 if (AllImages.Count>0)
                 {
-                     await Wifi_CreateThumbnails(AllImages[0]);
+                     await Wifi_RotateImageIfNeeded_CreateThumbnails(AllImages[0]);
                 }
                 
                 if (InvokeRequired)

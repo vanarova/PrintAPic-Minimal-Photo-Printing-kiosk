@@ -34,3 +34,93 @@
 2019-03-04 00:12:48.4522|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
 2019-03-04 00:12:48.4701|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
 2019-03-04 00:12:48.4701|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:28:04.7978|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:28:04.8183|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:34:41.1578|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:36:40.3053|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:36:40.3223|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:36:40.3223|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-05 23:38:42.4916|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:38:42.5096|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-05 23:38:42.5096|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:38:42.5096|ERROR|PicsDirectoryDisplayWin.UI.Print|Image rotation is needed
+2019-03-05 23:43:53.3519|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-05 23:43:53.3698|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 21:51:18.4486|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 21:51:18.4685|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 21:52:28.2943|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 21:52:28.3113|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 21:55:53.5662|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 21:55:53.5862|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 22:15:43.2190|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 22:15:43.2399|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 22:15:44.2431|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 22:17:58.3643|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 22:17:58.3913|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-06 22:17:59.3541|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-07 22:14:54.9344|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|The process cannot access the file 'C:\inetpub\wwwroot\ps\Uploads\030357B624D9\thumbs\1.jpg' because it is being used by another process.
+2019-03-08 21:35:19.2002|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|The process cannot access the file 'C:\inetpub\wwwroot\ps\Uploads\030357B624D9\thumbs\1.jpg' because it is being used by another process.
+2019-03-08 21:39:55.9057|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:39:55.9257|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:39:56.3734|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:39:56.3734|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:39:56.5509|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:41:47.5214|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:41:47.5403|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-08 21:41:47.9249|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-11 21:41:29.5432|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-11 21:41:29.5697|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-12 20:48:08.5519|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-12 20:48:08.5784|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-12 21:15:35.4886|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-12 21:15:35.5136|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-12 21:15:35.5136|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 20:53:53.9080|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 20:53:53.9339|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 21:07:51.5009|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 21:07:51.5049|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 21:07:51.5049|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 21:07:51.5049|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-16 21:07:51.5049|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 21:23:07.6045|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 21:23:07.6344|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 21:23:07.6344|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 21:23:07.6344|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 21:23:07.6344|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 21:23:07.6454|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0451|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0690|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0690|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0690|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0690|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0690|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:32:39.0839|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:34:19.4071|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:34:19.4340|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:34:19.4340|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:34:19.4340|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:34:19.4429|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:34:19.4429|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:35:24.8028|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:35:24.8258|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:35:24.8258|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:39:47.8441|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:39:47.8670|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:39:47.8670|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-20 23:39:53.2164|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-20 23:39:53.2324|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-20 23:39:56.1510|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-23 21:13:40.9794|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-23 21:13:41.0046|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-23 21:13:48.7181|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-23 21:13:48.7394|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-31 23:45:35.8870|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-31 23:45:35.9141|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-31 23:48:54.0890|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-31 23:48:54.1129|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-31 23:48:59.0034|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-31 23:48:59.0224|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-31 23:51:47.6039|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-31 23:51:47.6269|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-03-31 23:51:52.8213|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-03-31 23:51:52.8363|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image

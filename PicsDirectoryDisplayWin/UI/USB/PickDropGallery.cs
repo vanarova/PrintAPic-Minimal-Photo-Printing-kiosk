@@ -23,7 +23,7 @@ namespace PicsDirectoryDisplayWin
     {
         private int foundImageCount = 0;
 
-        //TODO : Remove this timer, make a queue to process multiple requests, process only, first and last request.
+
         private int RefreshResponseDelay = 1000; //milisec
         private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         private Waiter waiter = new Waiter();
@@ -182,8 +182,7 @@ namespace PicsDirectoryDisplayWin
         private void PickDropGallery_Load(object sender, EventArgs e)
         {
             tb.BackgroundImage = GlobalImageCache.TableBgImg;
-            //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
-            //ShowGallerySelectionImages(AllImages[0]);
+
             FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
             {
                 Path = WebSiteSearchDir,

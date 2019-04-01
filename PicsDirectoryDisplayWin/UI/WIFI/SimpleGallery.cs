@@ -22,6 +22,7 @@ namespace PicsDirectoryDisplayWin
     /// </summary>
     public partial class SimpleGallery : Form
     {
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
         public Form WifiConnectHelpObject { get; set; }
         public Form AnimationFormObject { get; set; }
@@ -88,8 +89,8 @@ namespace PicsDirectoryDisplayWin
             label6.Text = ConfigurationManager.AppSettings["BillInfo"];
             label12.Text = ConfigurationManager.AppSettings["PrintSizeText"];
             label11.Text = ConfigurationManager.AppSettings["PrintSizeValue"];
-            label4.Text = ConfigurationManager.AppSettings["CostText"];
-            label8.Text = ConfigurationManager.AppSettings["CostValue"];
+            label4.Text = ConfigurationManager.AppSettings["CostText"] ;
+            label8.Text = ConfigurationManager.AppSettings["CostValue"]; 
             label5.Text = ConfigurationManager.AppSettings["NoOfPicsText"];
             label_PicsCount.Text = ConfigurationManager.AppSettings["NoOfPicsInitialValue"];
             label10.Text = ConfigurationManager.AppSettings["AmountText"];
@@ -176,31 +177,39 @@ namespace PicsDirectoryDisplayWin
 
         private void UnSelectImage(ListViewItem item)
         {
-            SelectedImageKeys.Remove(item.ImageKey);
+            if (item.Checked)
+            {
+                SelectedImageKeys.Remove(item.ImageKey);
 
-            item.Checked = false;
-            item.BackColor = Color.White;
-            item.Focused = false;
-            //string copyrightUnicode = "2714"; // ballot box -1F5F9
-            //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
-            //string symbol = char.ConvertFromUtf32(value).ToString();
-            item.Font = UnSelectedFont;
-            item.Text = item.Text.Replace("[" + CheckSymbol + "] ", "");
+                item.Checked = false;
+                item.BackColor = Color.White;
+                item.Focused = false;
+                //string copyrightUnicode = "2714"; // ballot box -1F5F9
+                //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
+                //string symbol = char.ConvertFromUtf32(value).ToString();
+                item.Font = UnSelectedFont;
+                item.Text = item.Text.Replace("[" + CheckSymbol + "] ", "");
+                UpdateBillDetails(SelectedImageKeys.Count);
+            }
+           
 
         }
 
         private void SelectImage(ListViewItem item)
         {
-            SelectedImageKeys.Add(item.ImageKey);
-            item.Checked = true;
-            item.BackColor = SelectedColor;
-            item.Focused = true;
-            //string copyrightUnicode = "2714"; // ballot box -1F5F9
-            //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
-            //string symbol = char.ConvertFromUtf32(value).ToString();
-            item.Font = SelectedFont;
-            item.Text = "[" + CheckSymbol + "] " + item.Text;
-
+            if (item.Checked ==false)
+            {
+                SelectedImageKeys.Add(item.ImageKey);
+                item.Checked = true;
+                item.BackColor = SelectedColor;
+                item.Focused = true;
+                //string copyrightUnicode = "2714"; // ballot box -1F5F9
+                //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
+                //string symbol = char.ConvertFromUtf32(value).ToString();
+                item.Font = SelectedFont;
+                item.Text = "[" + CheckSymbol + "] " + item.Text;
+                UpdateBillDetails(SelectedImageKeys.Count);
+            }
             //item.Bounds.Inflate(60, 60);
             //item.ForeColor = Color.White;
 
@@ -211,6 +220,7 @@ namespace PicsDirectoryDisplayWin
 
             tb.BackgroundImage = GlobalImageCache.TableBgImg;
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
+            if (AllImages != null && AllImages.Count>0)
             ShowGallerySelectionImages(AllImages[0]);
 
             timer = new Timer();
@@ -232,7 +242,11 @@ namespace PicsDirectoryDisplayWin
            int FilesInWebSearchDir = new DirectoryInfo(WebSiteSearchDir).GetFiles().Length;
            int FilesInThumbsDir = new DirectoryInfo(Globals.WebSiteSearchDir + "\\thumbs").GetFiles().Length;
             bool isloading = false;
-            if (AllImages[0] != null && 
+
+           
+
+
+            if (AllImages != null && AllImages.Count>0 &&
                 AllImages[0].PeerImages.Count != FilesInWebSearchDir && AllImages[0].PeerImages.Count < 20)
             {
                 if (InvokeRequired)
@@ -248,7 +262,7 @@ namespace PicsDirectoryDisplayWin
                 return;
             }
 
-            if (imglist.Items.Count != imglist.LargeImageList.Images.Count)
+            if (imglist.LargeImageList != null && imglist.Items.Count != imglist.LargeImageList.Images.Count)
             {
                 RefreshGalleryNotify = true;
                 isloading = true;
@@ -262,10 +276,29 @@ namespace PicsDirectoryDisplayWin
                       
             loadingImageslabel.Visible = isloading;
             LoadingImagesPBar.Visible = isloading;
-                      
+
+            if (SelectedImageKeys.Count==0)
+            {
+                for (int i = 0; i < imglist.Items.Count; i++)
+                {
+                    SelectImage(imglist.Items[i]);
+                }
+            }
+            
+
+            UpdateBillDetails(SelectedImageKeys.Count);
         }
 
 
+        private void UpdateBillDetails(int count)
+        {
+       
+
+            label_PicsCount.Text = count.ToString();
+            label9.Text = (Convert.ToInt16(label8.Text) * count).ToString();
+            label13.Text = (((Convert.ToInt16(label8.Text) * count) * Convert.ToInt16(label1.Text) / 100)
+                            + (Convert.ToInt16(label8.Text) * count)).ToString();
+        }
 
 
         /// <summary>
@@ -280,15 +313,21 @@ namespace PicsDirectoryDisplayWin
             galleryPreview.Clear(); //galleryPreview.LargeImageList.Images.Clear();
             foreach (var item in imageKeys)
             {
+               
                 string[] imgDetails = item.Split('|');
+                string tempImg = imgDetails[0].Replace(imgDetails[1], "thumbs/") + imgDetails[1];
+
                 //string imgName = item.Split('|')[1];
-                previewImages.Images.Add(imgDetails[0], Image.FromFile(imgDetails[0]));
-                previewImages.ImageSize = new Size(100, 100);
+                previewImages.Images.Add(tempImg, imageIO.GetImage(tempImg));
+                //previewImages.Images.Add(tempImg, Image.FromFile(tempImg));
+                logger.Log(NLog.LogLevel.Info, "thumbnail size 80,80 should be in a config file.");
+                previewImages.ImageSize = new Size(80, 80);
                 galleryPreview.LargeImageList = previewImages;
                 // image key is the image sleected from imagelist collection, key must present in imagelist above\
-                galleryPreview.Items.Add(imgDetails[1],imgDetails[0]);
+                galleryPreview.Items.Add(imgDetails[1], tempImg);
                 galleryPreview.Show();
             }
+            
         }
 
         //private Image ResizeHighQualityImage(System.Drawing.Image image, int width, int height)
@@ -603,6 +642,8 @@ namespace PicsDirectoryDisplayWin
 
         private void RefreshThumbnails()
         {
+            if (AllImages==null || AllImages.Count==0)
+                return;
             //Create Thumbnails
             Task task = new Task(async () =>
             {

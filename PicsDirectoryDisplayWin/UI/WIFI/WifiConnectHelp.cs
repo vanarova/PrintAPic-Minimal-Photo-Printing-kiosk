@@ -12,13 +12,14 @@ namespace PicsDirectoryDisplayWin.UI
 {
     public partial class WifiConnectHelp : Form
     {
-
+       
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
         public Form AnimationForm { get; set; }
         public bool IamAlreadyCalledOnce = false;
 
 
-
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private FileSystemWatcher fileSystemWatcher1;
         private Waiter waiter = new Waiter();
         private ImageIO imageIO = new ImageIO();
         private int foundImageCount = 0;
@@ -77,7 +78,7 @@ namespace PicsDirectoryDisplayWin.UI
             foreach (var item in AllImages)
             {
                 //Create Thumbnails
-                Task task = new Task(async () => { await imageIO.Wifi_CreateThumbnails(item); });
+                Task task = new Task(async () => { await imageIO.Wifi_RotateImageIfNeeded_CreateThumbnails(item); });
                 task.Start();
                 task.Wait();
                 //ReportProgressForThumbnails(item.ImageDirName);
@@ -138,15 +139,15 @@ namespace PicsDirectoryDisplayWin.UI
 
             //pictureBox1.Image = GlobalImageCache.HorseAnimImg;
 
-            FileSystemWatcher fileSystemWatcher1 = new FileSystemWatcher
+           fileSystemWatcher1 = new FileSystemWatcher
             {
                 Path = WebSiteSearchDir,
                 EnableRaisingEvents = true
             };
             DeleteAllImages();
 
-            fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
-            fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
+            //fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
+            //fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
 
         }
 
@@ -155,14 +156,23 @@ namespace PicsDirectoryDisplayWin.UI
             //delete all pics from previous session. Before events are registed
             try
             {
+
+                fileSystemWatcher1.Created -= FileSystemWatcher1_Changed;
+                fileSystemWatcher1.Deleted -= FileSystemWatcher1_Changed;
+
                 imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
                 if (imageIO.DoesAnyFileExists(Globals.WebSiteSearchDir) > 0)
                     imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
+
+
+                fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
+                fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
             }
             catch (Exception ex)
             {
-                if (System.Diagnostics.Debugger.IsAttached)
-                    MessageBox.Show(ex.Message);
+                logger.Error(ex.Message);
+                //if (System.Diagnostics.Debugger.IsAttached)
+                //    MessageBox.Show(ex.Message);
             }
 
         }

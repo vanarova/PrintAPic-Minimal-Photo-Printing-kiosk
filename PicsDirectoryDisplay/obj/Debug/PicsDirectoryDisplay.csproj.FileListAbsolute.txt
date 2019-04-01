@@ -5,3 +5,10 @@ C:\Users\h175494\source\repos\PicsDirectoryDisplay\PicsDirectoryDisplay\obj\Debu
 C:\Users\h175494\source\repos\PicsDirectoryDisplay\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.csproj.CoreCompileInputs.cache
 C:\Users\h175494\source\repos\PicsDirectoryDisplay\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.exe
 C:\Users\h175494\source\repos\PicsDirectoryDisplay\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.pdb
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\bin\Debug\PicsDirectoryDisplay.exe.config
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\bin\Debug\PicsDirectoryDisplay.exe
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\bin\Debug\PicsDirectoryDisplay.pdb
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.csprojAssemblyReference.cache
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.csproj.CoreCompileInputs.cache
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.exe
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplay\obj\Debug\PicsDirectoryDisplay.pdb

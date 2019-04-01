@@ -125,6 +125,12 @@
     <Compile Include="lib_ImgSearch\Chowkidar.cs" />
     <Compile Include="lib_ImgSearch\ChitroKiAlbumAurVivaran.cs" />
     <Compile Include="lib_ImgSearch\ChitraKhoj.cs" />
+    <Compile Include="PrintSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintSettings.Designer.cs">
+      <DependentUpon>PrintSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Animation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="UI\WIFI\WifiConnectHelp.Designer.cs">
       <DependentUpon>WifiConnectHelp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PrintSettings.resx">
+      <DependentUpon>PrintSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Animation.resx">
       <DependentUpon>Animation.cs</DependentUpon>
     </EmbeddedResource>

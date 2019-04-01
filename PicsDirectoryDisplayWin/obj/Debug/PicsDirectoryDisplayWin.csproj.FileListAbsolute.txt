@@ -75,3 +75,4 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntB
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\NLog.xml
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\ImageProcessor.dll
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Debug\ImageProcessor.xml
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Debug\PicsDirectoryDisplayWin.PrintSettings.resources

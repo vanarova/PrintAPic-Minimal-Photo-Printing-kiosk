@@ -4,14 +4,25 @@ using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
-
+using PdfDocument = Spire.Pdf.PdfDocument;
 
 namespace PicsDirectoryDisplayWin.UI
 {
     public partial class Print : Form
     {
+        string receiptDir = "Receipt\\";
+        string PrintDir = "Prints\\";
+
+        string taxinvoicenumber =
+        DateTime.Now.Day.ToString()
+        + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.TimeOfDay.Hours.ToString()
+        + DateTime.Now.TimeOfDay.Minutes.ToString() + DateTime.Now.TimeOfDay.Seconds.ToString();
+
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public enum AspectRatio {S4x3,LessThanS4x3, GreaterThanS4x3 };
         public List<string> SelectedImages { get; set; }
@@ -23,12 +34,23 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            //Start();
+            progressBar1.Visible = true;
+            //(new PicsDirectoryDisplayWin.lib_ImgIO.ImageIO()).DeleteAllFilesInDrectoryAndSubDirs(PrintDir);
+            PicsbgWorker.RunWorkerAsync();
 
+        }
+
+        private void GeneratePicsPDF()
+        {
+            //Start();
+            PdfImage image1 = null;
+            PdfImage image2 = null;
+            AspectRatio aspectRatio1 = AspectRatio.S4x3;
+            AspectRatio aspectRatio2 = AspectRatio.S4x3;
             //DetectImageAspectRatio();
-            SelectedImages.Add(@"C:\inetpub\wwwroot\ps\Uploads\22.jpg");
-            SelectedImages.Add(@"C:\inetpub\wwwroot\ps\Uploads\ww.jpg");
-            
+            //SelectedImages.Add(@"C:\inetpub\wwwroot\ps\Uploads\22.jpg");
+            //SelectedImages.Add(@"C:\inetpub\wwwroot\ps\Uploads\ww.jpg");
+
             //PdfImage image2 = PdfImage.FromFile(@"C:\inetpub\wwwroot\ps\Uploads\20160530_200327.jpg");
 
             //Call below code in pair, insode a for loop.
@@ -36,20 +58,22 @@ namespace PicsDirectoryDisplayWin.UI
 
             for (int i = 0; i < SelectedImages.Count; i = i + 2)
             {
+                image1 = null; image2 = null;
                 //first image on page
-                PdfImage image1 = PdfImage.FromFile(SelectedImages[i].Split('|')[0]); //Take Image name from image key
-                
+                image1 = PdfImage.FromFile(SelectedImages[i].Split('|')[0]); //Take Image name from image key
+                aspectRatio1 = DetectImageAspectRatio(image1);
                 //second image on page
-                PdfImage image2 = PdfImage.FromFile(SelectedImages[i + 1].Split('|')[0]);
-                AspectRatio aspectRatio2 = DetectImageAspectRatioAndRotateImage(image2);
-                AspectRatio aspectRatio1 = DetectImageAspectRatioAndRotateImage(image1);
-                SetPageMarginGeneratePDF_ImageRatio4x3(image1, image2, aspectRatio1,aspectRatio2);
-                
+                if (!(i + 1 >= SelectedImages.Count))
+                {
+                    image2 = PdfImage.FromFile(SelectedImages[i + 1].Split('|')[0]);
+                    aspectRatio2 = DetectImageAspectRatio(image2);
+                }
+                SetPageMarginGeneratePDF_ImageRatio4x3(PrintDir + "Print" + i + ".pdf", image1, image2, aspectRatio1, aspectRatio2);
+
             }
-           
         }
 
-        private AspectRatio DetectImageAspectRatioAndRotateImage(PdfImage image)
+        private AspectRatio DetectImageAspectRatio(PdfImage image)
         {
             logger.Info("Printing image");
             float width = image.Width;
@@ -69,7 +93,66 @@ namespace PicsDirectoryDisplayWin.UI
             return AspectRatio.S4x3;
         }
 
-        private void SetPageMarginGeneratePDF_ImageRatio4x3(PdfImage img1, PdfImage img2, 
+
+        private void Generate_receipt(string ImageFileName)
+        {
+            ///Create a pdf document
+            Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
+
+            //Set the margin
+            PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
+
+            PdfMargins margin = new PdfMargins();
+            margin.Top = InPoints(0.5f);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Bottom = margin.Top;
+            //TODO: Add margins in global settings xml file.
+            margin.Left = InPoints(0.5f); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Right = margin.Left;
+
+            //PdfPageSettings settings = new PdfPageSettings();
+            //settings.Size = new SizeF(InPoints(7.2f), InPoints(7.2f)); //here should 72mmx height
+            //PaperSize psizee = new PaperSize();
+            //psizee.Height = (int)settings.Size.Height;
+            //psizee.Width = (int)settings.Size.Width;
+            //doc.PrintSettings.PaperSize = psizee;
+            //Create one page
+            PdfPageBase page = doc.Pages.Add(new SizeF(InPoints(7.2f), InPoints(7.2f)),margin);
+            PdfFont font12 = new PdfFont(PdfFontFamily.Helvetica, 12f);
+            PdfFont font10 = new PdfFont(PdfFontFamily.Helvetica, 10f);
+            PdfFont font8 = new PdfFont(PdfFontFamily.Helvetica, 8f);
+            PdfSolidBrush brush1 = new PdfSolidBrush(Color.Black);
+            PdfStringFormat leftAlignment = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+            PdfStringFormat centerAlignment = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+            PdfStringFormat rightAlignment = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+
+
+            string total = (((Convert.ToInt16(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count) * Convert.ToInt16(ConfigurationManager.AppSettings["GSTValue"]) / 100)
+                            + (Convert.ToInt16(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)).ToString();
+
+
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line1"],font12, brush1, page.Canvas.ClientSize.Width, 10, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line2"] + taxinvoicenumber, font10, brush1, page.Canvas.ClientSize.Width, 25, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line3"]+SelectedImages.Count+"/-",font10, brush1, page.Canvas.ClientSize.Width, 40, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line4"]+ ConfigurationManager.AppSettings["CostValue"] + "/-"
+                , font10, brush1, page.Canvas.ClientSize.Width, 55, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line5"]+
+                ConfigurationManager.AppSettings["GSTValue"]+ "%", font10, brush1, page.Canvas.ClientSize.Width, 70, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line6"] ,font10, brush1, page.Canvas.ClientSize.Width, 85, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line7"] + total + "/-", font10, brush1, page.Canvas.ClientSize.Width, 100,rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line8"],font8, brush1,  page.Canvas.ClientSize.Width, 120, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line9"],font8, brush1,  page.Canvas.ClientSize.Width, 130, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line10"],font8, brush1, page.Canvas.ClientSize.Width, 140,rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line11"],font10, brush1, page.Canvas.ClientSize.Width, 155,rightAlignment);
+            //Save the document
+            doc.SaveToFile(receiptDir + ImageFileName);
+            doc.SaveToFile(ConfigurationManager.AppSettings["ReceiptBackupDir"] + "\\" + ImageFileName);
+            doc.Close();
+
+            //Launch the Pdf file
+            PDFDocumentViewer(receiptDir + ImageFileName);
+        }
+
+        private void SetPageMarginGeneratePDF_ImageRatio4x3(string ImageFileName, PdfImage img1, PdfImage img2, 
             AspectRatio aspectRatioImage1 = AspectRatio.S4x3, AspectRatio aspectRatioImage2 = AspectRatio.S4x3)
         {
             float MARGINTOP_BOTTOM = 0.75f; float MARGINLEFT_RIGHT = 1.25f;
@@ -95,15 +178,15 @@ namespace PicsDirectoryDisplayWin.UI
             //After margin
             float A4PostMarginWidth = PdfPageSize.A4.Width - (margin.Left * 2); // left,right margins
             //In centimeter :
-            label6.Text = InCentimeter(A4PostMarginWidth);
+            //label6.Text = InCentimeter(A4PostMarginWidth);
 
             //Adjust width, height with 4:3 ratio in PDF points :
             float A4PostMarginWidthPts4x3 = PdfPageSize.A4.Width - (margin.Left * 2); // left,right margins
             float A4PostMarginHeightPts4x3 = A4PostMarginWidthPts4x3 * 0.75f;  // height = 3/4 * width
 
             //In centimeter = 
-            label8.Text = InCentimeter(A4PostMarginWidthPts4x3);
-            label9.Text = InCentimeter(A4PostMarginHeightPts4x3);
+            //label8.Text = InCentimeter(A4PostMarginWidthPts4x3);
+            //label9.Text = InCentimeter(A4PostMarginHeightPts4x3);
 
             //TransformText(page);
             DrawImagesInPage(img1,img2,page, A4PostMarginWidthPts4x3, A4PostMarginHeightPts4x3,
@@ -111,11 +194,11 @@ namespace PicsDirectoryDisplayWin.UI
             //TransformImage(page);
 
             //Save the document
-            doc.SaveToFile("Image.pdf");
+            doc.SaveToFile(ImageFileName);
             doc.Close();
 
             //Launch the Pdf file
-            PDFDocumentViewer("Image.pdf");
+            PDFDocumentViewer( ImageFileName);
         }
 
         private string InCentimeter(float value)
@@ -317,6 +400,91 @@ namespace PicsDirectoryDisplayWin.UI
 
             //EndBox(gfx);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PrintSettings pst = new PrintSettings();
+            
+            pst.ShowDialog();
+        }
+
+        private void PicsbgWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            
+            PicsbgWorker.ReportProgress(25);
+
+            Generate_receipt(taxinvoicenumber+".pdf");
+            PrintReceipt();
+            PicsbgWorker.ReportProgress(50);
+           
+            GeneratePicsPDF();
+            PrintPicsPDF();
+            PicsbgWorker.ReportProgress(75);
+            
+            CheckPrinterQueue();
+            PicsbgWorker.ReportProgress(100);
+            
+        }
+
+        private void PrintPicsPDF()
+        {
+            PdfDocument pdf = new PdfDocument();
+            pdf.PrintSettings.PrinterName = ConfigurationManager.AppSettings["PhotoPrinterName"];
+            //search all files prresent in "printdir"
+            //load and print them one by one.
+            FileInfo[] files = new DirectoryInfo(PrintDir).GetFiles();
+            foreach (var item in files)
+            {
+                pdf.LoadFromFile(item.FullName);
+                pdf.Print();
+            }
+            
+
+        }
+
+        private void CheckPrinterQueue()
+        {
+            System.Threading.Thread.Sleep(2000);
+            //throw new NotImplementedException();
+        }
+
+        private void PrintReceipt()
+        {
+
+           PdfDocument pdf = new PdfDocument();
+           pdf.LoadFromFile(receiptDir + taxinvoicenumber+".pdf");
+           pdf.PrintSettings.PrinterName = ConfigurationManager.AppSettings["ReceiptPrinterName"];
+           pdf.Print();
+
+
+            //System.Threading.Thread.Sleep(2000);
+            //throw new NotImplementedException();
+        }
+
+        private void PicsbgWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 25)
+                PrintStatusLbl.Text = "Printing receipt";
+            if (e.ProgressPercentage == 50)
+                PrintStatusLbl.Text = "Printing pics";
+            if (e.ProgressPercentage == 75)
+                PrintStatusLbl.Text = "Checking print status";
+            if (e.ProgressPercentage == 100)
+                PrintStatusLbl.Text = "Finished";
+
+        }
+
+        private void PicsbgWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            progressBar1.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Generate_receipt(taxinvoicenumber+".pdf");
+        }
+
+
 
 
         //public void BeginBox(XGraphics gfx, int number, string title)
