@@ -27,6 +27,9 @@ namespace PicsDirectoryDisplayWin
         public Form WifiConnectHelpObject { get; set; }
         public Form AnimationFormObject { get; set; }
         public List<string> SelectedImageKeys { get; set; }
+
+        public bool IS_USBConnection = false;
+        public string USBDriveLetter;
         public bool FilesChanged
         {
             set
@@ -78,12 +81,12 @@ namespace PicsDirectoryDisplayWin
             imglist.ItemSelectionChanged += Imglist_ItemSelectionChanged;
             imglist.Click += Imglist_Click;
             SelectedImageKeys = new List<string>();
-
+            //UploadButton.Visible = IS_USBConnection;
             string checkUnicode = "2714"; // ballot box -1F5F9
             int value = int.Parse(checkUnicode, System.Globalization.NumberStyles.HexNumber);
             CheckSymbol = char.ConvertFromUtf32(value).ToString();
 
-            RefreshButton.Text = ConfigurationManager.AppSettings["RefreshButton"];
+            UploadButton.Text = ConfigurationManager.AppSettings["UploadButton"];
             btn_Next.Text = ConfigurationManager.AppSettings["NextButton"];
             btn_Back.Text = ConfigurationManager.AppSettings["BackButton"];
             label6.Text = ConfigurationManager.AppSettings["BillInfo"];
@@ -100,6 +103,11 @@ namespace PicsDirectoryDisplayWin
             label14.Text = ConfigurationManager.AppSettings["TotalText"];
             label13.Text = ConfigurationManager.AppSettings["TotalValue"];
             warningTxt.Text = ConfigurationManager.AppSettings["WarningText"];
+
+            UploadButton.Visible = IS_USBConnection;
+            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            tb.BackgroundImageLayout = ImageLayout.Stretch;
+            
         }
 
         private void SimpleGallery_refreshGalleryNotifier(object sender, EventArgs e)
@@ -200,14 +208,7 @@ namespace PicsDirectoryDisplayWin
             if (item.Checked ==false)
             {
                 SelectedImageKeys.Add(item.ImageKey);
-                item.Checked = true;
-                item.BackColor = SelectedColor;
-                item.Focused = true;
-                //string copyrightUnicode = "2714"; // ballot box -1F5F9
-                //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
-                //string symbol = char.ConvertFromUtf32(value).ToString();
-                item.Font = SelectedFont;
-                item.Text = "[" + CheckSymbol + "] " + item.Text;
+                SelectedImageChecked(item);
                 UpdateBillDetails(SelectedImageKeys.Count);
             }
             //item.Bounds.Inflate(60, 60);
@@ -215,13 +216,26 @@ namespace PicsDirectoryDisplayWin
 
         }
 
+        private void SelectedImageChecked(ListViewItem item)
+        {
+            item.Checked = true;
+            item.BackColor = SelectedColor;
+            item.Focused = true;
+            //string copyrightUnicode = "2714"; // ballot box -1F5F9
+            //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
+            //string symbol = char.ConvertFromUtf32(value).ToString();
+            item.Font = SelectedFont;
+            item.Text = "[" + CheckSymbol + "] " + item.Text;
+        }
+
         private void SimpleGallery_Load(object sender, EventArgs e)
         {
-
-            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            //UploadButton.Visible = IS_USBConnection;
+            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            //tb.BackgroundImageLayout = ImageLayout.Stretch;
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
-            if (AllImages != null && AllImages.Count>0)
-            ShowGallerySelectionImages(AllImages[0]);
+            if (AllImages != null && AllImages.Count > 0)
+                ShowGallerySelectionImages(AllImages[0]);
 
             timer = new Timer();
             timer.Interval = 3000;
@@ -240,7 +254,7 @@ namespace PicsDirectoryDisplayWin
         private void Timer_Tick(object sender, EventArgs e)
         {
            int FilesInWebSearchDir = new DirectoryInfo(WebSiteSearchDir).GetFiles().Length;
-           int FilesInThumbsDir = new DirectoryInfo(Globals.WebSiteSearchDir + "\\thumbs").GetFiles().Length;
+           int FilesInThumbsDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\thumbs").GetFiles().Length;
             bool isloading = false;
 
            
@@ -273,31 +287,80 @@ namespace PicsDirectoryDisplayWin
                 RefreshThumbnails();
                 isloading = true;
             }
-                      
+
+            if (IS_USBConnection && FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < 20)
+            {
+                FilesChanged = true;
+                isloading = true;
+                RefreshThumbnails();
+                
+            }
+
+
             loadingImageslabel.Visible = isloading;
             LoadingImagesPBar.Visible = isloading;
 
-            if (SelectedImageKeys.Count==0)
+            //if (SelectedImageKeys.Count==0)
+            //{
+            //    for (int i = 0; i < imglist.Items.Count; i++)
+            //    {
+            //        SelectImage(imglist.Items[i]);
+            //    }
+            //}
+            ValidateSelectedImages();
+
+            UpdateBillDetails(SelectedImageKeys.Count);
+        }
+
+
+        private void ValidateSelectedImages()
+        {
+            if (SelectedImageKeys.Count == 0)
             {
                 for (int i = 0; i < imglist.Items.Count; i++)
                 {
                     SelectImage(imglist.Items[i]);
                 }
             }
-            
+            //Is selected image also marked with check.
+            for (int i = 0; i < imglist.Items.Count; i++)
+            {
+                if(SelectedImageKeys.Contains(imglist.Items[i].ImageKey) && 
+                    !imglist.Items[i].Text.Contains("[" + CheckSymbol + "] "))
+                {
+                    SelectedImageChecked(imglist.Items[i]);
+                }
+            }
 
-            UpdateBillDetails(SelectedImageKeys.Count);
         }
 
 
-        private void UpdateBillDetails(int count)
-        {
-       
+    //     if (item.Checked ==false)
+    //        {
+    //            SelectedImageKeys.Add(item.ImageKey);
+    //            item.Checked = true;
+    //            item.BackColor = SelectedColor;
+    //            item.Focused = true;
+    //            //string copyrightUnicode = "2714"; // ballot box -1F5F9
+    //            //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
+    //            //string symbol = char.ConvertFromUtf32(value).ToString();
+    //            item.Font = SelectedFont;
+    //            item.Text = "[" + CheckSymbol + "] " + item.Text;
+    //            UpdateBillDetails(SelectedImageKeys.Count);
+    //}
 
+
+    private void UpdateBillDetails(int count)
+        {
+            if (!string.IsNullOrEmpty(label8.Text) &&
+                !string.IsNullOrEmpty(label1.Text) )
+            {
+           
             label_PicsCount.Text = count.ToString();
             label9.Text = (Convert.ToInt16(label8.Text) * count).ToString();
             label13.Text = (((Convert.ToInt16(label8.Text) * count) * Convert.ToInt16(label1.Text) / 100)
                             + (Convert.ToInt16(label8.Text) * count)).ToString();
+            }
         }
 
 
@@ -485,10 +548,12 @@ namespace PicsDirectoryDisplayWin
             if (AllImages.Count != 0 && AllImages[0].PeerImages.Count == Globals.IncludeMaxImages)
             {
                 warningTxt.Text = "Max Image count:" + Globals.IncludeMaxImages + ".";
+                pictureBox4.Visible = true;
             }
             else if (AllImages.Count != 0 && AllImages[0].PeerImages.Count < Globals.IncludeMaxImages)
             {
                 warningTxt.Text = "";
+                pictureBox4.Visible = false;
             }
         }
 
@@ -523,27 +588,62 @@ namespace PicsDirectoryDisplayWin
 
         private void PrepareForPrinting()
         {
-            this.Visible = false;
-            print = new UI.Print();
-
+            //this.Visible = false;
+            timer.Stop();
+            timer.Dispose();
+            this.Close();
+            print = new UI.Print(this, WifiConnectHelpObject, AnimationFormObject, waiter, SelectedImageKeys.Count);
+            //print.SelectedImages = imgs;
             print.SelectedImages = SelectedImageKeys;
-            print.Show();
+            print.ShowDialog();
 
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            WifiConnectHelpObject.Visible = false;
-            ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).DeleteAllImages();
-            ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).IamAlreadyCalledOnce = false;
-            if (imglist!= null && imglist.LargeImageList != null && imglist.LargeImageList.Images != null)
-                imglist.LargeImageList.Images.Clear();
-            imglist.Clear();
-            timer.Stop();
-            timer.Dispose();
-            this.Close();
-            this.Dispose();
-            AnimationFormObject.Visible = true;
+           // Fix this
+
+            if (SelectedImageKeys.Count > 0)
+            {
+                //gallery preview is page where all final pics are shown before print
+                if (!OnGalleryPreviewPage)
+                {
+                    //PrepareFormForGallerySelection();
+                    BackTOAnimation();
+                }
+                else
+                {
+                    PrepareFormForGallerySelection();
+                    ///PrepareFormForGalleryPreview();
+                    //ShowSelectedImages(SelectedImageKeys);
+                }
+            }
+            else
+            {
+                //TODO: show error, no image selected
+                BackTOAnimation();
+            }
+
+            
+        }
+
+        private void BackTOAnimation()
+        {
+            Application.Exit();
+            //if (WifiConnectHelpObject != null)
+            //{
+            //    WifiConnectHelpObject.Visible = false;
+            //    ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).DeleteAllImages();
+            //    ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).IamAlreadyCalledOnce = false;
+            //}
+            //if (imglist != null && imglist.LargeImageList != null && imglist.LargeImageList.Images != null)
+            //    imglist.LargeImageList.Images.Clear();
+            //imglist.Clear();
+            //timer.Stop();
+            //timer.Dispose();
+            //this.Clos3e();
+            //this.Dispose();
+            //AnimationFormObject.Visible = true;
         }
 
         private void WebSiteUploadsWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
@@ -595,7 +695,7 @@ namespace PicsDirectoryDisplayWin
 
             if (InvokeRequired)
             {
-                Invoke(new Action(() => waiter.Close()));
+                Invoke(new Action(() => { waiter.Close(); waiter.Dispose(); }));
                 Invoke(new Action(() => RefreshGalleryNotify = true));
                 //if (fileChangedCounter > 1)
                 //{// again raise event.
@@ -607,7 +707,11 @@ namespace PicsDirectoryDisplayWin
             }
             else
             {
-                waiter.Close();
+                if (waiter!=null)
+                {
+                    waiter.Close(); waiter.Dispose();
+                }
+               
                 RefreshGalleryNotify = true;
                 CheckForMaxImageWarning();
                 //if (fileChangedCounter > 1)
@@ -657,10 +761,29 @@ namespace PicsDirectoryDisplayWin
             RefreshGalleryNotify = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UploadButton_Click(object sender, EventArgs e)
         {
-            RefreshThumbnails();
+            //RefreshThumbnails();
+            UploadUSBFilesDialog.InitialDirectory = USBDriveLetter;
+            UploadUSBFilesDialog.ShowDialog();
+            UploadUSBFilesDialog.DefaultExt = ".jpg";
+            UploadUSBFilesDialog.Multiselect = true;
+            for (int i = 0; i < UploadUSBFilesDialog.FileNames.Count(); i++)
+            {
+                //if (!UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpg")
+                //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpeg")
+                //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".png")
+                //    )
+                //{
+                //    continue;
+                //}
+                File.Copy(UploadUSBFilesDialog.FileNames[i], ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\"+ 
+                    UploadUSBFilesDialog.SafeFileNames[i]);
+            }
+            
         }
+
+        
     }
 
 

@@ -1,6 +1,8 @@
 ﻿using NLog;
+using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,8 +18,13 @@ namespace PicsDirectoryDisplayWin
         [STAThread]
         static void Main()
         {
-            //ConfigurationManager.AppSettings.Add("Bill Info", "Billing Info --");
 
+            //ConfigurationManager.AppSettings.Add("Bill Info", "Billing Info --");
+            //Application.ApplicationExit += Application_ApplicationExit;
+            // Application.ThreadExit += Application_ThreadExit;
+            //Application.
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             var config = new NLog.Config.LoggingConfiguration();
 
@@ -28,11 +35,24 @@ namespace PicsDirectoryDisplayWin
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
 
             NLog.LogManager.Configuration = config;
-
-
+            NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Animation());
+            try
+            {
+                Application.Run(new Animation());
+            }
+            catch (Exception e)
+            {
+                logger.Log(NLog.LogLevel.Error, e.Message);
+            }
+            
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+            logger.Log(NLog.LogLevel.Error, ((Exception)e.ExceptionObject).Message);
         }
     }
 }

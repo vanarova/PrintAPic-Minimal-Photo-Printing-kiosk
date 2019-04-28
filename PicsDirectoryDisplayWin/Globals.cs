@@ -16,7 +16,7 @@ namespace PicsDirectoryDisplayWin
         public static readonly int IncludeMaxImages = 20;
         public static readonly int MaxDirectoryToSearchLimit = 50;
         public static string USBSearchPath = "";// @"C:\Users\Arunav\Pictures\Camera Roll";
-        public static string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        //public static string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         //private static int _filesInWebSearchDir;
         //private static int _filesInThumbsDir;
 

@@ -3,7 +3,6 @@ using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +11,7 @@ namespace PicsDirectoryDisplayWin.UI
 {
     public partial class WifiConnectHelp : Form
     {
-       
+
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
         public Form AnimationForm { get; set; }
         public bool IamAlreadyCalledOnce = false;
@@ -25,13 +24,19 @@ namespace PicsDirectoryDisplayWin.UI
         private int foundImageCount = 0;
         private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         //int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
-        
-        
+
+
 
         public WifiConnectHelp()
         {
             InitializeComponent();
             //TODO : Memory leak was happeining from pic box, assign images like below, put urls in global file & resources
+            fileSystemWatcher1 = new FileSystemWatcher
+            {
+                Path = WebSiteSearchDir,
+                EnableRaisingEvents = true
+            };
+            //DeleteAllImages();
 
             pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
             pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
@@ -50,9 +55,10 @@ namespace PicsDirectoryDisplayWin.UI
             label9.Text = ConfigurationManager.AppSettings["TransferPhotosText"];
             label10.Text = ConfigurationManager.AppSettings["WaitingForPics"];
             label11.Text = ConfigurationManager.AppSettings["PhotosKiPratikchaText"];
+            fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
         }
 
-     
+
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -74,7 +80,7 @@ namespace PicsDirectoryDisplayWin.UI
         private void Done(bool IsWeb)
         {
             imageIO.BubbleSortImages(AllImages);
-       
+
             foreach (var item in AllImages)
             {
                 //Create Thumbnails
@@ -91,14 +97,20 @@ namespace PicsDirectoryDisplayWin.UI
                 waiter.Visible = false;
             if (IsWeb)
             {
-                SimpleGallery gallery = new SimpleGallery { WifiConnectHelpObject =this,
-                    AnimationFormObject =AnimationForm, AllImages = AllImages };
+                SimpleGallery gallery = new SimpleGallery
+                {
+                    WifiConnectHelpObject = this,
+                    AnimationFormObject = AnimationForm,
+                    AllImages = AllImages
+                };
+                this.Visible = false;
                 gallery.Show();
 
             }
             else
             {
                 DirectoryGallery gallery = new DirectoryGallery { AllImages = AllImages };
+                this.Visible = false;
                 gallery.Show();
             }
 
@@ -113,7 +125,7 @@ namespace PicsDirectoryDisplayWin.UI
             AllImages.Add(obj);
         }
 
-       
+
 
         //private void ReportProgressForThumbnails(string dirName)
         //{
@@ -139,11 +151,7 @@ namespace PicsDirectoryDisplayWin.UI
 
             //pictureBox1.Image = GlobalImageCache.HorseAnimImg;
 
-           fileSystemWatcher1 = new FileSystemWatcher
-            {
-                Path = WebSiteSearchDir,
-                EnableRaisingEvents = true
-            };
+            
             DeleteAllImages();
 
             //fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
@@ -153,20 +161,24 @@ namespace PicsDirectoryDisplayWin.UI
 
         public void DeleteAllImages()
         {
+            if ((new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"])).GetFiles().Length==0)
+            {
+                return;
+            }
             //delete all pics from previous session. Before events are registed
             try
             {
 
-                fileSystemWatcher1.Created -= FileSystemWatcher1_Changed;
-                fileSystemWatcher1.Deleted -= FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Created -= FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Deleted -= FileSystemWatcher1_Changed;
 
-                imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
-                if (imageIO.DoesAnyFileExists(Globals.WebSiteSearchDir) > 0)
-                    imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
+                imageIO.DeleteAllFilesInDrectoryAndSubDirs(ConfigurationManager.AppSettings["WebSiteSearchDir"]);
+                if (imageIO.DoesAnyFileExists(ConfigurationManager.AppSettings["WebSiteSearchDir"]) > 0)
+                    imageIO.DeleteAllFilesInDrectoryAndSubDirs(ConfigurationManager.AppSettings["WebSiteSearchDir"]);
 
 
-                fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
-                fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
             }
             catch (Exception ex)
             {

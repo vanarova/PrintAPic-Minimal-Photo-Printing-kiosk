@@ -25,7 +25,8 @@ namespace PicsDirectoryDisplayWin
         public Animation()
         {
             InitializeComponent();
-            this.BackgroundImage = GlobalImageCache.TableBgImg;
+            this.tableLayoutPanel1.BackgroundImage = GlobalImageCache.TableBgImg;
+            this.tableLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
             WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
             DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
             label4.Text = ConfigurationManager.AppSettings["HindiIntro"];
@@ -33,8 +34,12 @@ namespace PicsDirectoryDisplayWin
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
         {
-            PickDropGallery pickDropGallery = new PickDropGallery();
-            pickDropGallery.Show();
+            //PickDropGallery pickDropGallery = new PickDropGallery();
+            //pickDropGallery.Show();
+
+            USBConnectHelp usbform = new USBConnectHelp();
+            usbform.AnimationForm = this;
+            usbform.ShowDialog();
 
             // Old implemetation of seacrhing images is commented.
             //AllImages = new List<ChitraKiAlbumAurVivaran>();
@@ -164,7 +169,7 @@ namespace PicsDirectoryDisplayWin
             if (whelp == null)
             {
                 whelp = new WifiConnectHelp() { AnimationForm = this };
-                whelp.Show();
+                whelp.ShowDialog();
             }
             else
             {
@@ -190,8 +195,13 @@ namespace PicsDirectoryDisplayWin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Print pf = new Print();
-            pf.Show();
+            //Print pf = new Print();
+            //pf.Show();
+        }
+
+        private void Animation_VisibleChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 

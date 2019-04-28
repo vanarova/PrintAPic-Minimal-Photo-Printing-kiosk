@@ -401,10 +401,10 @@ namespace PicsDirectoryDisplayWin
 
         private void PrepareForPrinting()
         {
-            this.Visible = false;
-            print = new UI.Print();
-            print.SelectedImages = SelectedImageKeys;
-            print.Show();
+            //this.Visible = false;
+            //print = new UI.Print();
+            //print.SelectedImages = SelectedImageKeys;
+            //print.Show();
 
         }
 

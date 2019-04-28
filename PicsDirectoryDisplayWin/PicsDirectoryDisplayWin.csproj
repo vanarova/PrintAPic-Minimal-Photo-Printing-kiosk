@@ -30,6 +30,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -106,6 +108,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -125,6 +128,10 @@
     <Compile Include="lib_ImgSearch\Chowkidar.cs" />
     <Compile Include="lib_ImgSearch\ChitroKiAlbumAurVivaran.cs" />
     <Compile Include="lib_ImgSearch\ChitraKhoj.cs" />
+    <Compile Include="lib_Print\PrintIO.cs" />
+    <Compile Include="lib_USB\DriveDetector.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PrintSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +149,12 @@
     </Compile>
     <Compile Include="UI\USB\PickDropGallery.Designer.cs">
       <DependentUpon>PickDropGallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\USB\USBConnectHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\USB\USBConnectHelp.Designer.cs">
+      <DependentUpon>USBConnectHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\WIFI\fileChangedNotify.cs" />
     <Compile Include="UI\WIFI\SimpleGallery.cs">
@@ -184,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\USB\PickDropGallery.resx">
       <DependentUpon>PickDropGallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\USB\USBConnectHelp.resx">
+      <DependentUpon>USBConnectHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\WIFI\SimpleGallery.resx">
       <DependentUpon>SimpleGallery.cs</DependentUpon>

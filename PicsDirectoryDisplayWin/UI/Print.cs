@@ -1,5 +1,6 @@
 ﻿using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using PicsDirectoryDisplayWin.lib_Print;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using System;
@@ -8,6 +9,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
+using System.Printing;
 using System.Windows.Forms;
 using PdfDocument = Spire.Pdf.PdfDocument;
 
@@ -17,6 +19,10 @@ namespace PicsDirectoryDisplayWin.UI
     {
         string receiptDir = "Receipt\\";
         string PrintDir = "Prints\\";
+        private PrinterState PrintState = new PrinterState();
+        Form galleryFormObject = null; Form wifiHelpFormObject = null;
+        Form AnimationFormObject = null; Form waiterObject = null;
+        
 
         string taxinvoicenumber =
         DateTime.Now.Day.ToString()
@@ -26,15 +32,74 @@ namespace PicsDirectoryDisplayWin.UI
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public enum AspectRatio {S4x3,LessThanS4x3, GreaterThanS4x3 };
         public List<string> SelectedImages { get; set; }
-        public Print()
+        public int selectedImagesCount;
+
+        public Print(Form gallery,Form wifiHelp,Form animation, Form waiter, int SelectedImagesCount)
         {
             InitializeComponent();
+            PrintWatch.Stop();
             SelectedImages = new List<string>();
+            galleryFormObject = gallery;
+            wifiHelpFormObject = wifiHelp;
+            AnimationFormObject = animation;
+            waiterObject = waiter;
+            button2.Visible = false;
+            button3.Visible = false;
+            label5.Visible = false;
+            label1.Visible = false;
+            selectedImagesCount = SelectedImagesCount;
+           
+
+            string checkUnicode = "2714"; // ballot box -1F5F9
+            int value = int.Parse(checkUnicode, System.Globalization.NumberStyles.HexNumber);
+
+            label24.Text = ConfigurationManager.AppSettings["PrintReady1Eng"];
+            label4.Text = ConfigurationManager.AppSettings["PrintReady1Hindi"];
+            label6.Text = ConfigurationManager.AppSettings["BillInfo"];
+            label13.Text = ConfigurationManager.AppSettings["PrintSizeText"];
+            label14.Text = ConfigurationManager.AppSettings["PrintSizeValue"];
+            label8.Text = ConfigurationManager.AppSettings["CostValue"];
+            label6.Text = ConfigurationManager.AppSettings["NoOfPicsText"];
+            label_PicsCount.Text = ConfigurationManager.AppSettings["NoOfPicsInitialValue"];
+            label11.Text = ConfigurationManager.AppSettings["AmountText"];
+            label12.Text = ConfigurationManager.AppSettings["AmountInitialValue"];
+            label9.Text = ConfigurationManager.AppSettings["GSTValue"];
+            label16.Text = ConfigurationManager.AppSettings["TotalText"];
+            label15.Text = ConfigurationManager.AppSettings["TotalValue"];
+
+            UpdateBillDetails(selectedImagesCount);
+        }
+
+        private void UpdateBillDetails(int count)
+        {
+            label3.Text = count.ToString();
+            label23.Text = count.ToString();
+            if (!string.IsNullOrEmpty(label8.Text) &&
+                !string.IsNullOrEmpty(label1.Text))
+            {
+
+                label_PicsCount.Text = count.ToString();
+                label12.Text = (Convert.ToInt16(label8.Text) * count).ToString();
+                
+                label15.Text = (((Convert.ToInt16(label8.Text) * count) * Convert.ToInt16(label12.Text) / 100)
+                                + (Convert.ToInt16(label8.Text) * count)).ToString();
+            }
         }
 
         private void btn_print_Click(object sender, EventArgs e)
         {
+            btn_print.Enabled = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label23.Visible = false;
+            label24.Visible = false;
+
+            label5.Visible = true;
+            label1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
             progressBar1.Visible = true;
+            PrintWatch.Start();
             //(new PicsDirectoryDisplayWin.lib_ImgIO.ImageIO()).DeleteAllFilesInDrectoryAndSubDirs(PrintDir);
             PicsbgWorker.RunWorkerAsync();
 
@@ -403,8 +468,9 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PrintSettings pst = new PrintSettings();
-            
+            PrintSettings pst = new PrintSettings(SelectedImages);
+            pst.PrintDir = PrintDir;
+            //pst.SelectedImages = SelectedImages;
             pst.ShowDialog();
         }
 
@@ -418,59 +484,47 @@ namespace PicsDirectoryDisplayWin.UI
             PicsbgWorker.ReportProgress(50);
            
             GeneratePicsPDF();
-            PrintPicsPDF();
-            PicsbgWorker.ReportProgress(75);
+
+
+            //PrintWatch.Interval = 500;
+            //PrintWatch.Enabled = true;
             
-            CheckPrinterQueue();
+            PicsbgWorker.ReportProgress(75);
+            PrintPicsPDF();
+            //CheckPrinterQueue();
             PicsbgWorker.ReportProgress(100);
             
         }
 
         private void PrintPicsPDF()
         {
-            PdfDocument pdf = new PdfDocument();
-            pdf.PrintSettings.PrinterName = ConfigurationManager.AppSettings["PhotoPrinterName"];
-            //search all files prresent in "printdir"
-            //load and print them one by one.
-            FileInfo[] files = new DirectoryInfo(PrintDir).GetFiles();
-            foreach (var item in files)
-            {
-                pdf.LoadFromFile(item.FullName);
-                pdf.Print();
-            }
-            
-
+            PrintIO.PrintPDFs(PrintDir);
         }
-
-        private void CheckPrinterQueue()
-        {
-            System.Threading.Thread.Sleep(2000);
-            //throw new NotImplementedException();
-        }
-
+      
         private void PrintReceipt()
         {
-
-           PdfDocument pdf = new PdfDocument();
-           pdf.LoadFromFile(receiptDir + taxinvoicenumber+".pdf");
-           pdf.PrintSettings.PrinterName = ConfigurationManager.AppSettings["ReceiptPrinterName"];
-           pdf.Print();
-
-
-            //System.Threading.Thread.Sleep(2000);
-            //throw new NotImplementedException();
+           PrintIO.PrintReceipt(receiptDir, taxinvoicenumber);
         }
 
         private void PicsbgWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            if (e.ProgressPercentage == 25)
+            if (PrintState.alert && MessageBox.Show("Printing issue: " + ((PrinterState)e.UserState).status, "Print Error", MessageBoxButtons.RetryCancel) == DialogResult.Cancel)
+            {
+                PrintIO.AbortPrinting();
+            }
+
+            if (e.ProgressPercentage == 25 )
+            {
                 PrintStatusLbl.Text = "Printing receipt";
+               
+            }
+                
             if (e.ProgressPercentage == 50)
                 PrintStatusLbl.Text = "Printing pics";
             if (e.ProgressPercentage == 75)
                 PrintStatusLbl.Text = "Checking print status";
-            if (e.ProgressPercentage == 100)
-                PrintStatusLbl.Text = "Finished";
+            //if (e.ProgressPercentage == 100)
+                //PrintStatusLbl.Text = "Finished";
 
         }
 
@@ -484,7 +538,52 @@ namespace PicsDirectoryDisplayWin.UI
             Generate_receipt(taxinvoicenumber+".pdf");
         }
 
+        private void PrintWatch_Tick(object sender, EventArgs e)
+        {
+            PrintState = PrintIO.CheckPrinterQueue(ConfigurationManager.AppSettings["PhotoPrinterName"]);
 
+            if (PrintJobStatus.None != PrintState.status)
+            {
+                PrintStatusLbl.Visible = true;
+            PrintStatusLbl.Text = PrintState.status.ToString();
+            }
+            else
+            {
+                //status is None
+                PrintStatusLbl.Visible = false;
+            }
+           
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name != "Main")
+                    f.Close();
+            }
+            // Application.Exit();
+            //if (galleryFormObject != null && wifiHelpFormObject != null && AnimationFormObject != null)
+            //{
+            //    galleryFormObject.Close();
+            //    galleryFormObject.Dispose();
+            //    galleryFormObject = null;
+            //    wifiHelpFormObject.Close();
+            //    wifiHelpFormObject.Dispose();
+            //    wifiHelpFormObject = null;
+            //    waiterObject.Close();
+            //    waiterObject.Dispose();
+            //    waiterObject = null;
+            //    this.Close();
+            //    this.Dispose();
+            //    Application.Exit();
+            //}
+        }
 
 
         //public void BeginBox(XGraphics gfx, int number, string title)
@@ -519,4 +618,6 @@ namespace PicsDirectoryDisplayWin.UI
         //}
 
     }
+
+   
 }
