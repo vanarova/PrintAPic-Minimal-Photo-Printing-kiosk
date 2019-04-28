@@ -1,5 +1,4 @@
-﻿using PdfSharp.Drawing;
-using PdfSharp.Pdf;
+﻿
 using PicsDirectoryDisplayWin.lib_Print;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
@@ -367,33 +366,8 @@ namespace PicsDirectoryDisplayWin.UI
             catch { }
         }
 
-        public void Start()
-        {
-           
-           
-           string filename = String.Format("{0}_tempfile.pdf", Guid.NewGuid().ToString("D").ToUpper());
-            var s_document = new PdfSharp.Pdf.PdfDocument();
-            s_document.Info.Title = "PDFsharp XGraphic Sample";
-            s_document.Info.Author = "Stefan Lange";
-            s_document.Info.Subject = "Created with code snippets that show the use of graphical functions";
-            s_document.Info.Keywords = "PDFsharp, XGraphics";
-            DrawPageTransformed(s_document.AddPage());
-            // Save the s_document...
-            s_document.Save(filename);
-        }
+      
 
-        public void DrawPageTransformed(PdfPage page)
-        {
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-
-            //DrawTitle(page, gfx, "Images");
-
-            //DrawImage(gfx, 1);
-
-            DrawImageTransformed(gfx, 2, SelectedImages[0]);
-            //DrawImageRotated(gfx, 3, SelectedImages[0]);
-           
-        }
 
 
         //public void DrawPageRedrawn(PdfPage page)
@@ -424,47 +398,7 @@ namespace PicsDirectoryDisplayWin.UI
         //    //EndBox(gfx);
         //}
 
-        void DrawImageTransformed(XGraphics gfx, int number, string jpegSamplePath)
-        {
-            XImage image = XImage.FromFile(jpegSamplePath.Split('|')[0]);
 
-            const double dx = 250, dy = 140;
-
-            //gfx.TranslateTransform(dx / 2, dy / 2);
-            gfx.ScaleTransform(0.5);
-            //gfx.RotateTransform(-25);
-            //gfx.TranslateTransform(-dx / 2, -dy / 2);
-
-            //XMatrix matrix = new XMatrix();  //XMatrix.Identity;
-
-            //double width = image.PixelWidth * 72 / image.HorizontalResolution;
-            //double height = image.PixelHeight * 72 / image.HorizontalResolution;
-
-            gfx.DrawImage(image, image.PixelHeight/4 + 50, 0);
-        }
-
-        void DrawImageRotated(XGraphics gfx, int number, string jpegSamplePath)
-        {
-            //BeginBox(gfx, number, "DrawImage (rotated)");
-
-            XImage image = XImage.FromFile(jpegSamplePath.Split('|')[0]);
-
-            const double dx = 250, dy = 140;
-
-            gfx.TranslateTransform(dx / 2, dy / 2);
-            gfx.ScaleTransform(0.7);
-            gfx.RotateTransform(-25);
-            gfx.TranslateTransform(-dx / 2, -dy / 2);
-
-            //XMatrix matrix = new XMatrix();  //XMatrix.Identity;
-
-            double width = image.PixelWidth * 72 / image.HorizontalResolution;
-            double height = image.PixelHeight * 72 / image.HorizontalResolution;
-
-            gfx.DrawImage(image, (dx - width) / 2, 0, width, height);
-
-            //EndBox(gfx);
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
