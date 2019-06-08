@@ -22,7 +22,7 @@ namespace PicsDirectoryDisplayWin.UI
         private Waiter waiter = new Waiter();
         private ImageIO imageIO = new ImageIO();
         private int foundImageCount = 0;
-        private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        //private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         //int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
 
 
@@ -33,7 +33,7 @@ namespace PicsDirectoryDisplayWin.UI
             //TODO : Memory leak was happeining from pic box, assign images like below, put urls in global file & resources
             fileSystemWatcher1 = new FileSystemWatcher
             {
-                Path = WebSiteSearchDir,
+                Path = ConfigurationManager.AppSettings["WebSiteSearchDir"],
                 EnableRaisingEvents = true
             };
             //DeleteAllImages();
@@ -72,7 +72,7 @@ namespace PicsDirectoryDisplayWin.UI
                 return;
             IamAlreadyCalledOnce = true;
             AllImages = new List<ChitraKiAlbumAurVivaran>();
-            imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, WebSiteSearchDir,
+            imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, ConfigurationManager.AppSettings["WebSiteSearchDir"],
                 this, waiter, ReportProgressForImageSearch, Done);
         }
 

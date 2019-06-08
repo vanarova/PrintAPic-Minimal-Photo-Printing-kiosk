@@ -213,7 +213,8 @@ namespace PicsDirectoryDisplayWin.UI
             doc.Close();
 
             //Launch the Pdf file
-            PDFDocumentViewer(receiptDir + ImageFileName);
+            if (System.Diagnostics.Debugger.IsAttached)
+                PDFDocumentViewer(receiptDir + ImageFileName);
         }
 
         private void SetPageMarginGeneratePDF_ImageRatio4x3(string ImageFileName, PdfImage img1, PdfImage img2, 
@@ -262,7 +263,8 @@ namespace PicsDirectoryDisplayWin.UI
             doc.Close();
 
             //Launch the Pdf file
-            PDFDocumentViewer( ImageFileName);
+            if (System.Diagnostics.Debugger.IsAttached)
+                PDFDocumentViewer( ImageFileName);
         }
 
         private string InCentimeter(float value)
@@ -470,6 +472,7 @@ namespace PicsDirectoryDisplayWin.UI
         private void button2_Click(object sender, EventArgs e)
         {
             Generate_receipt(taxinvoicenumber+".pdf");
+            PrintReceipt();
         }
 
         private void PrintWatch_Tick(object sender, EventArgs e)
@@ -517,6 +520,19 @@ namespace PicsDirectoryDisplayWin.UI
             //    this.Dispose();
             //    Application.Exit();
             //}
+        }
+
+        private void Tb_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            if (!btn_print.Enabled)
+            {
+                btn_print.Enabled = true;
+            }
         }
 
 

@@ -1,0 +1,1 @@
+REM Copy script for bin ,pics , properties folders from both projects, and config file to picstart folder, refer present files  and write script accordinly

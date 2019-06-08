@@ -30,7 +30,7 @@ python access
 - pip install pycups
 
 # FOR Router configuration
-- Install RaspApi
+- Install RaspApi - https://github.com/billz/raspap-webgui
 - Set port redirection - > 
 The easiest way to come about this is properly installing dnsmasq (which is a DNS cacheing server) then in the folder /etc/dnsmasq.d add a file for each domain you want to redirect.
 For instance this is the contents of /etc/dnsmasq.d/hotmail.com on my system:

@@ -79,9 +79,8 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void ShowGallery(string e)
         {
-            SimpleGallery simpleGallery = new SimpleGallery();
+            SimpleGallery simpleGallery = new SimpleGallery(true);
             simpleGallery.AllImages = new List<ChitraKiAlbumAurVivaran>();
-            simpleGallery.IS_USBConnection = true;
             simpleGallery.USBDriveLetter = e;
             simpleGallery.AnimationFormObject = AnimationForm;
             simpleGallery.Show();

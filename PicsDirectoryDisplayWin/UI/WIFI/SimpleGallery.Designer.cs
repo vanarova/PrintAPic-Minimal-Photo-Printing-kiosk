@@ -134,6 +134,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(88, 31);
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
             // 
             // warningTxt
             // 
@@ -200,7 +201,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.78431F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.21569F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label_PicsCount, 1, 7);
@@ -268,7 +269,7 @@
             // 
             this.label_PicsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_PicsCount.AutoSize = true;
-            this.label_PicsCount.Location = new System.Drawing.Point(182, 255);
+            this.label_PicsCount.Location = new System.Drawing.Point(181, 255);
             this.label_PicsCount.Name = "label_PicsCount";
             this.label_PicsCount.Size = new System.Drawing.Size(31, 18);
             this.label_PicsCount.TabIndex = 6;
@@ -279,7 +280,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(195, 230);
+            this.label8.Location = new System.Drawing.Point(194, 230);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 18);
             this.label8.TabIndex = 8;
@@ -289,7 +290,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 305);
+            this.label1.Location = new System.Drawing.Point(194, 305);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 18);
             this.label1.TabIndex = 7;
@@ -320,7 +321,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(195, 280);
+            this.label9.Location = new System.Drawing.Point(194, 280);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(18, 18);
             this.label9.TabIndex = 9;
@@ -340,7 +341,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(185, 205);
+            this.label11.Location = new System.Drawing.Point(184, 205);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 18);
             this.label11.TabIndex = 11;
@@ -351,7 +352,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(190, 332);
+            this.label13.Location = new System.Drawing.Point(189, 332);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 24);
             this.label13.TabIndex = 13;
@@ -423,7 +424,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(219, 230);
+            this.label3.Location = new System.Drawing.Point(218, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 18);
             this.label3.TabIndex = 19;
@@ -432,7 +433,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(219, 255);
+            this.label7.Location = new System.Drawing.Point(218, 255);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 18);
             this.label7.TabIndex = 20;
@@ -441,7 +442,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(219, 280);
+            this.label15.Location = new System.Drawing.Point(218, 280);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 18);
             this.label15.TabIndex = 21;
@@ -450,7 +451,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(219, 305);
+            this.label16.Location = new System.Drawing.Point(218, 305);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(26, 18);
             this.label16.TabIndex = 22;
@@ -460,7 +461,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(219, 332);
+            this.label17.Location = new System.Drawing.Point(218, 332);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label17.Size = new System.Drawing.Size(23, 21);

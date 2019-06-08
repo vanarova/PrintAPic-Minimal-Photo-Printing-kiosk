@@ -35,12 +35,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_PrintStatus = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imglist
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.imglist, 3);
+            this.tableLayoutPanel1.SetColumnSpan(this.imglist, 4);
             this.imglist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imglist.Location = new System.Drawing.Point(3, 2);
             this.imglist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -60,26 +61,27 @@
             // 
             // btn_Print
             // 
-            this.btn_Print.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Print.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Print.Location = new System.Drawing.Point(405, 422);
+            this.btn_Print.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Print.Location = new System.Drawing.Point(302, 422);
             this.btn_Print.Name = "btn_Print";
-            this.btn_Print.Size = new System.Drawing.Size(223, 63);
+            this.btn_Print.Size = new System.Drawing.Size(141, 63);
             this.btn_Print.TabIndex = 4;
-            this.btn_Print.Text = "Print";
+            this.btn_Print.Text = "Print Selected Pics";
             this.btn_Print.UseVisualStyleBackColor = true;
             this.btn_Print.Click += new System.EventHandler(this.Btn_Print_Click);
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.7324F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.2676F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.01031F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.98969F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel1.Controls.Add(this.imglist, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Print, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_PrintStatus, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Print, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -93,12 +95,12 @@
             // 
             this.lbl_PrintStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_PrintStatus.AutoSize = true;
-            this.lbl_PrintStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PrintStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_PrintStatus.ForeColor = System.Drawing.Color.Red;
-            this.lbl_PrintStatus.Location = new System.Drawing.Point(385, 458);
+            this.lbl_PrintStatus.Location = new System.Drawing.Point(283, 461);
             this.lbl_PrintStatus.Name = "lbl_PrintStatus";
             this.lbl_PrintStatus.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.lbl_PrintStatus.Size = new System.Drawing.Size(14, 30);
+            this.lbl_PrintStatus.Size = new System.Drawing.Size(13, 27);
             this.lbl_PrintStatus.TabIndex = 5;
             this.lbl_PrintStatus.Text = ".";
             // 
@@ -106,13 +108,25 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(634, 422);
+            this.button1.Location = new System.Drawing.Point(598, 422);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 63);
+            this.button1.Size = new System.Drawing.Size(142, 63);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Exit";
+            this.button1.Text = "Restart Program";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(449, 422);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(143, 63);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Clean Printer Queue";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // PrintSettings
             // 
@@ -137,5 +151,6 @@
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.Label lbl_PrintStatus;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

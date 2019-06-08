@@ -1,4 +1,5 @@
 ﻿using PicsDirectoryDisplayWin.lib_ImgIO;
+using PicsDirectoryDisplayWin.lib_Print;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -252,6 +253,12 @@ namespace PicsDirectoryDisplayWin
         private void Button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            //Cancel Print
+            PrintIO.AbortPrinting();
         }
     }
 }

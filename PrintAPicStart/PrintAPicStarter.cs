@@ -60,7 +60,8 @@ namespace PrintAPicStart
             //PicsDirectoryDisplayWin.Animation ani = new PicsDirectoryDisplayWin.Animation();
             //ani.Show();
             //ProcessStartInfo startInfo = new ProcessStartInfo();
-            string FileName = "../../../PicsDirectoryDisplayWin/bin/Debug/PicsDirectoryDisplayWin.exe";
+            //string FileName = "../../../PicsDirectoryDisplayWin/bin/Release/PicsDirectoryDisplayWin.exe";
+            string FileName = "PicsDirectoryDisplayWin.exe";
             if (System.IO.File.Exists(FileName))
             {
                 System.IO.FileInfo finfo = new System.IO.FileInfo(FileName);

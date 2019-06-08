@@ -28,7 +28,7 @@ namespace PicsDirectoryDisplayWin
         public Form AnimationFormObject { get; set; }
         public List<string> SelectedImageKeys { get; set; }
 
-        public bool IS_USBConnection = false;
+        
         public string USBDriveLetter;
         public bool FilesChanged
         {
@@ -48,12 +48,12 @@ namespace PicsDirectoryDisplayWin
             }
         }
 
-
+        private bool IS_USBConnection = false;
         private int foundImageCount = 0;
         private Timer timer;
         //TODO : Remove this timer, make a queue to process multiple requests, process only, first and last request.
         private int RefreshResponseDelay = 1000; //milisec
-        private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        //private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         private Waiter waiter = new Waiter();
         private bool SelectionChanged = false;
         private readonly ImageIO imageIO = new ImageIO();
@@ -69,7 +69,7 @@ namespace PicsDirectoryDisplayWin
         private event EventHandler fileChangedNotifer;
         private event EventHandler refreshGalleryNotifier;
      
-        public SimpleGallery()
+        public SimpleGallery(bool isUSBConnection = false)
         {
             InitializeComponent();
             fileChangedNotifer += SimpleGallery_fileChangedNotifer;
@@ -103,7 +103,7 @@ namespace PicsDirectoryDisplayWin
             label14.Text = ConfigurationManager.AppSettings["TotalText"];
             label13.Text = ConfigurationManager.AppSettings["TotalValue"];
             warningTxt.Text = ConfigurationManager.AppSettings["WarningText"];
-
+            IS_USBConnection = isUSBConnection;
             UploadButton.Visible = IS_USBConnection;
             tb.BackgroundImage = GlobalImageCache.TableBgImg;
             tb.BackgroundImageLayout = ImageLayout.Stretch;
@@ -127,7 +127,7 @@ namespace PicsDirectoryDisplayWin
             }
             AllImages = new List<ChitraKiAlbumAurVivaran>();
             waiter = new Waiter();
-            imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, WebSiteSearchDir,
+            imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, ConfigurationManager.AppSettings["WebSiteSearchDir"],
                 this, waiter, ReportProgress, Done);
         }
 
@@ -253,7 +253,7 @@ namespace PicsDirectoryDisplayWin
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-           int FilesInWebSearchDir = new DirectoryInfo(WebSiteSearchDir).GetFiles().Length;
+           int FilesInWebSearchDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"]).GetFiles().Length;
            int FilesInThumbsDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\thumbs").GetFiles().Length;
             bool isloading = false;
 

@@ -1,5 +1,6 @@
 ﻿using PicsDirectoryDisplayWin.lib;
 using PicsDirectoryDisplayWin.lib_ImgIO;
+using PicsDirectoryDisplayWin.lib_Print;
 using PicsDirectoryDisplayWin.UI;
 using System;
 using System.Collections.Generic;
@@ -184,7 +185,8 @@ namespace PicsDirectoryDisplayWin
 
         private void Animation_Load(object sender, EventArgs e)
         {
-           
+            //clear print queues.
+            PrintIO.AbortPrinting();
         }
 
         private void button1_Click(object sender, EventArgs e)
