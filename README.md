@@ -39,6 +39,8 @@ address=/www.hotmail.com/127.0.0.1
 #Add domains which you want to force all urls to an IP address here.
 address=/#/192.168.1.245
 
+Also check below link for setting up dnsmasq to redeirect all address to one ip
+https://www.stevenrombauts.be/2018/01/use-dnsmasq-instead-of-etc-hosts/
   
 # Notes for OCR --
 https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
