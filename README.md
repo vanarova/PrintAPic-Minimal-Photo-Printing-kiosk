@@ -51,10 +51,12 @@ Username: admin
 Password: secret
 Goto connected guest client section and note the IP address of PC assigned. (This can also be done by simply using ipconfig on PC itself)
 5. To make raspap forward all requests to a particular IP, go to etc\dnsmasq.conf file and add a line 
+
 address=/print.it/127.0.0.1
 address=/www.print.it/127.0.0.1
 for all addresses rediecetion -
 address=/#/127.0.0.1
+
 Enter IP of your pc in above lines.
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
 7. Now raspberry will redirect all request to website hosted on PC and website will apprear
