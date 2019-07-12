@@ -58,7 +58,9 @@ for all addresses rediecetion -
 address=/#/127.0.0.1
 
 Enter IP of your pc in above lines.
+
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
+
 7. Now raspberry will redirect all request to website hosted on PC and website will apprear
   
 # Notes for OCR --
