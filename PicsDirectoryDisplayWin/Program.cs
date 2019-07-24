@@ -40,7 +40,7 @@ namespace PicsDirectoryDisplayWin
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new Animation());
+                Application.Run(new PrintaPic());
             }
             catch (Exception e)
             {

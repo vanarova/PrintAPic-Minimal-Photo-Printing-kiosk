@@ -55,7 +55,10 @@ namespace PicsDirectoryDisplayWin.lib
                 int ImageLimit;
                 // if image count is lower than min images, leave this directory
                 if (files.Length < Globals.IncludeDirectoryContainingMinImages)
+                {
+
                     return;
+                 }
 
                 if (files.Length > Globals.IncludeMaxImages)
                     ImageLimit = Globals.IncludeMaxImages;
@@ -112,14 +115,14 @@ namespace PicsDirectoryDisplayWin.lib
                 // Now find all the subdirectories under this directory.
                 subDirs = root.GetDirectories();
 
-                if (searchDepth >0)
-                {
-                    foreach (System.IO.DirectoryInfo dirInfo in subDirs)
-                    {
-                        // Resursive call for each subdirectory.
-                        WalkDirectoryTree(dirInfo, progress);
-                    }
-                }
+                //if (searchDepth >0)
+                //{
+                //    foreach (System.IO.DirectoryInfo dirInfo in subDirs)
+                //    {
+                //        // Resursive call for each subdirectory.
+                //        WalkDirectoryTree(dirInfo, progress);
+                //    }
+                //}
                
             }
         }

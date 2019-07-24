@@ -3,6 +3,7 @@ using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,7 +41,7 @@ namespace PicsDirectoryDisplayWin.UI
 
             pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
             pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
-            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
             pictureBox4.Image = GlobalImageCache.wifiStepImg;
             pictureBox3.Image = GlobalImageCache.BrowserStepImg;
             pictureBox2.Image = GlobalImageCache.WifiIconImg;
@@ -56,6 +57,7 @@ namespace PicsDirectoryDisplayWin.UI
             label10.Text = ConfigurationManager.AppSettings["WaitingForPics"];
             label11.Text = ConfigurationManager.AppSettings["PhotosKiPratikchaText"];
             fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
+            tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
         }
 
 
@@ -91,7 +93,7 @@ namespace PicsDirectoryDisplayWin.UI
             }
 
             AllImages.Reverse();
-            if (InvokeRequired)
+            if (InvokeRequired || waiter.InvokeRequired)
                 Invoke(new Action(() => waiter.Visible = false));
             else
                 waiter.Visible = false;

@@ -42,7 +42,7 @@ namespace PicsDirectoryDisplayWin.UI
 
             //pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
             pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
-            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
             //pictureBox4.Image = GlobalImageCache.wifiStepImg;
             pictureBox3.Image = GlobalImageCache.BrowserStepImg;
             pictureBox2.Image = GlobalImageCache.WifiIconImg;
@@ -57,6 +57,7 @@ namespace PicsDirectoryDisplayWin.UI
             //label9.Text = ConfigurationManager.AppSettings["TransferPhotosText"];
             label10.Text = ConfigurationManager.AppSettings["WaitingForUSBEng"]; 
             label11.Text = ConfigurationManager.AppSettings["WaitingForUSBHindi"];
+            tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
         }
 
 
@@ -79,6 +80,7 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void ShowGallery(string e)
         {
+            this.Visible = false;
             SimpleGallery simpleGallery = new SimpleGallery(true);
             simpleGallery.AllImages = new List<ChitraKiAlbumAurVivaran>();
             simpleGallery.USBDriveLetter = e;

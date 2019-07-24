@@ -1,0 +1,2 @@
+- Open command prompt in admin mode.
+- Run : Run_IIS_SetUp.bat, This will enable IIS and host a website on it. Done.

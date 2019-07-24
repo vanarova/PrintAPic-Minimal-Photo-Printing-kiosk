@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PicsDirectoryDisplayWin
 {
-    public partial class Animation : Form
+    public partial class PrintaPic : Form
     {
         private ImageIO imageIO = new ImageIO();
         //private string TestSearchDir = @"C:\Users\Arunav\Pictures\Camera Roll";
@@ -23,7 +23,7 @@ namespace PicsDirectoryDisplayWin
         bool searchDone = false;
         int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
-        public Animation()
+        public PrintaPic()
         {
             InitializeComponent();
             this.tableLayoutPanel1.BackgroundImage = GlobalImageCache.TableBgImg;
@@ -37,9 +37,11 @@ namespace PicsDirectoryDisplayWin
         {
             //PickDropGallery pickDropGallery = new PickDropGallery();
             //pickDropGallery.Show();
+            this.Visible = false;
 
             USBConnectHelp usbform = new USBConnectHelp();
             usbform.AnimationForm = this;
+            usbform.TopMost = true;
             usbform.ShowDialog();
 
             // Old implemetation of seacrhing images is commented.

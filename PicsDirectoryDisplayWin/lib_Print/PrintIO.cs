@@ -102,7 +102,7 @@ namespace PicsDirectoryDisplayWin.lib_Print
             {
                 pq.Refresh();
                 if (!pq.Name.ToLower().Contains(printerName.ToLower())) continue;
-                PrintJobInfoCollection jobs = pq.GetPrintJobInfoCollection();
+                PrintJobInfoCollection jobs = pq.GetPrintJobInfoCollection(); 
                 foreach (PrintSystemJobInfo job in jobs)
                 {
                     if (job.JobStatus == PrintJobStatus.PaperOut ||
@@ -132,7 +132,21 @@ namespace PicsDirectoryDisplayWin.lib_Print
 
         internal static void AbortPrinting()
         {
-            //throw new NotImplementedException();
+            //List<PrintJobStatus> prints = new List<PrintJobStatus>();
+            PrinterState pstate = new PrinterState();
+            var printServer = new PrintServer();
+            var myPrintQueues = printServer.GetPrintQueues(new[] { EnumeratedPrintQueueTypes.Local, EnumeratedPrintQueueTypes.Connections });
+
+            foreach (PrintQueue pq in myPrintQueues)
+            {
+                pq.Refresh();
+                //if (!pq.Name.ToLower().Contains(printerName.ToLower())) continue;
+                PrintJobInfoCollection jobs = pq.GetPrintJobInfoCollection();
+                foreach (PrintSystemJobInfo job in jobs)
+                {
+                    job.Cancel();
+                }// end for each print job    
+            }// end for each print queue
         }
     }
 }

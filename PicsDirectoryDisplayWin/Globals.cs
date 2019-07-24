@@ -46,13 +46,13 @@ namespace PicsDirectoryDisplayWin
         public static class GlobalImageCache
     {
        
-        private static string TableBackground = @"..\..\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg";
-        private static string Arrow = @"..\..\pics\Blue_Left_Arrow_PNG_Clip_Art_Image.png";
-        private static string wifiStep = @"..\..\pics\3718444199423493837.png";
-        private static string BrowserStep = @"..\..\pics\sshot1.png";
-        private static string WifiIcon = @"..\..\pics\Wifi.png";
-        private static string HorseAnim = @"..\..\pics\Horse_gallop.gif";
-        private static string Logo = @"..\..\pics\HE logo.png";
+        private static string TableBackground = @"..\..\..\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg";
+        private static string Arrow = @"..\..\..\pics\Blue_Left_Arrow_PNG_Clip_Art_Image.png";
+        private static string wifiStep = @"..\..\..\pics\3718444199423493837.png";
+        private static string BrowserStep = @"..\..\..\pics\sshot1.png";
+        private static string WifiIcon = @"..\..\..\pics\Wifi.png";
+        private static string HorseAnim = @"..\..\..\pics\Horse_gallop.gif";
+        private static string Logo = @"..\..\..\pics\HE logo.png";
 
        
 

@@ -20,6 +20,10 @@ Sales & Support : HERetailSupplies@gmail.com
 [LastMessage]
 Thank you for using our software.
 
+--------------IMPORTANT------------------
+For Further Configuration of application read : README.txt
+
+
 [LicenseAgreement]
 End-User License Agreement ("Agreement")  
 ========================================
@@ -140,6 +144,12 @@ SetupFile=C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDispla
 ProgramGroup=
 
 [Registry]
+[[åÿÎöÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ]
+@=dword:00000000
+[[AfterInstalling]
+@=dword:00000000
+[Requirements]
+@=dword:00000000
 [HKEY_CURRENT_USER\PrinAPic]
 @=dword:00000000
 

@@ -65,7 +65,7 @@ namespace PicsDirectoryDisplayWin.UI
             label9.Text = ConfigurationManager.AppSettings["GSTValue"];
             label16.Text = ConfigurationManager.AppSettings["TotalText"];
             label15.Text = ConfigurationManager.AppSettings["TotalValue"];
-
+            tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
             UpdateBillDetails(selectedImagesCount);
         }
 
@@ -170,8 +170,8 @@ namespace PicsDirectoryDisplayWin.UI
             margin.Top = InPoints(0.5f);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
             margin.Bottom = margin.Top;
             //TODO: Add margins in global settings xml file.
-            margin.Left = InPoints(0.5f); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
-            margin.Right = margin.Left;
+            //margin.Left = InPoints(0.5f); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            //margin.Right = margin.Left;
 
             //PdfPageSettings settings = new PdfPageSettings();
             //settings.Size = new SizeF(InPoints(7.2f), InPoints(7.2f)); //here should 72mmx height
@@ -180,33 +180,39 @@ namespace PicsDirectoryDisplayWin.UI
             //psizee.Width = (int)settings.Size.Width;
             //doc.PrintSettings.PaperSize = psizee;
             //Create one page
-            PdfPageBase page = doc.Pages.Add(new SizeF(InPoints(7.2f), InPoints(7.2f)),margin);
-            PdfFont font12 = new PdfFont(PdfFontFamily.Helvetica, 12f);
+            PdfPageBase page = doc.Pages.Add(new SizeF(InPoints(float.Parse(ConfigurationManager.AppSettings["ReceiptWidth"])),
+                InPoints(float.Parse(ConfigurationManager.AppSettings["ReceiptHeight"]))), margin);
+            //PdfFont font12 = new PdfFont(PdfFontFamily.Helvetica, 12f);
             PdfFont font10 = new PdfFont(PdfFontFamily.Helvetica, 10f);
-            PdfFont font8 = new PdfFont(PdfFontFamily.Helvetica, 8f);
+            //PdfFont font8 = new PdfFont(PdfFontFamily.Helvetica, 8f);
             PdfSolidBrush brush1 = new PdfSolidBrush(Color.Black);
             PdfStringFormat leftAlignment = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
             PdfStringFormat centerAlignment = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
             PdfStringFormat rightAlignment = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 
 
-            string total = (((Convert.ToInt16(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count) * Convert.ToInt16(ConfigurationManager.AppSettings["GSTValue"]) / 100)
-                            + (Convert.ToInt16(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)).ToString();
+            string total = Math.Round(
+                (((Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * 
+                SelectedImages.Count) * Convert.ToDouble(ConfigurationManager.AppSettings["GSTValue"]) / 
+                100) + 
+                (Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)
+                ),2
+                ).ToString();
 
 
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line1"],font12, brush1, page.Canvas.ClientSize.Width, 10, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line1"], font10, brush1, page.Canvas.ClientSize.Width, 10, rightAlignment);
             page.Canvas.DrawString(ConfigurationManager.AppSettings["Line2"] + taxinvoicenumber, font10, brush1, page.Canvas.ClientSize.Width, 25, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line3"]+SelectedImages.Count+"/-",font10, brush1, page.Canvas.ClientSize.Width, 40, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line4"]+ ConfigurationManager.AppSettings["CostValue"] + "/-"
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line3"] + SelectedImages.Count + "/-", font10, brush1, page.Canvas.ClientSize.Width, 40, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line4"] + ConfigurationManager.AppSettings["CostValue"] + "/-"
                 , font10, brush1, page.Canvas.ClientSize.Width, 55, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line5"]+
-                ConfigurationManager.AppSettings["GSTValue"]+ "%", font10, brush1, page.Canvas.ClientSize.Width, 70, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line6"] ,font10, brush1, page.Canvas.ClientSize.Width, 85, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line7"] + total + "/-", font10, brush1, page.Canvas.ClientSize.Width, 100,rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line8"],font8, brush1,  page.Canvas.ClientSize.Width, 120, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line9"],font8, brush1,  page.Canvas.ClientSize.Width, 130, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line10"],font8, brush1, page.Canvas.ClientSize.Width, 140,rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line11"],font10, brush1, page.Canvas.ClientSize.Width, 155,rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line5"] +
+                ConfigurationManager.AppSettings["GSTValue"] + "%", font10, brush1, page.Canvas.ClientSize.Width, 70, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line6"], font10, brush1, page.Canvas.ClientSize.Width, 85, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line7"] + total + "/-", font10, brush1, page.Canvas.ClientSize.Width, 100, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line8"], font10, brush1, page.Canvas.ClientSize.Width, 120, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line9"], font10, brush1, page.Canvas.ClientSize.Width, 130, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line10"], font10, brush1, page.Canvas.ClientSize.Width, 140, rightAlignment);
+            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line11"], font10, brush1, page.Canvas.ClientSize.Width, 155, rightAlignment);
             //Save the document
             doc.SaveToFile(receiptDir + ImageFileName);
             doc.SaveToFile(ConfigurationManager.AppSettings["ReceiptBackupDir"] + "\\" + ImageFileName);
@@ -216,6 +222,65 @@ namespace PicsDirectoryDisplayWin.UI
             if (System.Diagnostics.Debugger.IsAttached)
                 PDFDocumentViewer(receiptDir + ImageFileName);
         }
+
+        //private void Generate_receipt(string ImageFileName)
+        //{
+        //    ///Create a pdf document
+        //    Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
+
+        //    //Set the margin
+        //    PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
+
+        //    PdfMargins margin = new PdfMargins();
+        //    margin.Top = InPoints(0.5f);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+        //    margin.Bottom = margin.Top;
+        //    //TODO: Add margins in global settings xml file.
+        //    margin.Left = InPoints(0.5f); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+        //    margin.Right = margin.Left;
+
+        //    //PdfPageSettings settings = new PdfPageSettings();
+        //    //settings.Size = new SizeF(InPoints(7.2f), InPoints(7.2f)); //here should 72mmx height
+        //    //PaperSize psizee = new PaperSize();
+        //    //psizee.Height = (int)settings.Size.Height;
+        //    //psizee.Width = (int)settings.Size.Width;
+        //    //doc.PrintSettings.PaperSize = psizee;
+        //    //Create one page
+        //    PdfPageBase page = doc.Pages.Add(new SizeF(InPoints(7.2f), InPoints(7.2f)),margin);
+        //    PdfFont font12 = new PdfFont(PdfFontFamily.Helvetica, 12f);
+        //    PdfFont font10 = new PdfFont(PdfFontFamily.Helvetica, 10f);
+        //    PdfFont font8 = new PdfFont(PdfFontFamily.Helvetica, 8f);
+        //    PdfSolidBrush brush1 = new PdfSolidBrush(Color.Black);
+        //    PdfStringFormat leftAlignment = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+        //    PdfStringFormat centerAlignment = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+        //    PdfStringFormat rightAlignment = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+
+
+        //    string total = (((Convert.ToInt16(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count) * Convert.ToInt16(ConfigurationManager.AppSettings["GSTValue"]) / 100)
+        //                    + (Convert.ToInt16(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)).ToString();
+
+
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line1"],font12, brush1, page.Canvas.ClientSize.Width, 10, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line2"] + taxinvoicenumber, font10, brush1, page.Canvas.ClientSize.Width, 25, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line3"]+SelectedImages.Count+"/-",font10, brush1, page.Canvas.ClientSize.Width, 40, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line4"]+ ConfigurationManager.AppSettings["CostValue"] + "/-"
+        //        , font10, brush1, page.Canvas.ClientSize.Width, 55, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line5"]+
+        //        ConfigurationManager.AppSettings["GSTValue"]+ "%", font10, brush1, page.Canvas.ClientSize.Width, 70, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line6"] ,font10, brush1, page.Canvas.ClientSize.Width, 85, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line7"] + total + "/-", font10, brush1, page.Canvas.ClientSize.Width, 100,rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line8"],font8, brush1,  page.Canvas.ClientSize.Width, 120, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line9"],font8, brush1,  page.Canvas.ClientSize.Width, 130, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line10"],font8, brush1, page.Canvas.ClientSize.Width, 140,rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line11"],font10, brush1, page.Canvas.ClientSize.Width, 155,rightAlignment);
+        //    //Save the document
+        //    doc.SaveToFile(receiptDir + ImageFileName);
+        //    doc.SaveToFile(ConfigurationManager.AppSettings["ReceiptBackupDir"] + "\\" + ImageFileName);
+        //    doc.Close();
+
+        //    //Launch the Pdf file
+        //    if (System.Diagnostics.Debugger.IsAttached)
+        //        PDFDocumentViewer(receiptDir + ImageFileName);
+        //}
 
         private void SetPageMarginGeneratePDF_ImageRatio4x3(string ImageFileName, PdfImage img1, PdfImage img2, 
             AspectRatio aspectRatioImage1 = AspectRatio.S4x3, AspectRatio aspectRatioImage2 = AspectRatio.S4x3)

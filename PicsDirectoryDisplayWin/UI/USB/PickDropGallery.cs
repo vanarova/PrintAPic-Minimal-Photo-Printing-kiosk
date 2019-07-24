@@ -3,6 +3,7 @@ using PicsDirectoryDisplayWin.lib_ImgIO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -22,7 +23,7 @@ namespace PicsDirectoryDisplayWin
     public partial class PickDropGallery : Form
     {
         private int foundImageCount = 0;
-
+        
 
         private int RefreshResponseDelay = 1000; //milisec
         private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
@@ -72,6 +73,7 @@ namespace PicsDirectoryDisplayWin
             string checkUnicode = "2714"; // ballot box -1F5F9
             int value = int.Parse(checkUnicode, System.Globalization.NumberStyles.HexNumber);
             CheckSymbol = char.ConvertFromUtf32(value).ToString();
+            tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
         }
 
         private void SimpleGallery_refreshGalleryNotifier(object sender, EventArgs e)
@@ -181,8 +183,8 @@ namespace PicsDirectoryDisplayWin
 
         private void PickDropGallery_Load(object sender, EventArgs e)
         {
-            tb.BackgroundImage = GlobalImageCache.TableBgImg;
-
+            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            
             FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
             {
                 Path = WebSiteSearchDir,

@@ -32,6 +32,18 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         }
 
+        public void DeleteAllNonImageFilesInDrectory(string path)
+        {
+            string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                if (file.ToLower().Contains(".jpg") || file.ToLower().Contains(".jpeg"))
+                    continue;
+
+                File.Delete(file);
+            }
+        }
+
         public int DoesAnyFileExists(string path)
         {
            return Directory.GetFiles(path, "*", SearchOption.AllDirectories).Length;

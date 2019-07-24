@@ -69,3 +69,4 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreRelea
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.exe
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.pdb
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\Release\PicsDirectoryDisplayWin.pdb
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\Release\PicsDirectoryDisplayWin.csprojAssemblyReference.cache

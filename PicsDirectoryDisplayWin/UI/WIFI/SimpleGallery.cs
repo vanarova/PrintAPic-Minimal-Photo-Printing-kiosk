@@ -105,7 +105,8 @@ namespace PicsDirectoryDisplayWin
             warningTxt.Text = ConfigurationManager.AppSettings["WarningText"];
             IS_USBConnection = isUSBConnection;
             UploadButton.Visible = IS_USBConnection;
-            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
             tb.BackgroundImageLayout = ImageLayout.Stretch;
             
         }
@@ -211,8 +212,6 @@ namespace PicsDirectoryDisplayWin
                 SelectedImageChecked(item);
                 UpdateBillDetails(SelectedImageKeys.Count);
             }
-            //item.Bounds.Inflate(60, 60);
-            //item.ForeColor = Color.White;
 
         }
 
@@ -221,18 +220,13 @@ namespace PicsDirectoryDisplayWin
             item.Checked = true;
             item.BackColor = SelectedColor;
             item.Focused = true;
-            //string copyrightUnicode = "2714"; // ballot box -1F5F9
-            //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
-            //string symbol = char.ConvertFromUtf32(value).ToString();
             item.Font = SelectedFont;
             item.Text = "[" + CheckSymbol + "] " + item.Text;
         }
 
         private void SimpleGallery_Load(object sender, EventArgs e)
         {
-            //UploadButton.Visible = IS_USBConnection;
-            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
-            //tb.BackgroundImageLayout = ImageLayout.Stretch;
+
             //TODO : fix, below line, all images [1] is wrong, it shud only detect images and not go in subdirectory
             if (AllImages != null && AllImages.Count > 0)
                 ShowGallerySelectionImages(AllImages[0]);
@@ -241,23 +235,25 @@ namespace PicsDirectoryDisplayWin
             timer.Interval = 3000;
             timer.Tick += Timer_Tick;
             timer.Start();
-            //FileSystemWatcher WebSiteUploadsWatcher = new FileSystemWatcher
-            //{
-            //    Path = WebSiteSearchDir,
-            //    EnableRaisingEvents = true
-            //};
-            ////fileSystemWatcher1.Changed += FileSystemWatcher1_Changed;
-            //WebSiteUploadsWatcher.Created += WebSiteUploadsWatcher_Changed;
-            //WebSiteUploadsWatcher.Deleted += WebSiteUploadsWatcher_Changed;
+
         }
 
+        /// <summary>
+        /// This timer tick event is very important, as it keep watch over folder content, keep up pics if 
+        /// some non jop image is uploaded, it also triggers image load, shows progress bar, enables/disable
+        /// button etc.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
            int FilesInWebSearchDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"]).GetFiles().Length;
            int FilesInThumbsDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\thumbs").GetFiles().Length;
             bool isloading = false;
 
-           
+            //This will delete non jpg files, then image count should b equal to thumbs count and 
+            // progress bar should get stopped.
+            DeleteNonImageFiles();
 
 
             if (AllImages != null && AllImages.Count>0 &&
@@ -284,6 +280,7 @@ namespace PicsDirectoryDisplayWin
 
             if (FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < 20)
             {
+                
                 RefreshThumbnails();
                 isloading = true;
             }
@@ -296,25 +293,28 @@ namespace PicsDirectoryDisplayWin
                 
             }
 
-
+            btn_Next.Enabled = !isloading;
+            imglist.Enabled = !isloading;
+            UploadButton.Enabled = !isloading;
             loadingImageslabel.Visible = isloading;
             LoadingImagesPBar.Visible = isloading;
 
-            //if (SelectedImageKeys.Count==0)
-            //{
-            //    for (int i = 0; i < imglist.Items.Count; i++)
-            //    {
-            //        SelectImage(imglist.Items[i]);
-            //    }
-            //}
+         
+
             ValidateSelectedImages();
 
             UpdateBillDetails(SelectedImageKeys.Count);
         }
 
+        private void DeleteNonImageFiles()
+        {
+            imageIO.DeleteAllNonImageFilesInDrectory(ConfigurationManager.AppSettings["WebSiteSearchDir"]);
+
+        }
 
         private void ValidateSelectedImages()
         {
+            //This condition will be true only when no image is selected, i.e first time upload.
             if (SelectedImageKeys.Count == 0)
             {
                 for (int i = 0; i < imglist.Items.Count; i++)
@@ -523,22 +523,33 @@ namespace PicsDirectoryDisplayWin
             {
                 imglist.LargeImageList.Images.Clear();
             }
-            
+            SelectedImageKeys.Clear();
             imglist.Clear();//imglist.LargeImageList.Images.Clear();
             imageIO.CreateImageListFromThumbnails(obj,imgs);
             imglist.LargeImageList = imgs;
             CheckForMaxImageWarning();
+            
             foreach (var item in obj.PeerImages)
             {
+                //SelectImage(item);
                 // image key is the image sleected from imagelist collection, key must present in imagelist above
+                //var lvitem = new ListViewItem(item.ImageName, item.ImageKey);
+                //SelectedImageChecked(lvitem);
                 imglist.Items.Add(item.ImageName, item.ImageKey);
-                imglist.Show();
+                
             }
+
+            foreach (ListViewItem item in imglist.Items)
+            {
+                SelectImage(item);
+            }
+            
+            imglist.Show();
 
             // Dont show folder icon..
             ////imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero));
             ////imgs.ImageSize = new Size(200, 200);
-            
+
             ////imglist.Items.Add(obj.ImageName, obj.ImageKey);
             ////imglist.Show();
         }
@@ -661,6 +672,10 @@ namespace PicsDirectoryDisplayWin
         
         }
 
+        /// <summary>
+        /// This method is called after images are searched inside directory, its a call back method
+        /// </summary>
+        /// <param name="IsWeb"></param>
         private void Done(bool IsWeb)
         {
 
@@ -763,24 +778,40 @@ namespace PicsDirectoryDisplayWin
 
         private void UploadButton_Click(object sender, EventArgs e)
         {
-            //RefreshThumbnails();
+            imglist.Enabled = false;
             UploadUSBFilesDialog.InitialDirectory = USBDriveLetter;
             UploadUSBFilesDialog.ShowDialog();
             UploadUSBFilesDialog.DefaultExt = ".jpg";
             UploadUSBFilesDialog.Multiselect = true;
-            for (int i = 0; i < UploadUSBFilesDialog.FileNames.Count(); i++)
+            bool pass = true;
+             pass =   UploadUSBFilesDialog.SafeFileNames.Any((x) => {
+                 if (x.ToLower().Contains(".jpg") || x.ToLower().Contains(".jpeg"))
+                     pass = true;
+                 else
+                     pass = false;
+                    return pass;
+                });
+            if (pass)
             {
-                //if (!UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpg")
-                //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpeg")
-                //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".png")
-                //    )
-                //{
-                //    continue;
-                //}
-                File.Copy(UploadUSBFilesDialog.FileNames[i], ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\"+ 
-                    UploadUSBFilesDialog.SafeFileNames[i]);
+                for (int i = 0; i < UploadUSBFilesDialog.FileNames.Count(); i++)
+                {
+                    //if (!UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpg")
+                    //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpeg")
+                    //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".png")
+                    //    )
+                    //{
+                    //    continue;
+                    //}
+                    File.Copy(UploadUSBFilesDialog.FileNames[i], ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\" +
+                        UploadUSBFilesDialog.SafeFileNames[i]);
+                }
             }
-            
+            else
+            {
+                MessageBox.Show("Only image (jpg) is allowed");
+            }
+            imglist.Enabled = true ;
+
         }
 
         
