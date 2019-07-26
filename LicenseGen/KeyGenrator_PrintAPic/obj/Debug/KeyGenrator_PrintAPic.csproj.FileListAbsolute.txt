@@ -1,0 +1,11 @@
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\bin\Debug\KeyGenrator_PrintAPic.exe.config
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\bin\Debug\KeyGenrator_PrintAPic.exe
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\bin\Debug\KeyGenrator_PrintAPic.pdb
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.csprojAssemblyReference.cache
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.Form1.resources
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.Properties.Resources.resources
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.csproj.GenerateResource.cache
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.csproj.CoreCompileInputs.cache
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.exe
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.pdb
+C:\Users\h175494\source\repos\Licensor\KeyGenrator_PrintAPic\obj\Debug\KeyGenrator_PrintAPic.Help.resources

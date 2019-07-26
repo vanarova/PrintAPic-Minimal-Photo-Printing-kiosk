@@ -1,6 +1,0 @@
-2019-06-04 20:39:59.3999|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
-2019-06-04 20:40:07.9546|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
-2019-06-04 20:40:17.3784|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
-2019-06-04 20:42:16.9654|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
-2019-06-04 20:42:23.3368|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
-2019-06-24 21:59:40.8329|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
