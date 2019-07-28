@@ -72,3 +72,5 @@ Use the Windows key + I keyboard shortcut to open the Settings app.
 Click Devices.
 Click AutoPlay.
 Turn on or off the "Use AutoPlay for media and devices".
+
+# Give full access rights to uploads and thumbs folder inside website.. Else app wont work
