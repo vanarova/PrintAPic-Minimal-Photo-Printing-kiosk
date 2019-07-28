@@ -58,11 +58,17 @@ for all addresses rediecetion -
 address=/#/127.0.0.1
 
 Enter IP of your pc in above lines.
-
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
-
 7. Now raspberry will redirect all request to website hosted on PC and website will apprear
   
 # Notes for OCR --
 https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
 https://github.com/priyankvex/Easy-Ocr-Scanner-Android
+
+# Further notes -- 
+
+# How to enable or disable AutoPlay
+Use the Windows key + I keyboard shortcut to open the Settings app.
+Click Devices.
+Click AutoPlay.
+Turn on or off the "Use AutoPlay for media and devices".
