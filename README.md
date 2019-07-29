@@ -20,9 +20,7 @@ Enter IP of your pc in above lines.
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
 7. Now raspberry will redirect all request to website hosted on PC and website will apprear
   
-# Notes for OCR --
-https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
-https://github.com/priyankvex/Easy-Ocr-Scanner-Android
+
 
 # Post installation notes -- 
 
@@ -41,9 +39,10 @@ uploads and thumbs folder inside website.. Else app wont work
 
 
 
+
 ------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------
-# Misc
+# Reference
+
 Headless pi config steps --
 https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0
 
@@ -65,7 +64,6 @@ https://www.raspberrypi.org/documentation/remote-access/ftp.md
 upload/jamun123
 
 if needed------
-
 command line options cups
 https://www.cups.org/doc/options.html
 
@@ -84,4 +82,8 @@ address=/www.hotmail.com/127.0.0.1
 address=/#/192.168.1.245
 
 Also check below link for setting up dnsmasq to redeirect all address to one ip
-https://www.stevenrombauts.be/2018/01/use-dnsmasq-instead-of-etc-hosts/
+https://www.stevenrombauts.be/2018/01/use-dnsmasq-instead-of-etc-hosts/.
+
+Notes for OCR --
+https://www.truiton.com/2016/11/optical-character-recognition-android-ocr/
+https://github.com/priyankvex/Easy-Ocr-Scanner-Android
