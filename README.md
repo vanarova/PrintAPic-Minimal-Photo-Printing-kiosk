@@ -34,12 +34,11 @@ Turn on or off the "Use AutoPlay for media and devices".
 # Give full access rights to
 uploads and thumbs folder inside website.. Else app wont work
 
-.
-.
-.
-.
-.
-.
+
+-
+-
+-
+-
 ------------------------------------------------------------------------------------------------------------
 # References
 
