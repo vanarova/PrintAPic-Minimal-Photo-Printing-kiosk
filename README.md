@@ -34,14 +34,14 @@ Turn on or off the "Use AutoPlay for media and devices".
 # Give full access rights to
 uploads and thumbs folder inside website.. Else app wont work
 
-
-
-
-
-
-
+.
+.
+.
+.
+.
+.
 ------------------------------------------------------------------------------------------------------------
-# Reference
+# References
 
 Headless pi config steps --
 https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0
