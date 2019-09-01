@@ -16,6 +16,8 @@ address=/www.print.it/127.0.0.1
 for all addresses rediecetion -
 address=/#/127.0.0.1
 
+You can reserve static IP addresses for various clients in your network by writing the reservations in /etc/dnsmasq.conf. The static lease takes the form dhcp-host=<mac address>,<ip address>.
+
 Enter IP of your pc in above lines.
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
 7. Now raspberry will redirect all request to website hosted on PC and website will apprear
