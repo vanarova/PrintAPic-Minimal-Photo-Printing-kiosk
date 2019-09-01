@@ -11,12 +11,17 @@ Password: secret
 Goto connected guest client section and note the IP address of PC assigned. (This can also be done by simply using ipconfig on PC itself)
 5. To make raspap forward all requests to a particular IP, go to etc\dnsmasq.conf file and add a line 
 
-address=/print.it/127.0.0.1
-address=/www.print.it/127.0.0.1
-for all addresses rediecetion -
-address=/#/127.0.0.1
+address=/print.it/10.3.141.242
+address=/www.print.it/10.3.141.242
 
-You can reserve static IP addresses for various clients in your network by writing the reservations in /etc/dnsmasq.conf. The static lease takes the form dhcp-host=<mac address>,<ip address>.
+or
+best is assign all ips to redirect to a address
+for all addresses rediecetion -
+address=/#/10.3.141.242
+NOTE: Here 10.3.141.242 is address for machine hosting website.
+
+You can reserve STATIC IP addresses for various clients in your network by writing the reservations in /etc/dnsmasq.conf. The static lease takes the form -
+dhcp-host=<mac address>,<ip address>.
 
 Enter IP of your pc in above lines.
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
