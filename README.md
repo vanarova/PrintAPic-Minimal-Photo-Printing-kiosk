@@ -21,7 +21,7 @@ address=/#/10.3.141.242
 NOTE: Here 10.3.141.242 is address for machine hosting website.
 
 You can reserve STATIC IP addresses for various clients in your network by writing the reservations in /etc/dnsmasq.conf. The static lease takes the form -
-dhcp-host=<mac address>,<ip address>.
+dhcp-host=[mac address],[ip address].
 
 Enter IP of your pc in above lines.
 6. On PC, go to IIS server and configure it so that it listens to all 8080 ports and serves website.
