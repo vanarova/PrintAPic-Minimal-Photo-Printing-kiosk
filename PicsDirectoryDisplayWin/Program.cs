@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,11 +25,17 @@ namespace PicsDirectoryDisplayWin
             // Application.ThreadExit += Application_ThreadExit;
             //Application.
 
+            ImageIO.CheckNCreateDirectory(Globals.logDirPath);
+            ImageIO.CheckNCreateDirectory(Globals.receiptDir);
+            ImageIO.CheckNCreateDirectory(Globals.PrintDir);
+            ImageIO.CheckNCreateDirectory(ConfigurationManager.AppSettings["ReceiptBackupDir"]);
+
+
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             var config = new NLog.Config.LoggingConfiguration();
-
-            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "log.txt" };
+            
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = Globals.logDir };
             var logconsole = new NLog.Targets.ConsoleTarget("logconsole");
 
             config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole);
@@ -40,11 +47,14 @@ namespace PicsDirectoryDisplayWin
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
+                if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                    logger.Log(NLog.LogLevel.Info, "Starting application.....................................");
                 Application.Run(new PrintaPic());
             }
             catch (Exception e)
             {
-                logger.Log(NLog.LogLevel.Error, e.Message);
+                if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                    logger.Log(NLog.LogLevel.Error, e.Message);
             }
             
         }
@@ -52,7 +62,8 @@ namespace PicsDirectoryDisplayWin
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-            logger.Log(NLog.LogLevel.Error, ((Exception)e.ExceptionObject).Message);
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Error, ((Exception)e.ExceptionObject).Message);
         }
     }
 }

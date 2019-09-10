@@ -1,0 +1,691 @@
+2019-07-24 22:50:47.2466|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-24 22:50:47.2779|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-24 22:50:47.2779|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 22:51:13.0446|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 22:51:13.0777|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 22:51:13.0777|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 22:55:33.2428|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 22:55:33.2706|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 22:55:33.2706|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 23:01:56.2595|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 23:01:56.2848|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-25 23:01:56.2873|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:22:21.5466|ERROR|PicsDirectoryDisplayWin.Program|Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+2019-07-28 16:23:15.5795|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:23:15.6048|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:23:49.7546|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:23:49.7546|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:23:49.7546|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:28.9966|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0189|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0218|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0218|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0218|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0218|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0218|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0362|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0362|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0362|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0362|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:29.0362|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0574|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0574|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0574|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0668|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0668|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0668|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0668|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0668|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:35.0842|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6760|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6799|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6799|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6799|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6799|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6928|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6928|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6928|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.6928|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.7097|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.7097|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 16:25:40.7097|INFO|PicsDirectoryDisplayWin.SimpleGallery|thumbnail size 80,80 should be in a config file.
+2019-07-28 21:59:32.2816|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:01:58.1781|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:02:41.7241|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:03:09.3043|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:03:40.9957|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:04:07.1509|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:06:15.8775|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:06:23.6489|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:07:24.1899|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:07:31.1910|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:08:36.4917|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-07-28 22:08:41.3589|ERROR|PicsDirectoryDisplayWin.UI.WifiConnectHelp|Access to the path 'C:\inetpub\wwwroot\PrintAPicSite\uploads\1.jpg' is denied.
+2019-09-04 06:09:20.7849|INFO|PicsDirectoryDisplayWin.Program|Starting application.....................................
+2019-09-04 06:09:20.9614|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside Abort printing function
+2019-09-04 06:10:53.1085|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_CheckForImages function
+2019-09-04 06:10:53.2541|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_RotateImageIfNeeded_CreateThumbnails function
+2019-09-04 06:11:02.8295|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_RotateImageIfNeeded_CreateThumbnails function
+2019-09-04 06:11:03.0440|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside CreateImageListFromThumbnails function
+2019-09-04 06:11:03.0440|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:11:03.0440|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:11:03.0519|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:11:03.0519|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:11:06.1629|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-04 06:11:09.1617|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-04 06:11:12.1350|INFO|PicsDirectoryDisplayWin.SimpleGallery|Inside Next button click function.
+2019-09-04 06:11:12.2008|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-04 06:11:13.5422|INFO|PicsDirectoryDisplayWin.SimpleGallery|Inside Next button click function.
+2019-09-04 06:11:16.0863|INFO|PicsDirectoryDisplayWin.UI.Print|Inside Generate_receipt function.
+2019-09-04 06:11:16.2568|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:16.7565|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:17.2552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:17.4817|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing receipt file :49201961113.pdf
+2019-09-04 06:11:17.5177|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:11:17.5246|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:11:17.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:18.2547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:18.3983|INFO|PicsDirectoryDisplayWin.UI.Print|Generating Image PDF..
+2019-09-04 06:11:18.3983|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:11:18.3983|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:11:18.7564|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:19.2560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:19.3268|INFO|PicsDirectoryDisplayWin.UI.Print|Generating Image PDF..
+2019-09-04 06:11:19.3268|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside PrintPDFs function. print dir:C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Debug\Prints\
+2019-09-04 06:11:19.7559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:20.2566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:20.7563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:21.2551|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:21.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:22.2553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:22.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:23.2567|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:23.7553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:24.2550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:24.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:25.2566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:25.7571|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:26.2558|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:26.7545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:27.2571|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:27.7548|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:28.2554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:28.7562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:28.9034|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing image file :C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Debug\Prints\Print0.pdf
+2019-09-04 06:11:29.2566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:29.7542|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:30.2569|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:30.7613|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:31.2570|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:31.7546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:32.2543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:32.7569|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:33.2556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:33.7562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:34.2589|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:34.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:35.2563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:35.7549|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:36.2566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:36.7562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:37.2549|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:37.7565|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:38.2542|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:38.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:39.2557|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:39.7553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:40.2570|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:40.7557|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:41.2573|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:41.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:42.2547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:42.7543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:43.2560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:43.7566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:44.2543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:44.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:45.2546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:45.7553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:46.2550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:46.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:46.9022|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing image file :C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Debug\Prints\Print2.pdf
+2019-09-04 06:11:47.2565|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:47.7562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:48.2550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:48.7557|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:49.2542|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:49.7559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:50.2558|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:50.7554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:51.2570|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:51.7548|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:52.2545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:52.7554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:53.2559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:54.1608|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:54.2545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:54.7566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:55.2549|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:55.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:56.2563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:56.7541|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:57.2548|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:57.7569|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:58.2556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:58.7543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:59.2553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:11:59.7568|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:00.2565|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:00.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:01.2549|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:01.7561|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:02.2552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:02.7555|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:03.2558|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:03.7554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:04.2562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:04.7569|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:05.2545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:05.7561|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:06.2553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:06.7569|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:07.2571|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:07.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:08.2552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:08.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:09.2544|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:09.7551|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:10.2558|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:10.8467|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:11.2556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:11.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:12.2552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:12.7546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:13.2552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:13.7558|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:14.2566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:14.7546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:15.2571|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:15.7552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:16.2559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:16.7546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:17.2560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:17.7550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:18.2551|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:18.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:19.2554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:19.7544|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:20.2566|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:20.7543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:21.2547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:21.7563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:22.2561|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:22.7545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:23.2548|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:23.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:24.2543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:24.7545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:25.2550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:25.7563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:26.2549|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:26.7563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:27.2559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:27.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:28.2563|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:28.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:29.2546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:29.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:30.2559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:30.7552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:31.2553|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:31.7570|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:32.2551|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:32.7543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:33.2544|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:33.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:34.2562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:34.7542|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:35.2545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:35.7552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:36.2571|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:36.7542|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:37.2550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:37.7554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:38.2556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:38.7550|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:39.2547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:39.7543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:40.2562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:40.7554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:41.2551|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:41.7552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:42.2544|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:42.7546|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:43.2543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:43.7561|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:44.2543|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:44.7560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:45.2559|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:45.7556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:46.2556|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:46.7562|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:47.2551|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:47.7549|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:48.2548|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:48.7554|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:49.2557|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:49.7547|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:50.2544|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:50.7542|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:51.2561|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:51.7545|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:52.2552|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:52.7576|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:53.2560|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:12:53.6748|INFO|PicsDirectoryDisplayWin.UI.Print|Inside Finish function. Closing forms
+2019-09-04 06:12:54.4996|INFO|PicsDirectoryDisplayWin.Program|Starting application.....................................
+2019-09-04 06:12:54.6431|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside Abort printing function
+2019-09-04 06:13:36.3035|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_CheckForImages function
+2019-09-04 06:13:36.4501|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_RotateImageIfNeeded_CreateThumbnails function
+2019-09-04 06:13:45.8302|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_RotateImageIfNeeded_CreateThumbnails function
+2019-09-04 06:13:46.0666|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside CreateImageListFromThumbnails function
+2019-09-04 06:13:46.0696|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:13:46.0696|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:13:46.0696|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:13:46.0696|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-04 06:13:49.1479|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-04 06:13:50.9907|INFO|PicsDirectoryDisplayWin.SimpleGallery|Inside Next button click function.
+2019-09-04 06:13:52.1463|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-04 06:13:55.1463|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-04 06:13:56.8071|INFO|PicsDirectoryDisplayWin.SimpleGallery|Inside Next button click function.
+2019-09-04 06:13:59.9225|INFO|PicsDirectoryDisplayWin.UI.Print|Inside Generate_receipt function.
+2019-09-04 06:14:00.1479|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:00.6466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:01.1462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:01.2031|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing receipt file :49201961356.pdf
+2019-09-04 06:14:01.2371|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:14:01.2440|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:14:01.6459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:02.1466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:02.1736|INFO|PicsDirectoryDisplayWin.UI.Print|Generating Image PDF..
+2019-09-04 06:14:02.1775|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:14:02.1775|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:14:02.6463|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:03.0672|INFO|PicsDirectoryDisplayWin.UI.Print|Generating Image PDF..
+2019-09-04 06:14:03.0672|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside PrintPDFs function. print dir:C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Debug\Prints\
+2019-09-04 06:14:03.1463|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:03.8001|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:04.1456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:04.6458|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:05.1478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:05.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:06.1452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:06.6448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:07.1455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:07.6461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:08.1448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:08.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:09.1452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:09.6458|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:10.1465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:10.6471|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:11.1448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:11.6465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:12.1451|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:12.6448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:13.1455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:13.6072|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing image file :C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Debug\Prints\Print0.pdf
+2019-09-04 06:14:13.6461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:14.1477|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:14.6464|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:15.1453|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:15.6449|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:16.1456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:16.6462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:17.1449|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:17.6465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:18.1452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:18.6448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:19.1465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:19.6462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:20.1449|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:20.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:21.1462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:21.6449|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:22.1465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:22.6481|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:23.1465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:23.6531|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:24.1642|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:24.6519|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:25.1506|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:25.6473|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:26.1459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:26.6516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:27.1463|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:27.6539|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:28.1466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:28.6463|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:29.1529|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:29.6519|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:30.1456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:30.6502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:31.1459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:31.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:32.1452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:32.5862|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing image file :C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Debug\Prints\Print2.pdf
+2019-09-04 06:14:32.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:33.1512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:33.6539|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:34.1518|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:34.6512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:35.1506|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:35.6460|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:36.1449|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:36.6500|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:37.1457|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:37.6506|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:38.1528|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:38.6466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:39.1513|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:39.6503|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:40.1502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:40.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:41.1522|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:41.6459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:42.1450|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:42.6512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:43.1503|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:43.6466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:44.1484|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:44.6481|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:45.1495|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:45.7471|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:46.1522|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:46.6489|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:47.1504|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:47.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:48.1511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:48.6448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:49.1483|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:49.6450|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:50.1478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:50.6474|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:51.1466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:51.6504|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:52.1448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:52.6503|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:53.1501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:53.6491|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:54.1517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:54.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:55.1517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:55.6478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:56.1454|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:56.6458|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:57.1500|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:57.6471|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:58.1500|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:58.6503|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:59.1515|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:14:59.6521|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:00.1461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:00.6456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:01.1464|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:01.6501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:02.1501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:02.6501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:03.1515|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:03.6452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:04.1495|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:04.6475|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:05.1457|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:05.6487|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:06.1516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:06.6539|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:07.1536|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:07.6508|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:08.1462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:08.6532|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:09.1479|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:09.6501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:10.1512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:10.6477|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:11.1498|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:11.6501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:12.1521|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:12.6507|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:13.1459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:13.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:14.1454|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:14.6461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:15.1480|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:15.6512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:16.1468|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:16.6534|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:17.1488|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:17.6527|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:18.1536|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:18.6457|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:19.1499|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:19.6517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:20.1523|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:20.6475|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:21.1498|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:21.6454|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:22.1451|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:22.6509|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:23.1456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:23.6450|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:24.1492|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:24.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:25.1517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:25.6493|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:26.1488|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:26.6504|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:27.1530|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:27.6517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:28.1461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:28.6511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:29.1515|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:29.6452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:30.1457|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:30.6456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:31.1516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:31.6495|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:32.1477|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:32.6524|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:33.1450|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:33.6510|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:34.1488|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:34.6537|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:35.1454|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:35.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:36.1496|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:36.6511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:37.1516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:37.6519|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:38.1457|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:38.6454|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:39.1448|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:39.6469|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:40.1520|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:40.6517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:41.1486|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:41.6492|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:42.1513|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:42.6509|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:43.1499|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:43.6524|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:44.1500|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:44.6463|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:45.1465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:45.6515|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:46.1462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:46.6456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:47.1508|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:47.6530|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:48.1517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:48.6485|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:49.1498|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:49.6514|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:50.1522|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:50.6457|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:51.1472|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:51.6478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:52.1504|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:52.6497|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:53.1537|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:53.6514|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:54.1511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:54.6499|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:55.1480|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:55.6499|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:56.1501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:56.6487|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:57.1524|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:57.6482|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:58.1476|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:58.6451|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:59.1527|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:15:59.6464|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:00.1505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:00.6539|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:01.1516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:01.6512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:02.1520|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:02.6524|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:03.1483|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:03.6470|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:04.1478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:04.6465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:05.1452|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:05.6500|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:06.1530|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:06.6497|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:07.1499|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:07.6508|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:08.1475|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:08.6461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:09.1476|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:09.6478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:10.1525|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:10.6511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:11.1502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:11.6516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:12.1503|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:12.6511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:13.1477|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:13.6534|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:14.1511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:14.6501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:15.1507|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:15.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:16.1506|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:16.6524|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:17.1474|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:17.6530|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:18.1513|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:18.6502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:19.1532|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:19.6469|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:20.1462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:20.6467|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:21.1533|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:21.6451|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:22.1458|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:22.6466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:23.1493|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:23.6462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:24.1490|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:24.6462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:25.1449|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:25.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:26.1521|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:26.6462|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:27.1494|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:27.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:28.1454|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:28.6509|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:29.1496|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:29.6489|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:30.1453|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:30.6539|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:31.1464|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:31.6499|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:32.1477|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:32.6514|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:33.1521|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:33.6455|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:34.1496|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:34.6502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:35.1511|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:35.6530|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:36.1516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:36.6451|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:37.1471|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:37.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:38.1512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:38.6505|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:39.1493|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:39.6475|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:40.1450|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:40.6491|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:41.1470|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:41.6517|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:42.1498|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:42.6512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:43.1520|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:43.6507|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:44.1460|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:44.6461|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:45.1490|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:45.6470|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:46.1516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:46.6516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:47.1473|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:47.6478|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:48.1514|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:48.6467|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:49.1524|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:49.6500|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:50.1483|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:50.6516|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:51.1492|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:51.6503|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:52.1523|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:52.6492|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:53.1523|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:53.6490|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:54.1502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:54.6459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:55.1507|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:55.6465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:56.1527|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:56.6494|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:57.1501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:57.6520|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:58.1465|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:58.6509|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:59.1497|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:16:59.6534|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:00.1480|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:00.6501|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:01.1498|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:01.6476|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:02.1512|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:02.6460|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:03.1456|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:03.6506|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:04.1459|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:04.6522|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:05.1502|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-04 06:17:06.4907|INFO|PicsDirectoryDisplayWin.Program|Starting application.....................................
+2019-09-04 06:17:06.6699|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside Abort printing function
+2019-09-04 06:30:53.0759|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:30:53.1238|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:30:54.1960|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:30:54.1960|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:32:28.5257|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:32:28.5596|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-04 06:32:29.4362|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image

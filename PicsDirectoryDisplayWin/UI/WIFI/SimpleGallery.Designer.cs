@@ -67,6 +67,7 @@
             this.previewImages = new System.Windows.Forms.ImageList(this.components);
             this.LoadingImagesProgBar = new System.Windows.Forms.ProgressBar();
             this.UploadUSBFilesDialog = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.tb.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -100,6 +101,7 @@
             // imglist
             // 
             this.imglist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imglist.HideSelection = false;
             this.imglist.Location = new System.Drawing.Point(264, 2);
             this.imglist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imglist.Name = "imglist";
@@ -152,15 +154,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UploadButton.AutoSize = true;
+            this.UploadButton.BackColor = System.Drawing.Color.Cyan;
             this.UploadButton.Enabled = false;
+            this.UploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UploadButton.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UploadButton.Location = new System.Drawing.Point(100, 0);
             this.UploadButton.Margin = new System.Windows.Forms.Padding(0);
             this.UploadButton.Name = "UploadButton";
             this.UploadButton.Size = new System.Drawing.Size(159, 75);
             this.UploadButton.TabIndex = 5;
-            this.UploadButton.Text = "Upload";
-            this.UploadButton.UseVisualStyleBackColor = true;
+            this.UploadButton.Text = "Photos";
+            this.UploadButton.UseVisualStyleBackColor = false;
             this.UploadButton.Click += new System.EventHandler(this.UploadButton_Click);
             // 
             // btn_Back
@@ -170,6 +174,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Back.AutoSize = true;
+            this.btn_Back.BackColor = System.Drawing.Color.Cyan;
+            this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Back.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Back.Location = new System.Drawing.Point(259, 0);
             this.btn_Back.Margin = new System.Windows.Forms.Padding(0);
@@ -177,7 +183,7 @@
             this.btn_Back.Size = new System.Drawing.Size(169, 75);
             this.btn_Back.TabIndex = 3;
             this.btn_Back.Text = "Back";
-            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.UseVisualStyleBackColor = false;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Next
@@ -186,7 +192,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Next.AutoSize = true;
+            this.btn_Next.BackColor = System.Drawing.Color.Cyan;
             this.btn_Next.Enabled = false;
+            this.btn_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Next.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Next.Location = new System.Drawing.Point(428, 0);
             this.btn_Next.Margin = new System.Windows.Forms.Padding(0);
@@ -194,7 +202,7 @@
             this.btn_Next.Size = new System.Drawing.Size(161, 75);
             this.btn_Next.TabIndex = 4;
             this.btn_Next.Text = "Next";
-            this.btn_Next.UseVisualStyleBackColor = true;
+            this.btn_Next.UseVisualStyleBackColor = false;
             this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
             // 
             // tableLayoutPanel1
@@ -203,7 +211,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.78431F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.21569F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label_PicsCount, 1, 7);
@@ -225,6 +233,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.label16, 2, 9);
             this.tableLayoutPanel1.Controls.Add(this.label17, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -250,7 +259,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 255);
+            this.label5.Location = new System.Drawing.Point(29, 255);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 18);
             this.label5.TabIndex = 4;
@@ -261,7 +270,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 230);
+            this.label4.Location = new System.Drawing.Point(48, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 18);
             this.label4.TabIndex = 3;
@@ -271,7 +280,7 @@
             // 
             this.label_PicsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_PicsCount.AutoSize = true;
-            this.label_PicsCount.Location = new System.Drawing.Point(179, 255);
+            this.label_PicsCount.Location = new System.Drawing.Point(176, 255);
             this.label_PicsCount.Name = "label_PicsCount";
             this.label_PicsCount.Size = new System.Drawing.Size(31, 18);
             this.label_PicsCount.TabIndex = 6;
@@ -282,7 +291,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(192, 230);
+            this.label8.Location = new System.Drawing.Point(189, 230);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 18);
             this.label8.TabIndex = 8;
@@ -292,7 +301,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 305);
+            this.label1.Location = new System.Drawing.Point(189, 305);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 18);
             this.label1.TabIndex = 7;
@@ -302,7 +311,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 305);
+            this.label2.Location = new System.Drawing.Point(36, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 1;
@@ -312,7 +321,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(54, 280);
+            this.label10.Location = new System.Drawing.Point(52, 280);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 18);
             this.label10.TabIndex = 10;
@@ -323,7 +332,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(192, 280);
+            this.label9.Location = new System.Drawing.Point(189, 280);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(18, 18);
             this.label9.TabIndex = 9;
@@ -333,7 +342,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(39, 205);
+            this.label12.Location = new System.Drawing.Point(37, 205);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 18);
             this.label12.TabIndex = 12;
@@ -343,7 +352,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(182, 205);
+            this.label11.Location = new System.Drawing.Point(179, 205);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 18);
             this.label11.TabIndex = 11;
@@ -354,7 +363,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(187, 332);
+            this.label13.Location = new System.Drawing.Point(184, 332);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 24);
             this.label13.TabIndex = 13;
@@ -367,7 +376,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(0, 330);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 2);
+            this.pictureBox2.Size = new System.Drawing.Size(128, 2);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
@@ -376,10 +385,10 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Black;
             this.tableLayoutPanel1.SetColumnSpan(this.pictureBox3, 2);
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(130, 330);
+            this.pictureBox3.Location = new System.Drawing.Point(128, 330);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(125, 2);
+            this.pictureBox3.Size = new System.Drawing.Size(127, 2);
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             // 
@@ -389,7 +398,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(54, 332);
+            this.label14.Location = new System.Drawing.Point(52, 332);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 24);
             this.label14.TabIndex = 14;
@@ -404,7 +413,7 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 162);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 40);
+            this.label6.Size = new System.Drawing.Size(122, 40);
             this.label6.TabIndex = 18;
             this.label6.Text = "Bill info..";
             // 
@@ -426,7 +435,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(216, 230);
+            this.label3.Location = new System.Drawing.Point(213, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 18);
             this.label3.TabIndex = 19;
@@ -435,7 +444,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(216, 255);
+            this.label7.Location = new System.Drawing.Point(213, 255);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 18);
             this.label7.TabIndex = 20;
@@ -444,7 +453,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(216, 280);
+            this.label15.Location = new System.Drawing.Point(213, 280);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 18);
             this.label15.TabIndex = 21;
@@ -453,7 +462,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(216, 305);
+            this.label16.Location = new System.Drawing.Point(213, 305);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(26, 18);
             this.label16.TabIndex = 22;
@@ -463,7 +472,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(216, 332);
+            this.label17.Location = new System.Drawing.Point(213, 332);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label17.Size = new System.Drawing.Size(23, 21);
@@ -530,6 +539,18 @@
             // UploadUSBFilesDialog
             // 
             this.UploadUSBFilesDialog.Multiselect = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(131, 108);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 51);
+            this.button1.TabIndex = 24;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // SimpleGallery
             // 
@@ -598,6 +619,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.OpenFileDialog UploadUSBFilesDialog;
+        private System.Windows.Forms.Button button1;
     }
 }
 

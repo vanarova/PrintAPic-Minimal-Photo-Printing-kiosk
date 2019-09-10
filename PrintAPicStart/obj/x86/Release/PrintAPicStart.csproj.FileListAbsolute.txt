@@ -18,8 +18,16 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreRelea
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.csprojAssemblyReference.cache
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.Main.resources
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.Properties.Resources.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.Registration.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.SerialKey.resources
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.csproj.GenerateResource.cache
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.csproj.CoreCompileInputs.cache
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.csproj.CopyComplete
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.exe
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.pdb
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\Print99.pdf
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\PrintAPicStart.exe.manifest
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\PrintAPicStart.application
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.TrustInfo.xml
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.exe.manifest
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.application

@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="2189288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="2082792">
       <assemblyIdentity name="PicsDirectoryDisplayWin" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XHz8QMVYS3SCSSJ6iaQbUyGwYifTGcXTDR22pLlkw04=</dsig:DigestValue>
+        <dsig:DigestValue>Vz1R23zO/7MjPFIbM71QPQG7Uht+nj+qkXnBcXttBdw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -149,13 +149,22 @@
       <dsig:DigestValue>IZhZFEv589zAbTzV0JMFRDduG5ExNU9Y9jwtzpQ0fU8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PicsDirectoryDisplayWin.exe.config" size="4748">
+  <file name="PicsDirectoryDisplayWin.exe.config" size="4740">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rpIa2Mybx9aPW2Jwcwvu46c8ME02dINcdGyXvIMSVKU=</dsig:DigestValue>
+      <dsig:DigestValue>0umYtRNNFDtlJp1IVVkI5UbPCXN/vWXoXBFTNxBXG4k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Print99.pdf" size="3908">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>IyA/kmQWFxTNuNL0dLm2QeanNfjOpAmMQKPKuHQ710k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Properties\Resources.resx" size="5817">

@@ -1,0 +1,31 @@
+2019-09-08 11:16:28.7639|INFO|PicsDirectoryDisplayWin.Program|Starting application.....................................
+2019-09-08 11:16:31.5652|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside Abort printing function
+2019-09-08 11:16:51.4327|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_CheckForImages function
+2019-09-08 11:16:51.5574|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_RotateImageIfNeeded_CreateThumbnails function
+2019-09-08 11:16:56.5740|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside Wifi_RotateImageIfNeeded_CreateThumbnails function
+2019-09-08 11:16:56.8333|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside CreateImageListFromThumbnails function
+2019-09-08 11:16:56.8333|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-08 11:16:56.8333|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside ResizeImage function
+2019-09-08 11:16:59.8863|INFO|PicsDirectoryDisplayWin.lib_ImgIO.ImageIO|Inside DeleteAllNonImageFilesInDrectory function
+2019-09-08 11:17:00.6097|INFO|PicsDirectoryDisplayWin.SimpleGallery|Inside Next button click function.
+2019-09-08 11:17:01.2938|INFO|PicsDirectoryDisplayWin.SimpleGallery|Inside Next button click function.
+2019-09-08 11:17:03.0001|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside Generate_receipt function.
+2019-09-08 11:17:03.1779|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:03.6826|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:04.1862|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:04.4565|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing receipt file :89201911171.pdf
+2019-09-08 11:17:04.5064|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-08 11:17:04.5064|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-08 11:17:04.6799|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:05.1786|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:05.5466|INFO|PicsDirectoryDisplayWin.UI.Print|Generating Image PDF..
+2019-09-08 11:17:05.5466|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside PrintPDFs function. print dir:C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x86\Debug\Prints\
+2019-09-08 11:17:05.6812|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:06.1799|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:06.6766|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:07.1804|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:07.6781|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:08.1806|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Inside CheckPrinterQueue function
+2019-09-08 11:17:08.6594|INFO|PicsDirectoryDisplayWin.UI.Print|Inside Finish function. Closing forms
+2019-09-08 11:17:08.7900|ERROR|PicsDirectoryDisplayWin.Program|Cross-thread operation not valid: Control '' accessed from a thread other than the thread it was created on.
+2019-09-08 11:17:15.8792|INFO|PicsDirectoryDisplayWin.lib_Print.PrintIO|Printing image file :C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x86\Debug\Prints\Print0.pdf

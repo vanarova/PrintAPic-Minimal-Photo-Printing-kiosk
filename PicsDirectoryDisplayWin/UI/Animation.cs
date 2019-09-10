@@ -26,15 +26,26 @@ namespace PicsDirectoryDisplayWin
         public PrintaPic()
         {
             InitializeComponent();
-            this.tableLayoutPanel1.BackgroundImage = GlobalImageCache.TableBgImg;
+            //this.tableLayoutPanel1.BackgroundImage = GlobalImageCache.TableBgImg;
+            this.tableLayoutPanel1.BackColor = Color.LightCyan;
             this.tableLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
             WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
             DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
             label4.Text = ConfigurationManager.AppSettings["HindiIntro"];
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+
+
         }
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
         {
+            //clear print queues.
+            PrintIO.AbortPrinting();
+            imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.PrintDir);
+
+
             //PickDropGallery pickDropGallery = new PickDropGallery();
             //pickDropGallery.Show();
             this.Visible = false;
@@ -67,50 +78,50 @@ namespace PicsDirectoryDisplayWin
 
   
    
-        private void Done(bool IsWeb)
-        {
-            imageIO.BubbleSortImages(AllImages);
-            //Bubble sort Images
-            //for (int write = 0; write < AllImages.Count; write++)
-            //{
-            //    for (int sort = 0; sort < AllImages.Count - 1; sort++)
-            //    {
-            //        if (AllImages[sort].ImageDirTotalImages > AllImages[sort + 1].ImageDirTotalImages)
-            //        {
-            //            var temp = AllImages[sort + 1];
-            //            AllImages[sort + 1] = AllImages[sort];
-            //            AllImages[sort] = temp;
-            //        }
-            //    }
-            //}
+        //private void Done(bool IsWeb)
+        //{
+        //    imageIO.BubbleSortImages(AllImages);
+        //    //Bubble sort Images
+        //    //for (int write = 0; write < AllImages.Count; write++)
+        //    //{
+        //    //    for (int sort = 0; sort < AllImages.Count - 1; sort++)
+        //    //    {
+        //    //        if (AllImages[sort].ImageDirTotalImages > AllImages[sort + 1].ImageDirTotalImages)
+        //    //        {
+        //    //            var temp = AllImages[sort + 1];
+        //    //            AllImages[sort + 1] = AllImages[sort];
+        //    //            AllImages[sort] = temp;
+        //    //        }
+        //    //    }
+        //    //}
 
-            foreach (var item in AllImages)
-            {
-                //Create Thumbnails
-                Task task = new Task(async () =>
-                {
-                    await imageIO.DirectConn_CreateThumbnails(item);
-                });
-                task.Start();
-                ReportProgressForThumbnails(item.ImageDirName);
-            }
+        //    foreach (var item in AllImages)
+        //    {
+        //        //Create Thumbnails
+        //        Task task = new Task(async () =>
+        //        {
+        //            await imageIO.DirectConn_CreateThumbnails(item);
+        //        });
+        //        task.Start();
+        //        ReportProgressForThumbnails(item.ImageDirName);
+        //    }
             
-            AllImages.Reverse();
-            waiter.Close();
-            if (IsWeb)
-            {
-                SimpleGallery gallery = new SimpleGallery();
-                gallery.AllImages = AllImages;
-                gallery.Show();
-            }
-            else
-            {
-                DirectoryGallery gallery = new DirectoryGallery();
-                gallery.AllImages = AllImages;
-                gallery.Show();
-            }
+        //    AllImages.Reverse();
+        //    waiter.Close();
+        //    if (IsWeb)
+        //    {
+        //        SimpleGallery gallery = new SimpleGallery();
+        //        gallery.AllImages = AllImages;
+        //        gallery.Show();
+        //    }
+        //    else
+        //    {
+        //        DirectoryGallery gallery = new DirectoryGallery();
+        //        gallery.AllImages = AllImages;
+        //        gallery.Show();
+        //    }
             
-        }
+        //}
 
         //TODO: group methods and write comments
 
@@ -168,6 +179,9 @@ namespace PicsDirectoryDisplayWin
 
         private void WifiConnect_Click(object sender, EventArgs e)
         {
+            //clear print queues.
+            PrintIO.AbortPrinting();
+            imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.PrintDir);
             this.Visible = false;
             if (whelp == null)
             {
@@ -187,8 +201,22 @@ namespace PicsDirectoryDisplayWin
 
         private void Animation_Load(object sender, EventArgs e)
         {
-            //clear print queues.
-            PrintIO.AbortPrinting();
+            
+            //Clear receipts dir
+            try
+            {
+                imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.receiptDir);
+                if (imageIO.DoesAnyFileExists(Globals.receiptDir) > 0)
+                    imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.receiptDir);
+
+            }
+            catch (Exception ex)
+            {
+               // logger.Error(ex.Message);
+                //if (System.Diagnostics.Debugger.IsAttached)
+                //    MessageBox.Show(ex.Message);
+            }
+            //Prints directory is overwritten with latest prints pdfs
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -205,6 +233,25 @@ namespace PicsDirectoryDisplayWin
 
         private void Animation_VisibleChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None; this.ControlBox = false;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.ControlBox = true;
+                return;
+            }
            
         }
     }

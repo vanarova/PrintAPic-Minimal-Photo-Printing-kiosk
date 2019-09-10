@@ -108,7 +108,14 @@ namespace PicsDirectoryDisplayWin
             //tb.BackgroundImage = GlobalImageCache.TableBgImg;
             tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
             tb.BackgroundImageLayout = ImageLayout.Stretch;
-            
+
+            if (ConfigurationManager.AppSettings["Mode"] != "Diagnostic")
+            {
+                //fullscreen
+                this.TopMost = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void SimpleGallery_refreshGalleryNotifier(object sender, EventArgs e)
@@ -134,6 +141,7 @@ namespace PicsDirectoryDisplayWin
 
         private void PrepareFormForGalleryPreview()
         {
+            UploadButton.Enabled = false;
             btn_Next.Text = "Done";
             OnGalleryPreviewPage = true;
             //folder_list.Visible = false;
@@ -147,6 +155,7 @@ namespace PicsDirectoryDisplayWin
 
         private void PrepareFormForGallerySelection()
         {
+            UploadButton.Enabled = true;
             btn_Next.Text = "Next";
             OnGalleryPreviewPage = false;
             //folder_list.Visible = true;
@@ -257,7 +266,7 @@ namespace PicsDirectoryDisplayWin
 
 
             if (AllImages != null && AllImages.Count>0 &&
-                AllImages[0].PeerImages.Count != FilesInWebSearchDir && AllImages[0].PeerImages.Count < 20)
+                AllImages[0].PeerImages.Count != FilesInWebSearchDir && AllImages[0].PeerImages.Count < Globals.IncludeMaxImages)
             {
                 if (InvokeRequired)
                 {
@@ -278,14 +287,14 @@ namespace PicsDirectoryDisplayWin
                 isloading = true;
             }
 
-            if (FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < 20)
+            if (FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < Globals.IncludeMaxImages)
             {
                 
                 RefreshThumbnails();
                 isloading = true;
             }
 
-            if (IS_USBConnection && FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < 20)
+            if (IS_USBConnection && FilesInWebSearchDir != FilesInThumbsDir && FilesInThumbsDir < Globals.IncludeMaxImages)
             {
                 FilesChanged = true;
                 isloading = true;
@@ -383,7 +392,7 @@ namespace PicsDirectoryDisplayWin
                 //string imgName = item.Split('|')[1];
                 previewImages.Images.Add(tempImg, imageIO.GetImage(tempImg));
                 //previewImages.Images.Add(tempImg, Image.FromFile(tempImg));
-                logger.Log(NLog.LogLevel.Info, "thumbnail size 80,80 should be in a config file.");
+                //TODO    "thumbnail size 80,80 should be in a config file."
                 previewImages.ImageSize = new Size(80, 80);
                 galleryPreview.LargeImageList = previewImages;
                 // image key is the image sleected from imagelist collection, key must present in imagelist above\
@@ -578,6 +587,9 @@ namespace PicsDirectoryDisplayWin
         /// <param name="e"></param>
         private void btn_Next_Click(object sender, EventArgs e)
         {
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Info, "Inside Next button click function.");
+
             if (SelectedImageKeys.Count > 0)
             {
                 //gallery preview is page where all final pics are shown before print
@@ -785,7 +797,8 @@ namespace PicsDirectoryDisplayWin
             UploadUSBFilesDialog.Multiselect = true;
             bool pass = true;
              pass =   UploadUSBFilesDialog.SafeFileNames.Any((x) => {
-                 if (x.ToLower().Contains(".jpg") || x.ToLower().Contains(".jpeg"))
+                 if (x.ToLower().Contains(".jpg"))
+                     // || x.ToLower().Contains(".jpeg"))
                      pass = true;
                  else
                      pass = false;
@@ -795,15 +808,13 @@ namespace PicsDirectoryDisplayWin
             {
                 for (int i = 0; i < UploadUSBFilesDialog.FileNames.Count(); i++)
                 {
-                    //if (!UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpg")
-                    //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".jpeg")
-                    //    || !UploadUSBFilesDialog.SafeFileNames[i].ToLower().Contains(".png")
-                    //    )
-                    //{
-                    //    continue;
-                    //}
-                    File.Copy(UploadUSBFilesDialog.FileNames[i], ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\" +
+                    if (!File.Exists(ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\" +
+                        UploadUSBFilesDialog.SafeFileNames[i]))
+                    {
+                        File.Copy(UploadUSBFilesDialog.FileNames[i], ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\" +
                         UploadUSBFilesDialog.SafeFileNames[i]);
+                    }
+                    
                 }
             }
             else
@@ -814,7 +825,23 @@ namespace PicsDirectoryDisplayWin
 
         }
 
-        
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None; this.ControlBox = false;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.ControlBox = true;
+                return;
+            }
+        }
     }
 
 

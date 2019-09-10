@@ -58,6 +58,11 @@ namespace PicsDirectoryDisplayWin.UI
             label10.Text = ConfigurationManager.AppSettings["WaitingForUSBEng"]; 
             label11.Text = ConfigurationManager.AppSettings["WaitingForUSBHindi"];
             tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
+
+            //fullscreen
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
         }
 
 

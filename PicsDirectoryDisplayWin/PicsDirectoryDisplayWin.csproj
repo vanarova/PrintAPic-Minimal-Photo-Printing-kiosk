@@ -160,11 +160,17 @@
     <Compile Include="UI\Animation.Designer.cs">
       <DependentUpon>Animation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\USB\PickDropGallery.cs">
+    <Compile Include="UI\FlexMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\USB\PickDropGallery.Designer.cs">
-      <DependentUpon>PickDropGallery.cs</DependentUpon>
+    <Compile Include="UI\FlexMessageBox.Designer.cs">
+      <DependentUpon>FlexMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\USB\DirectoryGallery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\USB\DirectoryGallery.Designer.cs">
+      <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\USB\USBConnectHelp.cs">
       <SubType>Form</SubType>
@@ -178,12 +184,6 @@
     </Compile>
     <Compile Include="UI\WIFI\SimpleGallery.Designer.cs">
       <DependentUpon>SimpleGallery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\USB\DirectoryGallery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\USB\DirectoryGallery.Designer.cs">
-      <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,17 +211,17 @@
     <EmbeddedResource Include="UI\Animation.resx">
       <DependentUpon>Animation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\USB\PickDropGallery.resx">
-      <DependentUpon>PickDropGallery.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FlexMessageBox.resx">
+      <DependentUpon>FlexMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\USB\DirectoryGallery.resx">
+      <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\USB\USBConnectHelp.resx">
       <DependentUpon>USBConnectHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\WIFI\SimpleGallery.resx">
       <DependentUpon>SimpleGallery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\USB\DirectoryGallery.resx">
-      <DependentUpon>DirectoryGallery.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -255,6 +255,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Print99.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

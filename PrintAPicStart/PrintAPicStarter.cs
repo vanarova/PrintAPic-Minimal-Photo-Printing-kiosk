@@ -29,6 +29,8 @@ namespace PrintAPicStart
             timer.Tick += Timer_Tick;
             timer.Enabled = true;
             timer.Interval = 1000;
+
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace PrintAPicStart
             if (process != null && process.HasExited)
                 process.Start();
 
-
+            string timeout = ConfigurationManager.AppSettings["TimeOut"];
             ///Idle time detection
             tagLASTINPUTINFO LastInput = new tagLASTINPUTINFO();
 
@@ -47,7 +49,7 @@ namespace PrintAPicStart
             {
                 IdleTime = System.Environment.TickCount - LastInput.dwTime;
                 IdleTimelbl.Text = IdleTime / 1000 + " sec";
-                if ((IdleTime / 1000) != 0  && (IdleTime / 1000)%120 == 0)
+                if ((IdleTime / 1000) != 0  && (IdleTime / 1000)% Convert.ToInt16(timeout) == 0)
                 {
                     RestartProcess();
                 }
@@ -73,6 +75,7 @@ namespace PrintAPicStart
         }
 
 
+
         private void FreezeUI()
         {
             foreach (Control item in this.Controls)
@@ -92,7 +95,7 @@ namespace PrintAPicStart
 
         private void main_Load(object sender, EventArgs e)
         {
-
+            LicenseCheck();
 
             //uSettings = Helper.DeserializeText();
 
@@ -109,6 +112,24 @@ namespace PrintAPicStart
             //freguency_comboBox.SelectedItem = userSettingsBindingSource.
             //userSettingsBindingSource.DataSource = uSettings;
 
+        }
+
+        private void LicenseCheck()
+        {
+            string error = "";
+            bool isvalid = Licensing.validateLicense(out error);
+            Start_Button.Enabled = isvalid;
+            Stop_Button.Enabled = isvalid;
+            if (isvalid)
+            {
+                button1.BackColor = System.Drawing.Color.LightGreen;
+                button1.Text = "Registered";
+            }
+            else
+            {
+                button1.BackColor = System.Drawing.Color.LightSalmon;
+                button1.Text = "Register";
+            }
         }
 
         private void main_notifyIcon_Click(object sender, EventArgs e)
@@ -261,5 +282,14 @@ namespace PrintAPicStart
             //Start_Button.Text = "Start scheduler";
             DeFreezeUI();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.ShowDialog();
+            LicenseCheck();
+        }
+
+       
     }
 }

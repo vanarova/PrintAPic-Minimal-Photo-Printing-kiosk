@@ -1,1 +1,0 @@
-2019-07-15 06:32:11.4459|ERROR|PicsDirectoryDisplayWin.Program|Could not find a part of the path 'C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg'.

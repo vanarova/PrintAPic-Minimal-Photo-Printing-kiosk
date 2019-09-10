@@ -35,7 +35,12 @@ namespace PicsDirectoryDisplayWin
             //lbl_PrintStatus.Text = "Print command sent";
             value = int.Parse(checkUnicode, System.Globalization.NumberStyles.HexNumber);
             CheckSymbol = char.ConvertFromUtf32(value).ToString();
-    }
+
+            //fullscreen
+            this.TopMost = true;
+            
+            
+        }
 
         private void ShowSelectedImages(List<string> imageKeys)
         {
@@ -259,6 +264,19 @@ namespace PicsDirectoryDisplayWin
         {
             //Cancel Print
             PrintIO.AbortPrinting();
+        }
+
+        private void Btn_TestRcpt_Click(object sender, EventArgs e)
+        {
+            PrintIO.Generate_receipt(new List<string>() { "Test1", "Test2" }, "000.pdf", "000");
+            PrintIO.PrintReceipt(PicsDirectoryDisplayWin.Globals.receiptDir, "000");
+        }
+
+        private void Btn_PrntTest_Click(object sender, EventArgs e)
+        {
+            System.IO.File.Copy("Print99.pdf", PicsDirectoryDisplayWin.Globals.PrintDir + "\\Print99.pdf");
+            PrintIO.PrintPDF(PicsDirectoryDisplayWin.Globals.PrintDir, 99);
+
         }
     }
 }

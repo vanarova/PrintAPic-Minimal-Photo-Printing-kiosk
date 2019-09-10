@@ -15,7 +15,6 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreRelea
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x86\Debug\Spire.License.xml
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x86\Debug\Spire.Pdf.xml
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.PrintSettings.resources
-C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.PickDropGallery.resources
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.UI.USBConnectHelp.resources
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.SimpleGallery.resources
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.DirectoryGallery.resources
@@ -29,5 +28,6 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreRelea
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.csproj.CopyComplete
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.exe
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.pdb
-C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.csprojAssemblyReference.cache
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.PrintaPic.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\obj\x86\Debug\PicsDirectoryDisplayWin.UI.FlexMessageBox.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PicsDirectoryDisplayWin\bin\x86\Debug\Print99.pdf

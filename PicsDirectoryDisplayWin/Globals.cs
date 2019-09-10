@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,14 @@ namespace PicsDirectoryDisplayWin
         public static readonly int IncludeDirectoryContainingMinImages = 1;
         public static readonly int IncludeMaxImages = 20;
         public static readonly int MaxDirectoryToSearchLimit = 50;
-        public static string USBSearchPath = "";// @"C:\Users\Arunav\Pictures\Camera Roll";
+        public static string USBSearchPath = "";
+
+
+        public static string logDirPath = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic";
+        public static string logDir = logDirPath + "\\log.txt";
+        public static string receiptDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Receipt\\";
+        public static string PrintDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Prints\\";
+        // @"C:\Users\Arunav\Pictures\Camera Roll";
         //public static string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         //private static int _filesInWebSearchDir;
         //private static int _filesInThumbsDir;
@@ -50,12 +58,23 @@ namespace PicsDirectoryDisplayWin
         private static string Arrow = @"..\..\..\pics\Blue_Left_Arrow_PNG_Clip_Art_Image.png";
         private static string wifiStep = @"..\..\..\pics\3718444199423493837.png";
         private static string BrowserStep = @"..\..\..\pics\sshot1.png";
-        private static string WifiIcon = @"..\..\..\pics\Wifi.png";
+        private static string WifiIcon = @"..\..\..\pics\3.png";
         private static string HorseAnim = @"..\..\..\pics\Horse_gallop.gif";
         private static string Logo = @"..\..\..\pics\HE logo.png";
+        private static string TransferPics = @"..\..\..\pics\printapicsite.png";
 
-       
 
+        private static Image _TransferPics;
+        public static Image TransferPic
+        {
+            get
+            {
+                if (_TransferPics == null)
+                    _TransferPics = GetImage(TransferPics);
+
+                return _TransferPics;
+            }
+        }
 
         private static Image _LogoImg;
         public static Image LogoImg

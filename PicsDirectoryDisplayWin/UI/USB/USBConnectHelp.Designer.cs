@@ -307,13 +307,14 @@
             // ok_button
             // 
             this.ok_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ok_button.BackColor = System.Drawing.Color.Cyan;
             this.ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ok_button.Location = new System.Drawing.Point(297, 243);
             this.ok_button.Name = "ok_button";
             this.ok_button.Size = new System.Drawing.Size(149, 70);
             this.ok_button.TabIndex = 0;
             this.ok_button.Text = "ok";
-            this.ok_button.UseVisualStyleBackColor = true;
+            this.ok_button.UseVisualStyleBackColor = false;
             this.ok_button.Click += new System.EventHandler(this.Ok_button_Click);
             // 
             // warningLbl
@@ -334,13 +335,15 @@
             this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Back.BackColor = System.Drawing.Color.Cyan;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Back.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_Back.Location = new System.Drawing.Point(3, 385);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(204, 62);
             this.btn_Back.TabIndex = 8;
             this.btn_Back.Text = "Back";
-            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.UseVisualStyleBackColor = false;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // USBConnectHelp

@@ -3,6 +3,7 @@ using ImageProcessor.Imaging.Formats;
 using PicsDirectoryDisplayWin.lib;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -16,12 +17,20 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 {
     class ImageIO
     {
-
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         //int MaxThumbnailsToGenerate = 20;
 
         public async Task DirectConn_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
         {
             await Wifi_RotateImageIfNeeded_CreateThumbnails(ImageDir);
+        }
+
+        public static void CheckNCreateDirectory(string DirName)
+        {
+            if (!Directory.Exists(DirName))
+            {
+                Directory.CreateDirectory(DirName);
+            }
         }
 
         public void DeleteAllFilesInDrectoryAndSubDirs(string path)
@@ -34,10 +43,13 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         public void DeleteAllNonImageFilesInDrectory(string path)
         {
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Info, "Inside DeleteAllNonImageFilesInDrectory function");
             string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
             foreach (string file in files)
             {
-                if (file.ToLower().Contains(".jpg") || file.ToLower().Contains(".jpeg"))
+                if (file.ToLower().Contains(".jpg") )
+                    //|| file.ToLower().Contains(".jpeg"))
                     continue;
 
                 File.Delete(file);
@@ -53,6 +65,9 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         public void CreateImageListFromThumbnails(ChitraKiAlbumAurVivaran obj, ImageList imgs)
         {
+
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Info, "Inside CreateImageListFromThumbnails function");
             imgs.ImageSize = new Size(200, 200);
             imgs.ColorDepth = ColorDepth.Depth32Bit;
             List<Image> images = new List<Image>();
@@ -75,6 +90,9 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         private Bitmap ResizeImage(Image image, int width, int height)
         {
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Info, "Inside ResizeImage function");
+
             var destRect = new Rectangle(0, 0, width, height);
             var destImage = new Bitmap(width, height);
 
@@ -196,6 +214,9 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         public async Task Wifi_RotateImageIfNeeded_CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir, bool forceCreateAll = false)
         {
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Info, "Inside Wifi_RotateImageIfNeeded_CreateThumbnails function");
+
             int count = 0; Image tempImg=null; Image thmImg=null;
             await Task.Run(() =>
             {
@@ -355,6 +376,9 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
             Form Parentform, Form waiter, Action<ChitraKiAlbumAurVivaran> ReportProgressForImageSearch, 
             Action<bool> Done)
         {
+
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                logger.Log(NLog.LogLevel.Info, "Inside Wifi_CheckForImages function");
             //AllImages = new List<ChitraKiAlbumAurVivaran>();
             if (InvokeRequired) // this is invoked, coz file system watcher triggers an event which trigger this func.
                                 // Probably filesystemwatcher works on another thread.

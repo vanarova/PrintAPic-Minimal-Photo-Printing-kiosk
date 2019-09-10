@@ -39,25 +39,40 @@ namespace PicsDirectoryDisplayWin.UI
             };
             //DeleteAllImages();
 
-            pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
-            pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
+            //pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
+            //pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
             //tb.BackgroundImage = GlobalImageCache.TableBgImg;
             pictureBox4.Image = GlobalImageCache.wifiStepImg;
             pictureBox3.Image = GlobalImageCache.BrowserStepImg;
             pictureBox2.Image = GlobalImageCache.WifiIconImg;
+            pictureBox1.Image = GlobalImageCache.TransferPic;
 
             label14.Text = ConfigurationManager.AppSettings["ConnectToWIFIText"];
             label2.Text = ConfigurationManager.AppSettings["PasswordNotNeededText"];
             label5.Text = ConfigurationManager.AppSettings["WIFIText"];
             label4.Text = ConfigurationManager.AppSettings["PasswordKiZarooratText"];
             label1.Text = ConfigurationManager.AppSettings["TypeInBrowserText"];
-            label6.Text = ConfigurationManager.AppSettings["PrintGoText"];
+            label3.Text = ConfigurationManager.AppSettings["PrintGoText"];
+            label6.Text = label3.Text;
             label8.Text = ConfigurationManager.AppSettings["BrowserMeinLikhenText"];
             label9.Text = ConfigurationManager.AppSettings["TransferPhotosText"];
             label10.Text = ConfigurationManager.AppSettings["WaitingForPics"];
             label11.Text = ConfigurationManager.AppSettings["PhotosKiPratikchaText"];
             fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
             tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
+
+
+            if (!System.Diagnostics.Debugger.IsAttached)
+            {
+                //fullscreen
+                this.TopMost = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
 
@@ -207,6 +222,24 @@ namespace PicsDirectoryDisplayWin.UI
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None; this.ControlBox = false;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.ControlBox = true;
+                return;
+            }
         }
     }
 }

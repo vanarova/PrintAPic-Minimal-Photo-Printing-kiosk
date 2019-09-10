@@ -31,3 +31,7 @@
 2019-07-15 06:25:51.4092|ERROR|PicsDirectoryDisplayWin.Program|Could not find a part of the path 'C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg'.
 2019-07-15 06:25:52.4038|ERROR|PicsDirectoryDisplayWin.Program|Could not find a part of the path 'C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg'.
 2019-07-15 06:25:53.4076|ERROR|PicsDirectoryDisplayWin.Program|Could not find a part of the path 'C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg'.
+2019-09-07 09:52:42.3712|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-07 09:52:42.4031|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-08 10:59:47.9304|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image
+2019-09-08 10:59:47.9626|INFO|PicsDirectoryDisplayWin.UI.Print|Printing image

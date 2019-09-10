@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Printing;
+using System.Reflection;
 using System.Windows.Forms;
 using PdfDocument = Spire.Pdf.PdfDocument;
 
@@ -16,8 +17,8 @@ namespace PicsDirectoryDisplayWin.UI
 {
     public partial class Print : Form
     {
-        string receiptDir = "Receipt\\";
-        string PrintDir = "Prints\\";
+        //string receiptDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +"\\Receipt\\";
+        //string PrintDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Prints\\";
         private PrinterState PrintState = new PrinterState();
         Form galleryFormObject = null; Form wifiHelpFormObject = null;
         Form AnimationFormObject = null; Form waiterObject = null;
@@ -47,7 +48,12 @@ namespace PicsDirectoryDisplayWin.UI
             label5.Visible = false;
             label1.Visible = false;
             selectedImagesCount = SelectedImagesCount;
-           
+
+
+            //fullscreen
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
 
             string checkUnicode = "2714"; // ballot box -1F5F9
             int value = int.Parse(checkUnicode, System.Globalization.NumberStyles.HexNumber);
@@ -132,8 +138,9 @@ namespace PicsDirectoryDisplayWin.UI
                     image2 = PdfImage.FromFile(SelectedImages[i + 1].Split('|')[0]);
                     aspectRatio2 = DetectImageAspectRatio(image2);
                 }
-                SetPageMarginGeneratePDF_ImageRatio4x3(PrintDir + "Print" + i + ".pdf", image1, image2, aspectRatio1, aspectRatio2);
-
+                SetPageMarginGeneratePDF_ImageRatio4x3(Globals.PrintDir + "Print" + i + ".pdf", image1, image2, aspectRatio1, aspectRatio2);
+                if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                    logger.Log(NLog.LogLevel.Info, "Generating Image PDF..");
             }
         }
 
@@ -158,70 +165,74 @@ namespace PicsDirectoryDisplayWin.UI
         }
 
 
-        private void Generate_receipt(string ImageFileName)
-        {
-            ///Create a pdf document
-            Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
+        //private void Generate_receipt(string ImageFileName)
+        //{
+        //    ///Create a pdf document
+        //    Spire.Pdf.PdfDocument doc = new Spire.Pdf.PdfDocument();
 
-            //Set the margin
-            PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
+        //    //Set the margin
+        //    PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
 
-            PdfMargins margin = new PdfMargins();
-            margin.Top = InPoints(0.5f);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
-            margin.Bottom = margin.Top;
-            //TODO: Add margins in global settings xml file.
-            //margin.Left = InPoints(0.5f); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
-            //margin.Right = margin.Left;
+        //    PdfMargins margin = new PdfMargins();
+        //    margin.Top =  PrintIO.InPoints(0.5f);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+        //    margin.Bottom = margin.Top;
+        //    //TODO: Add margins in global settings xml file.
+        //    //margin.Left = InPoints(0.5f); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+        //    //margin.Right = margin.Left;
 
-            //PdfPageSettings settings = new PdfPageSettings();
-            //settings.Size = new SizeF(InPoints(7.2f), InPoints(7.2f)); //here should 72mmx height
-            //PaperSize psizee = new PaperSize();
-            //psizee.Height = (int)settings.Size.Height;
-            //psizee.Width = (int)settings.Size.Width;
-            //doc.PrintSettings.PaperSize = psizee;
-            //Create one page
-            PdfPageBase page = doc.Pages.Add(new SizeF(InPoints(float.Parse(ConfigurationManager.AppSettings["ReceiptWidth"])),
-                InPoints(float.Parse(ConfigurationManager.AppSettings["ReceiptHeight"]))), margin);
-            //PdfFont font12 = new PdfFont(PdfFontFamily.Helvetica, 12f);
-            PdfFont font10 = new PdfFont(PdfFontFamily.Helvetica, 10f);
-            //PdfFont font8 = new PdfFont(PdfFontFamily.Helvetica, 8f);
-            PdfSolidBrush brush1 = new PdfSolidBrush(Color.Black);
-            PdfStringFormat leftAlignment = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
-            PdfStringFormat centerAlignment = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
-            PdfStringFormat rightAlignment = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
-
-
-            string total = Math.Round(
-                (((Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * 
-                SelectedImages.Count) * Convert.ToDouble(ConfigurationManager.AppSettings["GSTValue"]) / 
-                100) + 
-                (Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)
-                ),2
-                ).ToString();
+        //    //PdfPageSettings settings = new PdfPageSettings();
+        //    //settings.Size = new SizeF(InPoints(7.2f), InPoints(7.2f)); //here should 72mmx height
+        //    //PaperSize psizee = new PaperSize();
+        //    //psizee.Height = (int)settings.Size.Height;
+        //    //psizee.Width = (int)settings.Size.Width;
+        //    //doc.PrintSettings.PaperSize = psizee;
+        //    //Create one page
+        //    PdfPageBase page = doc.Pages.Add(new SizeF(PrintIO.InPoints(float.Parse(ConfigurationManager.AppSettings["ReceiptWidth"])),
+        //        PrintIO.InPoints(float.Parse(ConfigurationManager.AppSettings["ReceiptHeight"]))), margin);
+        //    //PdfFont font12 = new PdfFont(PdfFontFamily.Helvetica, 12f);
+        //    PdfFont font10 = new PdfFont(PdfFontFamily.Helvetica, 10f);
+        //    //PdfFont font8 = new PdfFont(PdfFontFamily.Helvetica, 8f);
+        //    PdfSolidBrush brush1 = new PdfSolidBrush(Color.Black);
+        //    PdfStringFormat leftAlignment = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+        //    PdfStringFormat centerAlignment = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+        //    PdfStringFormat rightAlignment = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 
 
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line1"], font10, brush1, page.Canvas.ClientSize.Width, 10, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line2"] + taxinvoicenumber, font10, brush1, page.Canvas.ClientSize.Width, 25, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line3"] + SelectedImages.Count + "/-", font10, brush1, page.Canvas.ClientSize.Width, 40, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line4"] + ConfigurationManager.AppSettings["CostValue"] + "/-"
-                , font10, brush1, page.Canvas.ClientSize.Width, 55, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line5"] +
-                ConfigurationManager.AppSettings["GSTValue"] + "%", font10, brush1, page.Canvas.ClientSize.Width, 70, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line6"], font10, brush1, page.Canvas.ClientSize.Width, 85, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line7"] + total + "/-", font10, brush1, page.Canvas.ClientSize.Width, 100, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line8"], font10, brush1, page.Canvas.ClientSize.Width, 120, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line9"], font10, brush1, page.Canvas.ClientSize.Width, 130, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line10"], font10, brush1, page.Canvas.ClientSize.Width, 140, rightAlignment);
-            page.Canvas.DrawString(ConfigurationManager.AppSettings["Line11"], font10, brush1, page.Canvas.ClientSize.Width, 155, rightAlignment);
-            //Save the document
-            doc.SaveToFile(receiptDir + ImageFileName);
-            doc.SaveToFile(ConfigurationManager.AppSettings["ReceiptBackupDir"] + "\\" + ImageFileName);
-            doc.Close();
+        //    string total = Math.Round(
+        //        (((Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * 
+        //        SelectedImages.Count) * Convert.ToDouble(ConfigurationManager.AppSettings["GSTValue"]) / 
+        //        100) + 
+        //        (Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)
+        //        ),2
+        //        ).ToString();
 
-            //Launch the Pdf file
-            if (System.Diagnostics.Debugger.IsAttached)
-                PDFDocumentViewer(receiptDir + ImageFileName);
-        }
+
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line1"], font10, brush1, page.Canvas.ClientSize.Width, 10, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line2"] + taxinvoicenumber, font10, brush1, page.Canvas.ClientSize.Width, 25, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line3"] + SelectedImages.Count + "/-", font10, brush1, page.Canvas.ClientSize.Width, 40, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line4"] + ConfigurationManager.AppSettings["CostValue"] + "/-"
+        //        , font10, brush1, page.Canvas.ClientSize.Width, 55, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line5"] +
+        //        ConfigurationManager.AppSettings["GSTValue"] + "%", font10, brush1, page.Canvas.ClientSize.Width, 70, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line6"], font10, brush1, page.Canvas.ClientSize.Width, 85, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line7"] + total + "/-", font10, brush1, page.Canvas.ClientSize.Width, 100, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line8"], font10, brush1, page.Canvas.ClientSize.Width, 120, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line9"], font10, brush1, page.Canvas.ClientSize.Width, 130, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line10"], font10, brush1, page.Canvas.ClientSize.Width, 140, rightAlignment);
+        //    page.Canvas.DrawString(ConfigurationManager.AppSettings["Line11"], font10, brush1, page.Canvas.ClientSize.Width, 155, rightAlignment);
+        //    //Save the document
+        //    doc.SaveToFile(Globals.receiptDir + ImageFileName);
+        //    doc.SaveToFile(ConfigurationManager.AppSettings["ReceiptBackupDir"] + "\\" + ImageFileName);
+        //    doc.Close();
+
+
+        //    //Launch the Pdf file
+        //    if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+        //    {
+        //        logger.Log(NLog.LogLevel.Info, "Inside Generate_receipt function.");
+        //       PrintIO.PDFDocumentViewer(Globals.receiptDir + ImageFileName);
+        //    }
+        //}
 
         //private void Generate_receipt(string ImageFileName)
         //{
@@ -293,10 +304,10 @@ namespace PicsDirectoryDisplayWin.UI
             //Set the margin
             PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
             PdfMargins margin = new PdfMargins();
-            margin.Top = InPoints(MARGINTOP_BOTTOM);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Top = PrintIO.InPoints(MARGINTOP_BOTTOM);//unitCvtr.ConvertUnits(MARGINTOP_BOTTOM, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
             margin.Bottom = margin.Top;
             //TODO: Add margins in global settings xml file.
-            margin.Left = InPoints(MARGINLEFT_RIGHT); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+            margin.Left = PrintIO.InPoints(MARGINLEFT_RIGHT); //unitCvtr.ConvertUnits(MARGINLEFT_RIGHT, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
             margin.Right = margin.Left;
 
             //Create one page
@@ -327,9 +338,12 @@ namespace PicsDirectoryDisplayWin.UI
             doc.SaveToFile(ImageFileName);
             doc.Close();
 
-            //Launch the Pdf file
-            if (System.Diagnostics.Debugger.IsAttached)
-                PDFDocumentViewer( ImageFileName);
+            if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                PrintIO.PDFDocumentViewer(ImageFileName);
+
+            ////Launch the Pdf file
+            //if (System.Diagnostics.Debugger.IsAttached)
+            //    PDFDocumentViewer( ImageFileName);
         }
 
         private string InCentimeter(float value)
@@ -337,10 +351,10 @@ namespace PicsDirectoryDisplayWin.UI
            return new PdfUnitConvertor().ConvertUnits(value, PdfGraphicsUnit.Point, PdfGraphicsUnit.Centimeter).ToString();
         }
 
-        private float InPoints(float value)
-        {
-            return new PdfUnitConvertor().ConvertUnits(value, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
-        }
+        //private float InPoints(float value)
+        //{
+        //    return new PdfUnitConvertor().ConvertUnits(value, PdfGraphicsUnit.Centimeter, PdfGraphicsUnit.Point);
+        //}
 
 
 
@@ -348,7 +362,7 @@ namespace PicsDirectoryDisplayWin.UI
         private void DrawImagesInPage(PdfImage img1, PdfImage img2, PdfPageBase page, float w, float h,
             float distance_btw_images, AspectRatio aspectRatioImage1 , AspectRatio aspectRatioImage2 )
         {
-            float heightBtwImages = InPoints(distance_btw_images);
+            float heightBtwImages = PrintIO.InPoints(distance_btw_images);
             //PdfUnitConvertor unitCvtr = new PdfUnitConvertor();
             DrawImageInFrame_wxh(img1, page, 0, w, h, aspectRatioImage1);
             DrawImageInFrame_wxh(img2, page, h+heightBtwImages, w, h, aspectRatioImage2);
@@ -399,7 +413,7 @@ namespace PicsDirectoryDisplayWin.UI
             {
                 if (aspectRatioImage1 == AspectRatio.S4x3)
                 {
-                    page.Canvas.DrawImage(img, new System.Drawing.RectangleF(0, 0, w, h));
+                    page.Canvas.DrawImage(img, new System.Drawing.RectangleF(0, y, w, h));
                 }
                 else
                 {
@@ -424,14 +438,14 @@ namespace PicsDirectoryDisplayWin.UI
 
         }
 
-        private void PDFDocumentViewer(string fileName)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(fileName);
-            }
-            catch { }
-        }
+        //private void PDFDocumentViewer(string fileName)
+        //{
+        //    try
+        //    {
+        //        System.Diagnostics.Process.Start(fileName);
+        //    }
+        //    catch { }
+        //}
 
       
 
@@ -470,7 +484,7 @@ namespace PicsDirectoryDisplayWin.UI
         private void button1_Click(object sender, EventArgs e)
         {
             PrintSettings pst = new PrintSettings(SelectedImages);
-            pst.PrintDir = PrintDir;
+            pst.PrintDir = Globals.PrintDir;
             //pst.SelectedImages = SelectedImages;
             pst.ShowDialog();
         }
@@ -480,7 +494,7 @@ namespace PicsDirectoryDisplayWin.UI
             
             PicsbgWorker.ReportProgress(25);
 
-            Generate_receipt(taxinvoicenumber+".pdf");
+            PrintIO.Generate_receipt(SelectedImages, taxinvoicenumber+".pdf", taxinvoicenumber);
             PrintReceipt();
             PicsbgWorker.ReportProgress(50);
            
@@ -496,15 +510,38 @@ namespace PicsDirectoryDisplayWin.UI
             PicsbgWorker.ReportProgress(100);
             
         }
-
+        
         private void PrintPicsPDF()
         {
-            PrintIO.PrintPDFs(PrintDir);
+            if (CheckPhotoPrinterStatus())
+            PrintIO.PrintPDFs(Globals.PrintDir);
         }
-      
+
+        private bool CheckPhotoPrinterStatus()
+        {
+            //throw new NotImplementedException();
+            foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+            {
+                if (ConfigurationManager.AppSettings["PhotoPrinterName"].Equals(printer))
+                    return true;
+            }
+            return false;
+        }
+
         private void PrintReceipt()
         {
-           PrintIO.PrintReceipt(receiptDir, taxinvoicenumber);
+            if(CheckReceiptPrinterStatus())
+            PrintIO.PrintReceipt(Globals.receiptDir, taxinvoicenumber);
+        }
+
+        private bool CheckReceiptPrinterStatus()
+        {
+            foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+            {
+                if (ConfigurationManager.AppSettings["ReceiptPrinterName"].Equals(printer))
+                    return true;
+            }
+            return false;
         }
 
         private void PicsbgWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
@@ -536,7 +573,7 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Generate_receipt(taxinvoicenumber+".pdf");
+            PrintIO.Generate_receipt(SelectedImages, taxinvoicenumber+".pdf",taxinvoicenumber);
             PrintReceipt();
         }
 
@@ -559,15 +596,26 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            List<Form> openForms = new List<Form>();
+            FlexMessageBox fmsg = new FlexMessageBox();
+            fmsg.TopMost = true;
+            fmsg.ShowIcon = false;
+            fmsg.ShowDialog();
 
-            foreach (Form f in Application.OpenForms)
-                openForms.Add(f);
-
-            foreach (Form f in openForms)
+            if (fmsg.Result == DialogResult.Yes)
             {
-                if (f.Name != "Main")
-                    f.Close();
+                if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                    logger.Log(NLog.LogLevel.Info, "Inside Finish function. Closing forms");
+                List<Form> openForms = new List<Form>();
+
+                foreach (Form f in Application.OpenForms)
+                    openForms.Add(f);
+
+                foreach (Form f in openForms)
+                {
+                    if (f.Name != "Main")
+                        f.Close();
+                }
+
             }
             // Application.Exit();
             //if (galleryFormObject != null && wifiHelpFormObject != null && AnimationFormObject != null)
@@ -594,10 +642,25 @@ namespace PicsDirectoryDisplayWin.UI
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            if (!btn_print.Enabled)
+            if (this.WindowState == FormWindowState.Normal)
             {
-                btn_print.Enabled = true;
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None; this.ControlBox = false;
+                return;
             }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.ControlBox = true;
+                return;
+            }
+
+            //if (!btn_print.Enabled)
+            //{
+            //    btn_print.Enabled = true;
+            //}
         }
 
 
