@@ -22,6 +22,7 @@ namespace PicsDirectoryDisplayWin
     /// </summary>
     public partial class SimpleGallery : Form
     {
+
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
         public Form WifiConnectHelpObject { get; set; }

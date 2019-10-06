@@ -85,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eXG5RmbyDGKdShQNjYWHtv2fea95EFFDIAVk+v/c87w=</dsig:DigestValue>
+        <dsig:DigestValue>0qwsRzyvOVV0jNZ2dT89PV3FbXMzGT4Cb/D+eOZSPcY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -149,13 +149,13 @@
       <dsig:DigestValue>IZhZFEv589zAbTzV0JMFRDduG5ExNU9Y9jwtzpQ0fU8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PicsDirectoryDisplayWin.exe.config" size="4740">
+  <file name="PicsDirectoryDisplayWin.exe.config" size="4728">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>0umYtRNNFDtlJp1IVVkI5UbPCXN/vWXoXBFTNxBXG4k=</dsig:DigestValue>
+      <dsig:DigestValue>6H09KvZHFvx71nAYBkwmIZvf9njzcSjHQLLkkk1Uiu8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Print99.pdf" size="3908">

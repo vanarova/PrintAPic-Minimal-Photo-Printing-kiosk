@@ -86,7 +86,7 @@ namespace PicsDirectoryDisplayWin.UI
                 label_PicsCount.Text = count.ToString();
                 label12.Text = (Convert.ToInt16(label8.Text) * count).ToString();
                 
-                label15.Text = (((Convert.ToInt16(label8.Text) * count) * Convert.ToInt16(label12.Text) / 100)
+                label15.Text = (((Convert.ToInt16(label8.Text) * count) * Convert.ToInt16(label9.Text) / 100)
                                 + (Convert.ToInt16(label8.Text) * count)).ToString();
             }
         }

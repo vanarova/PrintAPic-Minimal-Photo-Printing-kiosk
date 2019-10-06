@@ -14,7 +14,7 @@ namespace PicsDirectoryDisplayWin
     {
         //public static int NoOfTotalDirsFound = 0;
         public static readonly int IncludeDirectoryContainingMinImages = 1;
-        public static readonly int IncludeMaxImages = 20;
+        public static readonly int IncludeMaxImages = 6;
         public static readonly int MaxDirectoryToSearchLimit = 50;
         public static string USBSearchPath = "";
 

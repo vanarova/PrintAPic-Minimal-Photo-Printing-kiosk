@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tUgcQOx3QWD2TSVUkAUA7UwatwbDkDgB2OblniadIe8=</dsig:DigestValue>
+        <dsig:DigestValue>YK4tZCN3fj2NqhXWBvRGXOP1AKvRhCWvWeEWzKx7Wy4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PrintAPicStart.exe" size="1329128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PrintAPicStart.exe" size="1336296">
       <assemblyIdentity name="PrintAPicStart" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MVukPOKXrvr1jz1z7oQ9HQhqD0aSG4c0jXPFu5FtCuM=</dsig:DigestValue>
+        <dsig:DigestValue>DJSdG+BsPrqla/My/x5uCI7uhW6bpYi0bQVVvuIanhU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

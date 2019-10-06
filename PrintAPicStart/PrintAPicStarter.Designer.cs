@@ -43,6 +43,7 @@ namespace PrintAPicStart
             this.CloseExit_button = new System.Windows.Forms.Button();
             this.main_notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.userSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.main_grpbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSettingsBindingSource)).BeginInit();
@@ -62,6 +63,7 @@ namespace PrintAPicStart
             // 
             // main_grpbox
             // 
+            this.main_grpbox.Controls.Add(this.button2);
             this.main_grpbox.Controls.Add(this.pictureBox1);
             this.main_grpbox.Controls.Add(this.button1);
             this.main_grpbox.Controls.Add(this.IdleTimelbl);
@@ -172,6 +174,17 @@ namespace PrintAPicStart
             // 
             this.userSettingsBindingSource.DataSource = typeof(PrintAPicStart.UserSettings);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(249, 395);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 50);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Diagnostics";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,6 +220,7 @@ namespace PrintAPicStart
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

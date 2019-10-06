@@ -25,12 +25,13 @@ namespace PicsDirectoryDisplayWin
             // Application.ThreadExit += Application_ThreadExit;
             //Application.
 
+
             ImageIO.CheckNCreateDirectory(Globals.logDirPath);
             ImageIO.CheckNCreateDirectory(Globals.receiptDir);
             ImageIO.CheckNCreateDirectory(Globals.PrintDir);
             ImageIO.CheckNCreateDirectory(ConfigurationManager.AppSettings["ReceiptBackupDir"]);
 
-
+            
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             var config = new NLog.Config.LoggingConfiguration();
@@ -58,6 +59,8 @@ namespace PicsDirectoryDisplayWin
             }
             
         }
+
+        
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {

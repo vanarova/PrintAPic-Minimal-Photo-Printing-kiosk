@@ -290,6 +290,12 @@ namespace PrintAPicStart
             LicenseCheck();
         }
 
-       
+        //Diagnostics
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Diagnostics diag = new Diagnostics();
+            diag.TopMost = true;
+            diag.ShowDialog();
+        }
     }
 }
