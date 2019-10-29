@@ -257,8 +257,8 @@ namespace PicsDirectoryDisplayWin
         /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
-           int FilesInWebSearchDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"]).GetFiles().Length;
-           int FilesInThumbsDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\thumbs").GetFiles().Length;
+           int FilesInWebSearchDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"]).EnumerateFiles().Count();
+           int FilesInThumbsDir = new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"] + "\\thumbs").EnumerateFiles().Count();
             bool isloading = false;
 
             //This will delete non jpg files, then image count should b equal to thumbs count and 
@@ -529,16 +529,17 @@ namespace PicsDirectoryDisplayWin
 
         private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
         {
-            if (imglist.LargeImageList != null && imglist.LargeImageList.Images.Count >0)
+
+            if (imglist.LargeImageList != null && imglist.LargeImageList.Images.Count > 0)
             {
                 imglist.LargeImageList.Images.Clear();
             }
             SelectedImageKeys.Clear();
             imglist.Clear();//imglist.LargeImageList.Images.Clear();
-            imageIO.CreateImageListFromThumbnails(obj,imgs);
+            imageIO.CreateImageListFromThumbnails(obj, imgs);
             imglist.LargeImageList = imgs;
             CheckForMaxImageWarning();
-            
+
             foreach (var item in obj.PeerImages)
             {
                 //SelectImage(item);
@@ -546,22 +547,16 @@ namespace PicsDirectoryDisplayWin
                 //var lvitem = new ListViewItem(item.ImageName, item.ImageKey);
                 //SelectedImageChecked(lvitem);
                 imglist.Items.Add(item.ImageName, item.ImageKey);
-                
+
             }
 
             foreach (ListViewItem item in imglist.Items)
             {
                 SelectImage(item);
             }
-            
+
             imglist.Show();
 
-            // Dont show folder icon..
-            ////imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero));
-            ////imgs.ImageSize = new Size(200, 200);
-
-            ////imglist.Items.Add(obj.ImageName, obj.ImageKey);
-            ////imglist.Show();
         }
 
         private void CheckForMaxImageWarning()

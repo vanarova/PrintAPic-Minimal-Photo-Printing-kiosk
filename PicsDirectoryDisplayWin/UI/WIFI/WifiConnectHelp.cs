@@ -100,8 +100,10 @@ namespace PicsDirectoryDisplayWin.UI
 
             foreach (var item in AllImages)
             {
+
+                //TODO: #PPFunc:  Done call whole post processing function here, just thumbail func is enough
                 //Create Thumbnails
-                Task task = new Task(async () => { await imageIO.Wifi_RotateImageIfNeeded_CreateThumbnails(item); });
+                Task task = new Task(async () => { await imageIO.Wifi_PostProcessImages(item); });
                 task.Start();
                 task.Wait();
                 //ReportProgressForThumbnails(item.ImageDirName);

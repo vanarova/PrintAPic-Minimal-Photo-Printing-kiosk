@@ -29,6 +29,7 @@ namespace PicsDirectoryDisplayWin
             ImageIO.CheckNCreateDirectory(Globals.logDirPath);
             ImageIO.CheckNCreateDirectory(Globals.receiptDir);
             ImageIO.CheckNCreateDirectory(Globals.PrintDir);
+            ImageIO.CheckNCreateDirectory(Globals.ProcessedImagesDir);
             ImageIO.CheckNCreateDirectory(ConfigurationManager.AppSettings["ReceiptBackupDir"]);
 
             

@@ -23,6 +23,7 @@ namespace PicsDirectoryDisplayWin
         public static string logDir = logDirPath + "\\log.txt";
         public static string receiptDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Receipt\\";
         public static string PrintDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Prints\\";
+        public static string ProcessedImagesDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Processed\\";
         // @"C:\Users\Arunav\Pictures\Camera Roll";
         //public static string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         //private static int _filesInWebSearchDir;

@@ -36,7 +36,7 @@ namespace PicsDirectoryDisplayWin.lib_Print
                 pdf.PrintSettings.PrinterName = ConfigurationManager.AppSettings["PhotoPrinterName"];
                 //search all files prresent in "printdir"
                 //load and print them one by one.
-                FileInfo[] files = new DirectoryInfo(PrintDir).GetFiles();
+                IEnumerable<FileInfo> files = new DirectoryInfo(PrintDir).EnumerateFiles();
                 foreach (var item in files)
                 {
                     pdf.LoadFromFile(item.FullName);

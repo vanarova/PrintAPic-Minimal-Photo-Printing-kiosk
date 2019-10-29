@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,14 +26,16 @@ namespace PicsDirectoryDisplayWin.lib
         void WalkDirectoryTree(System.IO.DirectoryInfo root, IProgress<ChitraKiAlbumAurVivaran> progress,
             Form form = null, bool InvokeRequired = false, int searchDepth =1)
         {
-            System.IO.FileInfo[] files = null;
+            IEnumerable<FileInfo> files = null;
             System.IO.DirectoryInfo[] subDirs = null;
             if (NoOfTotalDirsFound > Globals.MaxDirectoryToSearchLimit)
                 return;
             // First, process all the files directly under this folder
             try
             {
-                files = root.GetFiles("*.jpg");
+                //files = root.GetFiles("*.jpg");
+                files = root.EnumerateFiles("*.jpg");
+                //files = root.EnumerateFiles("*.*").Where(s => s.Extension.ToLower() == ".heic" || s.Extension.ToLower() == ".jpg");
             }
             // This is thrown if even one of the files requires permissions greater
             // than the application provides.
@@ -54,16 +57,16 @@ namespace PicsDirectoryDisplayWin.lib
                 int count = 0; List<ChitraKiAlbumAurVivaran> peerImages = new List<ChitraKiAlbumAurVivaran>();
                 int ImageLimit;
                 // if image count is lower than min images, leave this directory
-                if (files.Length < Globals.IncludeDirectoryContainingMinImages)
+                if (files.Count() < Globals.IncludeDirectoryContainingMinImages)
                 {
 
                     return;
                  }
 
-                if (files.Length > Globals.IncludeMaxImages)
+                if (files.Count() > Globals.IncludeMaxImages)
                     ImageLimit = Globals.IncludeMaxImages;
                 else
-                    ImageLimit = files.Length;
+                    ImageLimit = files.Count();
                 foreach (System.IO.FileInfo fi in files)
                     {
                         peerImages.Add(new ChitraKiAlbumAurVivaran()
@@ -72,7 +75,7 @@ namespace PicsDirectoryDisplayWin.lib
                             ImageFullName = fi.FullName,
                             ImageDirName = root.Name,
                             ImageDirFullName = root.FullName,
-                            ImageDirTotalImages = files.Length
+                            ImageDirTotalImages = files.Count()
                         });
 
                         if (count >= ImageLimit-1)
@@ -84,7 +87,7 @@ namespace PicsDirectoryDisplayWin.lib
                             //Parentform.Invoke((Action<bool>)Done, true);
                             form.Invoke(
                                 new Action<IProgress<ChitraKiAlbumAurVivaran>,
-                                System.IO.DirectoryInfo, System.IO.FileInfo[]
+                                System.IO.DirectoryInfo, IEnumerable<FileInfo>
                                 , List<ChitraKiAlbumAurVivaran>, int>
                                 (
                                     Report
@@ -128,16 +131,16 @@ namespace PicsDirectoryDisplayWin.lib
         }
 
        private void Report(IProgress<ChitraKiAlbumAurVivaran> progress,
-           System.IO.DirectoryInfo directoryinfo, System.IO.FileInfo[] files,
+           System.IO.DirectoryInfo directoryinfo, IEnumerable<FileInfo> files,
            List<ChitraKiAlbumAurVivaran> peerImages, int ImageLimit)
         {
             progress.Report(new ChitraKiAlbumAurVivaran()
             {
-                ImageName = "(" + (files.Length - ImageLimit) + ") More Images",
+                ImageName = "(" + (files.Count() - ImageLimit) + ") More Images",
                 ImageFullName = "..\\..\\..\\pics\\vst.png",
                 ImageDirName = directoryinfo.Name,
                 ImageDirFullName = directoryinfo.FullName,
-                ImageDirTotalImages = files.Length,
+                ImageDirTotalImages = files.Count(),
                 PeerImages = peerImages
             });
 
