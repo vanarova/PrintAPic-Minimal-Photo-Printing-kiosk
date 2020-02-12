@@ -320,7 +320,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(54, 44);
+            this.label3.Location = new System.Drawing.Point(220, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(188, 24);
             this.label3.TabIndex = 23;
@@ -354,11 +354,11 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("DevLys 010 ", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(248, 44);
+            this.label8.Location = new System.Drawing.Point(68, 46);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 25);
+            this.label8.Size = new System.Drawing.Size(147, 25);
             this.label8.TabIndex = 22;
-            this.label8.Text = "को सर्च में टाइप करें";
+            this.label8.Text = "सर्च में टाइप करें : ";
             // 
             // panel4
             // 

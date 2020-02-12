@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -61,11 +62,11 @@ namespace PrintAPicStart
             }
 
 
-            textBox1.Text = textBox1.Text + "Pinging Router 10.3.141.1 --- " + Environment.NewLine;
+            textBox1.Text = textBox1.Text + "Pinging static IP "+ ConfigurationManager.AppSettings["RouterIP"] + Environment.NewLine;
             try
             {
                 Ping myPing = new Ping();
-                PingReply reply = myPing.Send("10.3.141.1", 1000);
+                PingReply reply = myPing.Send(ConfigurationManager.AppSettings["RouterIP"], 1000);
                 if (reply != null)
                 {
                     textBox1.Text = textBox1.Text + ("STATUS :  " + reply.Status + " \n Time : " + reply.RoundtripTime.ToString() + " \n Address : " + reply.Address) + Environment.NewLine;
@@ -78,8 +79,8 @@ namespace PrintAPicStart
                 Console.WriteLine("ERROR: You have Some TIMEOUT issue");
             }
 
-            textBox1.Text = textBox1.Text + "Checking static IP 10.3.141.61 --- ";
-            if (CheckLocalIPAddress("10.3.141.61"))
+            textBox1.Text = textBox1.Text + "Checking static IP";
+            if (CheckLocalIPAddress(ConfigurationManager.AppSettings["RouterIP"]))
             {
                 textBox1.Text = textBox1.Text + "STATUS -- OK" + Environment.NewLine;
             }

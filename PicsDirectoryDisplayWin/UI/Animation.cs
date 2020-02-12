@@ -27,7 +27,7 @@ namespace PicsDirectoryDisplayWin
         {
             InitializeComponent();
             //this.tableLayoutPanel1.BackgroundImage = GlobalImageCache.TableBgImg;
-            this.tableLayoutPanel1.BackColor = Color.LightCyan;
+            this.tableLayoutPanel1.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]); ;
             this.tableLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
             WifiConnect.Text = ConfigurationManager.AppSettings["WIFIButton"];
             DirectConnectButton.Text = ConfigurationManager.AppSettings["USBButton"];
@@ -48,6 +48,12 @@ namespace PicsDirectoryDisplayWin
 
             //PickDropGallery pickDropGallery = new PickDropGallery();
             //pickDropGallery.Show();
+
+            //Set default value;
+            //Globals.PrintSelection = Globals.PrintSize.A5;
+            //Set user selected value.
+            new PicSizeSeletion().ShowDialog();
+
             this.Visible = false;
 
             USBConnectHelp usbform = new USBConnectHelp();
@@ -125,37 +131,7 @@ namespace PicsDirectoryDisplayWin
 
         //TODO: group methods and write comments
 
-        //private async Task CreateThumbnails(ChitraKiAlbumAurVivaran ImageDir)
-        //{
-        //    int count = 0;
-        //    await Task.Run(() =>
-        //    {
-        //        //Lets try and create thumbnails
-        //        foreach (var item in ImageDir.PeerImages)
-        //        {
-        //            if (count >= MaxThumbnailsToGenerate)
-        //                break;
-        //            try
-        //            {
-        //                Image i = Image.FromFile(item.ImageFullName).GetThumbnailImage(200, 200, null, IntPtr.Zero);
-        //                if (!Directory.Exists(item.ImageDirName))
-        //                    Directory.CreateDirectory(item.ImageDirName);
-        //                i.Save(item.ImageDirName+"\\" +  item.ImageName + ".jpg");
-        //                i.Dispose();
-        //            }
-        //            catch (OutOfMemoryException o)
-        //            {
-        //                //TODO: Log o
-        //                System.Threading.Thread.Sleep(100);
-        //            }
-        //            catch (Exception e)
-        //            {
-        //                //TODO: Log e
-        //            }
-        //            count++;
-        //        }
-        //    });
-           
+               
            
         //    //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
         //}
@@ -182,6 +158,11 @@ namespace PicsDirectoryDisplayWin
             //clear print queues.
             PrintIO.AbortPrinting();
             imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.PrintDir);
+            //Set default value;
+            //Globals.PrintSelection = Globals.PrintSize.A5;
+            //Set user selected value.
+            new PicSizeSeletion().ShowDialog();
+
             this.Visible = false;
             if (whelp == null)
             {

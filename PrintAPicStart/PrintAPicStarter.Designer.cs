@@ -34,8 +34,12 @@ namespace PrintAPicStart
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Start_Button = new System.Windows.Forms.Button();
             this.main_grpbox = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Register_btn = new System.Windows.Forms.Button();
             this.IdleTimelbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Stop_Button = new System.Windows.Forms.Button();
@@ -43,7 +47,6 @@ namespace PrintAPicStart
             this.CloseExit_button = new System.Windows.Forms.Button();
             this.main_notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.userSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.main_grpbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSettingsBindingSource)).BeginInit();
@@ -63,9 +66,12 @@ namespace PrintAPicStart
             // 
             // main_grpbox
             // 
+            this.main_grpbox.Controls.Add(this.checkBox1);
+            this.main_grpbox.Controls.Add(this.button4);
+            this.main_grpbox.Controls.Add(this.button3);
             this.main_grpbox.Controls.Add(this.button2);
             this.main_grpbox.Controls.Add(this.pictureBox1);
-            this.main_grpbox.Controls.Add(this.button1);
+            this.main_grpbox.Controls.Add(this.Register_btn);
             this.main_grpbox.Controls.Add(this.IdleTimelbl);
             this.main_grpbox.Controls.Add(this.label1);
             this.main_grpbox.Controls.Add(this.Stop_Button);
@@ -81,6 +87,50 @@ namespace PrintAPicStart
             this.main_grpbox.TabIndex = 2;
             this.main_grpbox.TabStop = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(249, 137);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(144, 21);
+            this.checkBox1.TabIndex = 21;
+            this.checkBox1.Text = "Autorun at startup";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(15, 22);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(226, 37);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Router Test";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(151, 396);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(129, 50);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Settings";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.BSettings_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(286, 395);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 50);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Diagnostics";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Diagnostics_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PrintAPicStart.Properties.Resources._3;
@@ -91,18 +141,18 @@ namespace PrintAPicStart
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // Register_btn
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSalmon;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(13, 395);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(228, 51);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Register_btn.BackColor = System.Drawing.Color.LightSalmon;
+            this.Register_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Register_btn.Location = new System.Drawing.Point(13, 395);
+            this.Register_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Register_btn.Name = "Register_btn";
+            this.Register_btn.Size = new System.Drawing.Size(131, 51);
+            this.Register_btn.TabIndex = 16;
+            this.Register_btn.Text = "Register";
+            this.Register_btn.UseVisualStyleBackColor = false;
+            this.Register_btn.Click += new System.EventHandler(this.Register_Click);
             // 
             // IdleTimelbl
             // 
@@ -174,17 +224,6 @@ namespace PrintAPicStart
             // 
             this.userSettingsBindingSource.DataSource = typeof(PrintAPicStart.UserSettings);
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(249, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 50);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Diagnostics";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -218,9 +257,12 @@ namespace PrintAPicStart
         private System.Windows.Forms.Button Stop_Button;
         private System.Windows.Forms.Label IdleTimelbl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Register_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

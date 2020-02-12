@@ -48,7 +48,7 @@
             this.DirectConnectButton.BackColor = System.Drawing.Color.Cyan;
             this.DirectConnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DirectConnectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DirectConnectButton.Location = new System.Drawing.Point(282, 268);
+            this.DirectConnectButton.Location = new System.Drawing.Point(280, 265);
             this.DirectConnectButton.Margin = new System.Windows.Forms.Padding(4);
             this.DirectConnectButton.Name = "DirectConnectButton";
             this.DirectConnectButton.Size = new System.Drawing.Size(175, 80);
@@ -62,7 +62,7 @@
             this.WifiConnect.BackColor = System.Drawing.Color.Cyan;
             this.WifiConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WifiConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WifiConnect.Location = new System.Drawing.Point(491, 268);
+            this.WifiConnect.Location = new System.Drawing.Point(489, 265);
             this.WifiConnect.Margin = new System.Windows.Forms.Padding(30, 4, 4, 4);
             this.WifiConnect.Name = "WifiConnect";
             this.WifiConnect.Size = new System.Drawing.Size(185, 80);
@@ -77,7 +77,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(249, 88);
+            this.pictureBox1.Location = new System.Drawing.Point(247, 85);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 173);
@@ -91,7 +91,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(464, 88);
+            this.pictureBox2.Location = new System.Drawing.Point(462, 85);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(256, 173);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -105,7 +105,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
             this.label4.Font = new System.Drawing.Font("DevLys 010 ", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(400, 368);
+            this.label4.Location = new System.Drawing.Point(398, 364);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 35);
             this.label4.TabIndex = 19;
@@ -148,7 +148,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.28283F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(923, 530);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(919, 526);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // btnClose
@@ -157,7 +157,7 @@
             this.btnClose.BackColor = System.Drawing.Color.LightCyan;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(3, 472);
+            this.btnClose.Location = new System.Drawing.Point(3, 468);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(113, 55);
             this.btnClose.TabIndex = 20;
@@ -169,7 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(923, 530);
+            this.ClientSize = new System.Drawing.Size(919, 526);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button1);

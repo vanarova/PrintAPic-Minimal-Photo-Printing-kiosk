@@ -26,16 +26,21 @@ namespace PicsDirectoryDisplayWin.lib
         void WalkDirectoryTree(System.IO.DirectoryInfo root, IProgress<ChitraKiAlbumAurVivaran> progress,
             Form form = null, bool InvokeRequired = false, int searchDepth =1)
         {
-            IEnumerable<FileInfo> files = null;
+            IEnumerable<FileInfo> allimgfiles = null;
+            IEnumerable<FileInfo> allJpegfiles = null;
+            IEnumerable<FileInfo> HEICfiles = null;
             System.IO.DirectoryInfo[] subDirs = null;
             if (NoOfTotalDirsFound > Globals.MaxDirectoryToSearchLimit)
                 return;
             // First, process all the files directly under this folder
             try
             {
-                //files = root.GetFiles("*.jpg");
-                files = root.EnumerateFiles("*.jpg");
-                //files = root.EnumerateFiles("*.*").Where(s => s.Extension.ToLower() == ".heic" || s.Extension.ToLower() == ".jpg");
+                allimgfiles = root.EnumerateFiles("*.jpg");
+                allJpegfiles = root.EnumerateFiles("*.jpeg");
+                HEICfiles = root.EnumerateFiles("*.heic");
+                allimgfiles = allimgfiles.Concat<FileInfo>(HEICfiles);
+                allimgfiles = allimgfiles.Concat<FileInfo>(allJpegfiles);
+
             }
             // This is thrown if even one of the files requires permissions greater
             // than the application provides.
@@ -52,22 +57,22 @@ namespace PicsDirectoryDisplayWin.lib
                 log.Add(e.Message);
             }
 
-            if (files != null)
+            if (allimgfiles != null)
             {
                 int count = 0; List<ChitraKiAlbumAurVivaran> peerImages = new List<ChitraKiAlbumAurVivaran>();
                 int ImageLimit;
                 // if image count is lower than min images, leave this directory
-                if (files.Count() < Globals.IncludeDirectoryContainingMinImages)
+                if (allimgfiles.Count() < Globals.IncludeDirectoryContainingMinImages)
                 {
 
                     return;
                  }
 
-                if (files.Count() > Globals.IncludeMaxImages)
+                if (allimgfiles.Count() > Globals.IncludeMaxImages)
                     ImageLimit = Globals.IncludeMaxImages;
                 else
-                    ImageLimit = files.Count();
-                foreach (System.IO.FileInfo fi in files)
+                    ImageLimit = allimgfiles.Count();
+                foreach (System.IO.FileInfo fi in allimgfiles)
                     {
                         peerImages.Add(new ChitraKiAlbumAurVivaran()
                         {
@@ -75,7 +80,7 @@ namespace PicsDirectoryDisplayWin.lib
                             ImageFullName = fi.FullName,
                             ImageDirName = root.Name,
                             ImageDirFullName = root.FullName,
-                            ImageDirTotalImages = files.Count()
+                            ImageDirTotalImages = allimgfiles.Count()
                         });
 
                         if (count >= ImageLimit-1)
@@ -92,12 +97,12 @@ namespace PicsDirectoryDisplayWin.lib
                                 (
                                     Report
                                     //(prog, rt, fls, prImages, ImgLimit) =>  Report(prog, rt, fls, prImages, ImgLimit)
-                                ), progress, root, files, peerImages, ImageLimit);
+                                ), progress, root, allimgfiles, peerImages, ImageLimit);
                         }
                         //form.Invoke(
                         else
                         {
-                            Report(progress,root,files,peerImages,ImageLimit);
+                            Report(progress,root,allimgfiles,peerImages,ImageLimit);
                             //progress.Report(new ChitraKiAlbumAurVivaran()
                             //{
                             //    ImageName = "(" + (files.Length - ImageLimit) + ") More Images",

@@ -72,7 +72,7 @@ namespace Dolinay
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 13);
+            this.label1.Size = new System.Drawing.Size(414, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "This is invisible form. To see DriveDetector code click View Code";
             // 
@@ -81,8 +81,14 @@ namespace Dolinay
             this.ClientSize = new System.Drawing.Size(360, 80);
             this.Controls.Add(this.label1);
             this.Name = "DetectorForm";
+            this.Load += new System.EventHandler(this.DetectorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void DetectorForm_Load(object sender, EventArgs e)
+        {
 
         }
     }   // class DetectorForm

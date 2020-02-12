@@ -32,3 +32,11 @@ C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreRelea
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.exe.manifest
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.application
 C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.Diagnostics.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\Magick.NET-Q16-AnyCPU.dll
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\Magick.NET-Q16-AnyCPU.xml
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.AdminSettingsControl.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.AdminSettings.resources
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\Renci.SshNet.dll
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\bin\x86\Release\Renci.SshNet.xml
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+C:\Users\Arunav\Documents\_Project packs\Softwares\PicsDirectoryDisplay\PreReleaseBranchPrintApic\MobPrntBoooth\PrintAPicStart\obj\x86\Release\PrintAPicStart.csproj.ResolveComReference.cache

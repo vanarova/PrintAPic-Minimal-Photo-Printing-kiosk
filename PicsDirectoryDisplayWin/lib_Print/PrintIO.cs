@@ -141,10 +141,10 @@ namespace PicsDirectoryDisplayWin.lib_Print
 
 
             string total = Math.Round(
-                (((Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) *
+                (((Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"+ Globals.PrintSelection.ToString()]) *
                 SelectedImages.Count) * Convert.ToDouble(ConfigurationManager.AppSettings["GSTValue"]) /
                 100) +
-                (Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"]) * SelectedImages.Count)
+                (Convert.ToDouble(ConfigurationManager.AppSettings["CostValue"+ Globals.PrintSelection.ToString()]) * SelectedImages.Count)
                 ), 2
                 ).ToString();
 

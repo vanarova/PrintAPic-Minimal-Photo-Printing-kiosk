@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Renci.SshNet;
+using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
@@ -96,21 +97,24 @@ namespace PrintAPicStart
         private void main_Load(object sender, EventArgs e)
         {
             LicenseCheck();
-
+            if (Helper.CheckIfStartUpShortcutExists())
+            {
+                checkBox1.Checked = true;
+            }
             //uSettings = Helper.DeserializeText();
 
-            //First time run only.
-            //if (uSettings == null)
-            //{
-            //    uSettings = new UserSettings();
-            //    Helper.SerializeText(uSettings);
-            //}
+                //First time run only.
+                //if (uSettings == null)
+                //{
+                //    uSettings = new UserSettings();
+                //    Helper.SerializeText(uSettings);
+                //}
 
 
-            //freguency_comboBox.SelectedIndex = 3;
+                //freguency_comboBox.SelectedIndex = 3;
 
-            //freguency_comboBox.SelectedItem = userSettingsBindingSource.
-            //userSettingsBindingSource.DataSource = uSettings;
+                //freguency_comboBox.SelectedItem = userSettingsBindingSource.
+                //userSettingsBindingSource.DataSource = uSettings;
 
         }
 
@@ -122,13 +126,13 @@ namespace PrintAPicStart
             Stop_Button.Enabled = isvalid;
             if (isvalid)
             {
-                button1.BackColor = System.Drawing.Color.LightGreen;
-                button1.Text = "Registered";
+                Register_btn.BackColor = System.Drawing.Color.LightGreen;
+                Register_btn.Text = "Registered";
             }
             else
             {
-                button1.BackColor = System.Drawing.Color.LightSalmon;
-                button1.Text = "Register";
+                Register_btn.BackColor = System.Drawing.Color.LightSalmon;
+                Register_btn.Text = "Register";
             }
         }
 
@@ -283,7 +287,7 @@ namespace PrintAPicStart
             DeFreezeUI();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Register_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration();
             reg.ShowDialog();
@@ -291,11 +295,84 @@ namespace PrintAPicStart
         }
 
         //Diagnostics
-        private void Button2_Click(object sender, EventArgs e)
+        private void Diagnostics_Click(object sender, EventArgs e)
         {
             Diagnostics diag = new Diagnostics();
             diag.TopMost = true;
             diag.ShowDialog();
+        }
+
+        private void BSettings_Click(object sender, EventArgs e)
+        {
+            AdminSettings ad = new AdminSettings();
+            ad.ShowDialog();
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            // Setup Credentials and Server Information
+            ConnectionInfo ConnNfo = new ConnectionInfo("10.3.141.242", 22, "pi",
+                new AuthenticationMethod[]{
+
+                // Pasword based Authentication
+                new PasswordAuthenticationMethod("pi","raspberry"),
+
+
+                }
+            );
+
+
+            // Execute (SHELL) Commands
+            using (var sshclient = new SshClient(ConnNfo))
+            {
+                sshclient.Connect();
+
+                MessageBox.Show(sshclient.CreateCommand("hostname").Execute());
+                //Cd to below hostapd directory and run command
+                //pi@raspberrypi:/etc/hostapd
+                //sshclient.CreateCommand("cd ..").Execute();
+                //MessageBox.Show(sshclient.CreateCommand("cd ..").Execute());
+                //sshclient.CreateCommand("cd ..").Execute();
+                //sshclient.CreateCommand("cd ../../etc/hostapd").Execute();
+                MessageBox.Show(sshclient.CreateCommand("ls").Execute());
+                sshclient.CreateCommand("sudo sed -i 's/.*ssid.*/ssid=PrintAPic_/' ../../etc/hostapd/hostapd.conf").Execute();
+                //sshclient.CreateCommand("sudo sed -i 's/.*wpa_passphrase.*/wpa_passphrase=12345678/' ../../etc/hostapd/hostapd.conf").Execute();
+                sshclient.CreateCommand("sudo service hostapd stop").Execute();
+                System.Threading.Thread.Sleep(3000);
+                sshclient.CreateCommand("sudo service hostapd start").Execute();
+
+                //Try this
+                //sudo service hostapd start
+
+
+
+
+                // quick way to use ist, but not best practice - SshCommand is not Disposed, ExitStatus not checked...
+                //Console.WriteLine("telnet localhost 6571");
+                //Console.WriteLine("denemeeeeeee");
+                //Console.WriteLine("deneme2");
+                //Console.WriteLine(sshclient.CreateCommand("cd /tmp && ls -lah").Execute());
+                //Console.WriteLine(sshclient.CreateCommand("pwd").Execute());
+                //Console.WriteLine(sshclient.CreateCommand("cd /tmp/uploadtest && ls -lah").Execute());
+                sshclient.Disconnect();
+            }
+            //Console.ReadKey();
+
+        }
+
+
+
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                Helper.RegisterAtStartup();
+            }
+            else
+            {
+                Helper.UnRegisterAtStartup();
+            }
         }
     }
 }

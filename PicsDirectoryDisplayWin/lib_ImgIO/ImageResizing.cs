@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace PhotoRotation
+namespace PicsDirectoryDisplayWin.lib_ImgIO
 {
     public class ImageResizing : IImageResizing, IDisposable
     {
@@ -30,7 +31,7 @@ namespace PhotoRotation
         {
             _sourceImageStream = sourceImageStream;
             _firstImageBitmapFrame = GetFirstBitmapFrame(_sourceImageStream);
-
+            
             _jpegEncoder = new JpegBitmapEncoder();
             _jpegEncoder.Frames.Add(_firstImageBitmapFrame);
         }
@@ -56,6 +57,47 @@ namespace PhotoRotation
             // Make this method chainable
             return this;
         }
+
+
+        public void ResizeIfNeeded(string ImagePath)
+        {
+            int AssumedSize_Inch=0; // = Convert.ToInt32(ConfigurationManager.AppSettings["A5ImageQuality"]);
+
+            if (Globals.PrintSelection == Globals.PrintSize.A5)
+            {
+                AssumedSize_Inch = Convert.ToInt32(ConfigurationManager.AppSettings["A5ImageQuality"]);
+            }
+            else if (Globals.PrintSelection == Globals.PrintSize.A4)
+            {
+                AssumedSize_Inch = Convert.ToInt32(ConfigurationManager.AppSettings["A4ImageQuality"]);
+            }
+            else if (Globals.PrintSelection == Globals.PrintSize.Passport)
+            {
+                AssumedSize_Inch = Convert.ToInt32(ConfigurationManager.AppSettings["PassportImageQuality"]);
+            }
+            else if (Globals.PrintSelection == Globals.PrintSize.Postcard)
+            {
+                AssumedSize_Inch = Convert.ToInt32(ConfigurationManager.AppSettings["A5ImageQuality"]);
+            }
+            double newImageShorterSide;
+            //Assume printer will print at 300 dpi.
+            double DPI300Width = _firstImageBitmapFrame.PixelWidth / 300;
+            double DPI300Hght = _firstImageBitmapFrame.PixelHeight / 300;
+            
+            //Resize only images whose shorter side is greater than 8 inches
+            if (DPI300Hght < DPI300Width && DPI300Hght > AssumedSize_Inch)
+            {
+                newImageShorterSide = AssumedSize_Inch * 300;
+                Resize(0, Convert.ToInt32(newImageShorterSide)).Quality(100).Save(ImagePath,true);
+            }
+            else if (DPI300Width < DPI300Hght && DPI300Width > AssumedSize_Inch)
+            {
+                newImageShorterSide = AssumedSize_Inch * 300;
+                Resize(Convert.ToInt32(newImageShorterSide),0).Quality(100).Save(ImagePath, true);
+            }
+
+        }
+
 
         /// <summary>
         /// Resizes the image source using the supplied width and height.

@@ -92,9 +92,9 @@ namespace PicsDirectoryDisplayWin
             btn_Back.Text = ConfigurationManager.AppSettings["BackButton"];
             label6.Text = ConfigurationManager.AppSettings["BillInfo"];
             label12.Text = ConfigurationManager.AppSettings["PrintSizeText"];
-            label11.Text = ConfigurationManager.AppSettings["PrintSizeValue"];
+            label11.Text = Globals.PrintSelection.ToString(); //ConfigurationManager.AppSettings["PrintSizeValue"];
             label4.Text = ConfigurationManager.AppSettings["CostText"] ;
-            label8.Text = ConfigurationManager.AppSettings["CostValue"]; 
+            label8.Text = ConfigurationManager.AppSettings["CostValue"+ Globals.PrintSelection.ToString()]; 
             label5.Text = ConfigurationManager.AppSettings["NoOfPicsText"];
             label_PicsCount.Text = ConfigurationManager.AppSettings["NoOfPicsInitialValue"];
             label10.Text = ConfigurationManager.AppSettings["AmountText"];
@@ -362,6 +362,12 @@ namespace PicsDirectoryDisplayWin
 
     private void UpdateBillDetails(int count)
         {
+            //For passport, image repeats and count is fixed for a page
+            if (Globals.PrintSelection == Globals.PrintSize.Postcard)
+                count = Globals.PostcardImageCountInAPage;
+            if (Globals.PrintSelection == Globals.PrintSize.Passport)
+                count = Globals.PassportImageCountInAPage;
+
             if (!string.IsNullOrEmpty(label8.Text) &&
                 !string.IsNullOrEmpty(label1.Text) )
             {
@@ -388,7 +394,8 @@ namespace PicsDirectoryDisplayWin
             {
                
                 string[] imgDetails = item.Split('|');
-                string tempImg = imgDetails[0].Replace(imgDetails[1], "thumbs/") + imgDetails[1];
+                //Get thumbnail
+                string tempImg = imgDetails[0].Replace(imgDetails[1], "thumbs/") + Path.GetFileNameWithoutExtension(imgDetails[1]) + ".jpg";
 
                 //string imgName = item.Split('|')[1];
                 previewImages.Images.Add(tempImg, imageIO.GetImage(tempImg));

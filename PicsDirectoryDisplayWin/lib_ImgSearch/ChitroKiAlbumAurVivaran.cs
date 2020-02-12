@@ -24,13 +24,7 @@ namespace PicsDirectoryDisplayWin.lib
             }
         }
 
-        public string ImagePostProcessedFullName
-        {
-            get
-            {
-                return Globals.ProcessedImagesDir + "\\" + ImageName.Replace(Path.GetExtension(ImageName), ".jpg");
-            }
-        }
+    
 
         public string ImageDirName { get; set; }
         public string ImageDirFullName { get; set; }
