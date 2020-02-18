@@ -29,6 +29,7 @@ namespace PicsDirectoryDisplayWin.lib
             IEnumerable<FileInfo> allimgfiles = null;
             IEnumerable<FileInfo> allJpegfiles = null;
             IEnumerable<FileInfo> HEICfiles = null;
+            IEnumerable<FileInfo> PDFfiles = null;
             System.IO.DirectoryInfo[] subDirs = null;
             if (NoOfTotalDirsFound > Globals.MaxDirectoryToSearchLimit)
                 return;
@@ -38,6 +39,7 @@ namespace PicsDirectoryDisplayWin.lib
                 allimgfiles = root.EnumerateFiles("*.jpg");
                 allJpegfiles = root.EnumerateFiles("*.jpeg");
                 HEICfiles = root.EnumerateFiles("*.heic");
+                PDFfiles = root.EnumerateFiles("*.pdf");
                 allimgfiles = allimgfiles.Concat<FileInfo>(HEICfiles);
                 allimgfiles = allimgfiles.Concat<FileInfo>(allJpegfiles);
 

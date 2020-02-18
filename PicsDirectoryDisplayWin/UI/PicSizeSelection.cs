@@ -289,7 +289,7 @@ namespace PicsDirectoryDisplayWin
 
         private void Button2_Click_2(object sender, EventArgs e)
         {
-            Globals.SetPrintSelection(Globals.PrintSize.Postcard);
+            Globals.SetPrintSelection(Globals.PrintSize.pdf);
             // Globals.PrintSelection = Globals.PrintSize.Passport;
             this.Close();
         }

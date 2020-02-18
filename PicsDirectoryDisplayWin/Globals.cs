@@ -14,7 +14,7 @@ namespace PicsDirectoryDisplayWin
     {
         public enum PrintSize
         {
-            A4,A5,Passport,Postcard
+            A4,A5,Passport,Postcard,pdf
         }
 
         private static PrintSize _PrintSelection= PrintSize.A5;

@@ -57,10 +57,10 @@
             this.A4.BackColor = System.Drawing.Color.Cyan;
             this.A4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.A4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A4.Location = new System.Drawing.Point(4, 271);
+            this.A4.Location = new System.Drawing.Point(4, 267);
             this.A4.Margin = new System.Windows.Forms.Padding(4);
             this.A4.Name = "A4";
-            this.A4.Size = new System.Drawing.Size(179, 80);
+            this.A4.Size = new System.Drawing.Size(171, 80);
             this.A4.TabIndex = 0;
             this.A4.Text = "Full Page (A4)";
             this.A4.UseVisualStyleBackColor = false;
@@ -72,10 +72,10 @@
             this.A5.BackColor = System.Drawing.Color.Cyan;
             this.A5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.A5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A5.Location = new System.Drawing.Point(191, 271);
+            this.A5.Location = new System.Drawing.Point(183, 267);
             this.A5.Margin = new System.Windows.Forms.Padding(4);
             this.A5.Name = "A5";
-            this.A5.Size = new System.Drawing.Size(179, 80);
+            this.A5.Size = new System.Drawing.Size(171, 80);
             this.A5.TabIndex = 1;
             this.A5.Text = "Half Page (A5)";
             this.A5.UseCompatibleTextRendering = true;
@@ -88,10 +88,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 84);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 81);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(154, 173);
+            this.pictureBox1.Size = new System.Drawing.Size(146, 173);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -104,7 +104,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
             this.label4.Font = new System.Drawing.Font("DevLys 010 ", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(313, 362);
+            this.label4.Location = new System.Drawing.Point(297, 358);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 35);
             this.label4.TabIndex = 19;
@@ -131,11 +131,11 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.A4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 0, 3);
@@ -156,7 +156,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.28283F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(903, 510);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(899, 506);
             this.tableLayoutPanel1.TabIndex = 21;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanel1_Paint);
             // 
@@ -166,7 +166,7 @@
             this.btnClose.BackColor = System.Drawing.Color.LightCyan;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(3, 452);
+            this.btnClose.Location = new System.Drawing.Point(3, 448);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(113, 55);
             this.btnClose.TabIndex = 20;
@@ -179,10 +179,10 @@
             this.Passport.BackColor = System.Drawing.Color.Cyan;
             this.Passport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Passport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Passport.Location = new System.Drawing.Point(378, 271);
+            this.Passport.Location = new System.Drawing.Point(362, 267);
             this.Passport.Margin = new System.Windows.Forms.Padding(4);
             this.Passport.Name = "Passport";
-            this.Passport.Size = new System.Drawing.Size(179, 80);
+            this.Passport.Size = new System.Drawing.Size(171, 80);
             this.Passport.TabIndex = 21;
             this.Passport.Text = "Passport Size";
             this.Passport.UseCompatibleTextRendering = true;
@@ -195,10 +195,10 @@
             this.Postcard.BackColor = System.Drawing.Color.Cyan;
             this.Postcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Postcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Postcard.Location = new System.Drawing.Point(565, 270);
+            this.Postcard.Location = new System.Drawing.Point(541, 267);
             this.Postcard.Margin = new System.Windows.Forms.Padding(4);
             this.Postcard.Name = "Postcard";
-            this.Postcard.Size = new System.Drawing.Size(179, 81);
+            this.Postcard.Size = new System.Drawing.Size(171, 81);
             this.Postcard.TabIndex = 23;
             this.Postcard.Text = "Postcard Size";
             this.Postcard.UseCompatibleTextRendering = true;
@@ -211,10 +211,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(564, 84);
+            this.pictureBox4.Location = new System.Drawing.Point(540, 81);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(154, 173);
+            this.pictureBox4.Size = new System.Drawing.Size(146, 173);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 24;
             this.pictureBox4.TabStop = false;
@@ -226,10 +226,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(190, 84);
+            this.pictureBox2.Location = new System.Drawing.Point(182, 81);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(154, 173);
+            this.pictureBox2.Size = new System.Drawing.Size(146, 173);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
@@ -241,10 +241,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(377, 84);
+            this.pictureBox3.Location = new System.Drawing.Point(361, 81);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(154, 173);
+            this.pictureBox3.Size = new System.Drawing.Size(146, 173);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 26;
             this.pictureBox3.TabStop = false;
@@ -256,10 +256,10 @@
             this.button2.BackColor = System.Drawing.Color.Cyan;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(752, 270);
+            this.button2.Location = new System.Drawing.Point(720, 267);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 81);
+            this.button2.Size = new System.Drawing.Size(175, 81);
             this.button2.TabIndex = 27;
             this.button2.Text = "Document";
             this.button2.UseCompatibleTextRendering = true;
@@ -272,10 +272,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(751, 84);
+            this.pictureBox5.Location = new System.Drawing.Point(719, 81);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(122, 173);
+            this.pictureBox5.Size = new System.Drawing.Size(150, 173);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 28;
             this.pictureBox5.TabStop = false;
@@ -285,7 +285,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(903, 510);
+            this.ClientSize = new System.Drawing.Size(899, 506);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button1);
