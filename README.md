@@ -9,7 +9,10 @@ Features:
   4. Multi-lingual
   5. Fully wireless printing, can also be used as a print server/Network printer.
   
-  https://www.youtube.com/watch?v=HF7cRHHctl0
+Demo Video :
+https://youtu.be/LsZvIBa5tQA
+
+
   
   
 # Raspberry installation of Raspap router --
