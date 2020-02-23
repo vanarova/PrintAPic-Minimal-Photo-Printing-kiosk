@@ -1,5 +1,17 @@
 # Print A Pic 
 
+# What it is? 
+A economical mobile/cellphone photos printing solution. Connect any mobile with small windows's based PC tablet and transfer pics wirelessly using wifi, No cables needed.
+Features: 
+  1. Auto resize photo to A4, A5, Postcard, passport sizes
+  2. Prints receipts using thermal printer
+  3. Print PDF files
+  4. Multi-lingual
+  5. Fully wireless printing, can also be used as a print server/Network printer.
+  
+  https://www.youtube.com/watch?v=HF7cRHHctl0
+  
+  
 # Raspberry installation of Raspap router --
 Steps --
 1. Install Raspap, steps are given in quick installer section in raspap github.
