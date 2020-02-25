@@ -35,7 +35,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.warningTxt = new System.Windows.Forms.Label();
-            this.RefreshButton = new System.Windows.Forms.Button();
+            this.UploadButton = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Next = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -55,17 +55,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.loadingImageslabel = new System.Windows.Forms.Label();
             this.LoadingImagesPBar = new System.Windows.Forms.ProgressBar();
             this.imgs = new System.Windows.Forms.ImageList(this.components);
             this.previewImages = new System.Windows.Forms.ImageList(this.components);
             this.LoadingImagesProgBar = new System.Windows.Forms.ProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.UploadUSBFilesDialog = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.tb.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -99,6 +101,7 @@
             // imglist
             // 
             this.imglist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imglist.HideSelection = false;
             this.imglist.Location = new System.Drawing.Point(264, 2);
             this.imglist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imglist.Name = "imglist";
@@ -113,14 +116,14 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
             this.flowLayoutPanel1.Controls.Add(this.warningTxt);
-            this.flowLayoutPanel1.Controls.Add(this.RefreshButton);
+            this.flowLayoutPanel1.Controls.Add(this.UploadButton);
             this.flowLayoutPanel1.Controls.Add(this.btn_Back);
             this.flowLayoutPanel1.Controls.Add(this.btn_Next);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(757, 382);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(718, 382);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(550, 68);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(589, 68);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // pictureBox4
@@ -133,6 +136,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(88, 31);
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
             // 
             // warningTxt
             // 
@@ -144,20 +148,24 @@
             this.warningTxt.Size = new System.Drawing.Size(0, 29);
             this.warningTxt.TabIndex = 6;
             // 
-            // RefreshButton
+            // UploadButton
             // 
-            this.RefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.UploadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RefreshButton.AutoSize = true;
-            this.RefreshButton.Location = new System.Drawing.Point(100, 0);
-            this.RefreshButton.Margin = new System.Windows.Forms.Padding(0);
-            this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(120, 75);
-            this.RefreshButton.TabIndex = 5;
-            this.RefreshButton.Text = "Refresh";
-            this.RefreshButton.UseVisualStyleBackColor = true;
-            this.RefreshButton.Click += new System.EventHandler(this.button1_Click);
+            this.UploadButton.AutoSize = true;
+            this.UploadButton.BackColor = System.Drawing.Color.Cyan;
+            this.UploadButton.Enabled = false;
+            this.UploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UploadButton.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UploadButton.Location = new System.Drawing.Point(100, 0);
+            this.UploadButton.Margin = new System.Windows.Forms.Padding(0);
+            this.UploadButton.Name = "UploadButton";
+            this.UploadButton.Size = new System.Drawing.Size(159, 75);
+            this.UploadButton.TabIndex = 5;
+            this.UploadButton.Text = "Photos";
+            this.UploadButton.UseVisualStyleBackColor = false;
+            this.UploadButton.Click += new System.EventHandler(this.UploadButton_Click);
             // 
             // btn_Back
             // 
@@ -166,14 +174,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Back.AutoSize = true;
+            this.btn_Back.BackColor = System.Drawing.Color.Cyan;
+            this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Back.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(220, 0);
+            this.btn_Back.Location = new System.Drawing.Point(259, 0);
             this.btn_Back.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(169, 75);
             this.btn_Back.TabIndex = 3;
             this.btn_Back.Text = "Back";
-            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.UseVisualStyleBackColor = false;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Next
@@ -182,14 +192,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Next.AutoSize = true;
+            this.btn_Next.BackColor = System.Drawing.Color.Cyan;
+            this.btn_Next.Enabled = false;
+            this.btn_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Next.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Next.Location = new System.Drawing.Point(389, 0);
+            this.btn_Next.Location = new System.Drawing.Point(428, 0);
             this.btn_Next.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Next.Name = "btn_Next";
             this.btn_Next.Size = new System.Drawing.Size(161, 75);
             this.btn_Next.TabIndex = 4;
             this.btn_Next.Text = "Next";
-            this.btn_Next.UseVisualStyleBackColor = true;
+            this.btn_Next.UseVisualStyleBackColor = false;
             this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
             // 
             // tableLayoutPanel1
@@ -198,7 +211,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.78431F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.21569F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label_PicsCount, 1, 7);
@@ -220,6 +233,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.label16, 2, 9);
             this.tableLayoutPanel1.Controls.Add(this.label17, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -245,7 +259,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 255);
+            this.label5.Location = new System.Drawing.Point(29, 255);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 18);
             this.label5.TabIndex = 4;
@@ -256,7 +270,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(54, 230);
+            this.label4.Location = new System.Drawing.Point(48, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 18);
             this.label4.TabIndex = 3;
@@ -266,7 +280,7 @@
             // 
             this.label_PicsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_PicsCount.AutoSize = true;
-            this.label_PicsCount.Location = new System.Drawing.Point(186, 255);
+            this.label_PicsCount.Location = new System.Drawing.Point(176, 255);
             this.label_PicsCount.Name = "label_PicsCount";
             this.label_PicsCount.Size = new System.Drawing.Size(31, 18);
             this.label_PicsCount.TabIndex = 6;
@@ -277,7 +291,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(199, 230);
+            this.label8.Location = new System.Drawing.Point(189, 230);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 18);
             this.label8.TabIndex = 8;
@@ -287,7 +301,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 305);
+            this.label1.Location = new System.Drawing.Point(189, 305);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 18);
             this.label1.TabIndex = 7;
@@ -297,7 +311,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 305);
+            this.label2.Location = new System.Drawing.Point(36, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 1;
@@ -307,7 +321,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(58, 280);
+            this.label10.Location = new System.Drawing.Point(52, 280);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 18);
             this.label10.TabIndex = 10;
@@ -318,7 +332,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(199, 280);
+            this.label9.Location = new System.Drawing.Point(189, 280);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(18, 18);
             this.label9.TabIndex = 9;
@@ -328,7 +342,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(43, 205);
+            this.label12.Location = new System.Drawing.Point(37, 205);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 18);
             this.label12.TabIndex = 12;
@@ -338,7 +352,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(189, 205);
+            this.label11.Location = new System.Drawing.Point(179, 205);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 18);
             this.label11.TabIndex = 11;
@@ -349,7 +363,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(194, 332);
+            this.label13.Location = new System.Drawing.Point(184, 332);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 24);
             this.label13.TabIndex = 13;
@@ -362,7 +376,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(0, 330);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(134, 2);
+            this.pictureBox2.Size = new System.Drawing.Size(128, 2);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
@@ -371,10 +385,10 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Black;
             this.tableLayoutPanel1.SetColumnSpan(this.pictureBox3, 2);
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(134, 330);
+            this.pictureBox3.Location = new System.Drawing.Point(128, 330);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(121, 2);
+            this.pictureBox3.Size = new System.Drawing.Size(127, 2);
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             // 
@@ -384,7 +398,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(58, 332);
+            this.label14.Location = new System.Drawing.Point(52, 332);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 24);
             this.label14.TabIndex = 14;
@@ -399,7 +413,7 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 162);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 40);
+            this.label6.Size = new System.Drawing.Size(122, 40);
             this.label6.TabIndex = 18;
             this.label6.Text = "Bill info..";
             // 
@@ -418,6 +432,53 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(213, 230);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 18);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "/-";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(213, 255);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 18);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "x";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(213, 280);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(23, 18);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "/-";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(213, 305);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(26, 18);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "%";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(213, 332);
+            this.label17.Name = "label17";
+            this.label17.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label17.Size = new System.Drawing.Size(23, 21);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "/-";
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -435,20 +496,21 @@
             // 
             this.loadingImageslabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.loadingImageslabel.AutoSize = true;
+            this.loadingImageslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadingImageslabel.Location = new System.Drawing.Point(3, 0);
             this.loadingImageslabel.Name = "loadingImageslabel";
-            this.loadingImageslabel.Padding = new System.Windows.Forms.Padding(0, 15, 0, 5);
-            this.loadingImageslabel.Size = new System.Drawing.Size(128, 37);
+            this.loadingImageslabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 5);
+            this.loadingImageslabel.Size = new System.Drawing.Size(142, 28);
             this.loadingImageslabel.TabIndex = 1;
-            this.loadingImageslabel.Text = "Loading Images ....";
+            this.loadingImageslabel.Text = "Please Wait  ....";
             // 
             // LoadingImagesPBar
             // 
             this.LoadingImagesPBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LoadingImagesPBar.Location = new System.Drawing.Point(3, 40);
+            this.LoadingImagesPBar.Location = new System.Drawing.Point(3, 31);
             this.LoadingImagesPBar.MarqueeAnimationSpeed = 40;
             this.LoadingImagesPBar.Name = "LoadingImagesPBar";
-            this.LoadingImagesPBar.Size = new System.Drawing.Size(249, 16);
+            this.LoadingImagesPBar.Size = new System.Drawing.Size(249, 29);
             this.LoadingImagesPBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.LoadingImagesPBar.TabIndex = 0;
             // 
@@ -474,58 +536,28 @@
             this.LoadingImagesProgBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.LoadingImagesProgBar.TabIndex = 0;
             // 
-            // label3
+            // UploadUSBFilesDialog
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(223, 230);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 18);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "/-";
+            this.UploadUSBFilesDialog.Multiselect = true;
             // 
-            // label7
+            // button1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(223, 255);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 18);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "x";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(223, 280);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 18);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "/-";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(223, 305);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(26, 18);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "%";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(223, 332);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label17.Size = new System.Drawing.Size(23, 21);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "/-";
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(131, 108);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 51);
+            this.button1.TabIndex = 24;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // SimpleGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1307, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.tb);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SimpleGallery";
@@ -572,7 +604,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.Button UploadButton;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label warningTxt;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -586,6 +618,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.OpenFileDialog UploadUSBFilesDialog;
+        private System.Windows.Forms.Button button1;
     }
 }
 

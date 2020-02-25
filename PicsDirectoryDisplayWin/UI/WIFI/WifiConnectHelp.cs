@@ -12,7 +12,7 @@ namespace PicsDirectoryDisplayWin.UI
 {
     public partial class WifiConnectHelp : Form
     {
-       
+
         public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
         public Form AnimationForm { get; set; }
         public bool IamAlreadyCalledOnce = false;
@@ -23,36 +23,59 @@ namespace PicsDirectoryDisplayWin.UI
         private Waiter waiter = new Waiter();
         private ImageIO imageIO = new ImageIO();
         private int foundImageCount = 0;
-        private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
+        //private string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
         //int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
-        
-        
+
+
 
         public WifiConnectHelp()
         {
             InitializeComponent();
             //TODO : Memory leak was happeining from pic box, assign images like below, put urls in global file & resources
+            fileSystemWatcher1 = new FileSystemWatcher
+            {
+                Path = ConfigurationManager.AppSettings["WebSiteSearchDir"],
+                EnableRaisingEvents = true
+            };
+            //DeleteAllImages();
 
-            pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
-            pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
-            tb.BackgroundImage = GlobalImageCache.TableBgImg;
+            //pictureBox7.BackgroundImage = GlobalImageCache.ArrowImg;
+            //pictureBox6.BackgroundImage = GlobalImageCache.ArrowImg;
+            //tb.BackgroundImage = GlobalImageCache.TableBgImg;
             pictureBox4.Image = GlobalImageCache.wifiStepImg;
             pictureBox3.Image = GlobalImageCache.BrowserStepImg;
             pictureBox2.Image = GlobalImageCache.WifiIconImg;
+            pictureBox1.Image = GlobalImageCache.TransferPic;
 
             label14.Text = ConfigurationManager.AppSettings["ConnectToWIFIText"];
             label2.Text = ConfigurationManager.AppSettings["PasswordNotNeededText"];
             label5.Text = ConfigurationManager.AppSettings["WIFIText"];
             label4.Text = ConfigurationManager.AppSettings["PasswordKiZarooratText"];
             label1.Text = ConfigurationManager.AppSettings["TypeInBrowserText"];
-            label6.Text = ConfigurationManager.AppSettings["PrintGoText"];
+            label3.Text = ConfigurationManager.AppSettings["PrintGoText"];
+            label6.Text = label3.Text;
             label8.Text = ConfigurationManager.AppSettings["BrowserMeinLikhenText"];
             label9.Text = ConfigurationManager.AppSettings["TransferPhotosText"];
             label10.Text = ConfigurationManager.AppSettings["WaitingForPics"];
             label11.Text = ConfigurationManager.AppSettings["PhotosKiPratikchaText"];
+            fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
+            tb.BackColor = Color.FromName(ConfigurationManager.AppSettings["AppBackgndColor"]);
+
+
+            if (!System.Diagnostics.Debugger.IsAttached)
+            {
+                //fullscreen
+                this.TopMost = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
-     
+
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -66,7 +89,7 @@ namespace PicsDirectoryDisplayWin.UI
                 return;
             IamAlreadyCalledOnce = true;
             AllImages = new List<ChitraKiAlbumAurVivaran>();
-            imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, WebSiteSearchDir,
+            imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, ConfigurationManager.AppSettings["WebSiteSearchDir"],
                 this, waiter, ReportProgressForImageSearch, Done);
         }
 
@@ -74,31 +97,39 @@ namespace PicsDirectoryDisplayWin.UI
         private void Done(bool IsWeb)
         {
             imageIO.BubbleSortImages(AllImages);
-       
+
             foreach (var item in AllImages)
             {
+
+                //TODO: #PPFunc:  Done call whole post processing function here, just thumbail func is enough
                 //Create Thumbnails
-                Task task = new Task(async () => { await imageIO.Wifi_RotateImageIfNeeded_CreateThumbnails(item); });
+                Task task = new Task(async () => { await imageIO.Wifi_PostProcessImages(item); });
                 task.Start();
                 task.Wait();
                 //ReportProgressForThumbnails(item.ImageDirName);
             }
 
             AllImages.Reverse();
-            if (InvokeRequired)
+            if (InvokeRequired || waiter.InvokeRequired)
                 Invoke(new Action(() => waiter.Visible = false));
             else
                 waiter.Visible = false;
             if (IsWeb)
             {
-                SimpleGallery gallery = new SimpleGallery { WifiConnectHelpObject =this,
-                    AnimationFormObject =AnimationForm, AllImages = AllImages };
+                SimpleGallery gallery = new SimpleGallery
+                {
+                    WifiConnectHelpObject = this,
+                    AnimationFormObject = AnimationForm,
+                    AllImages = AllImages
+                };
+                this.Visible = false;
                 gallery.Show();
 
             }
             else
             {
                 DirectoryGallery gallery = new DirectoryGallery { AllImages = AllImages };
+                this.Visible = false;
                 gallery.Show();
             }
 
@@ -113,7 +144,7 @@ namespace PicsDirectoryDisplayWin.UI
             AllImages.Add(obj);
         }
 
-       
+
 
         //private void ReportProgressForThumbnails(string dirName)
         //{
@@ -139,11 +170,7 @@ namespace PicsDirectoryDisplayWin.UI
 
             //pictureBox1.Image = GlobalImageCache.HorseAnimImg;
 
-           fileSystemWatcher1 = new FileSystemWatcher
-            {
-                Path = WebSiteSearchDir,
-                EnableRaisingEvents = true
-            };
+            
             DeleteAllImages();
 
             //fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
@@ -153,20 +180,24 @@ namespace PicsDirectoryDisplayWin.UI
 
         public void DeleteAllImages()
         {
+            if ((new DirectoryInfo(ConfigurationManager.AppSettings["WebSiteSearchDir"])).GetFiles().Length==0)
+            {
+                return;
+            }
             //delete all pics from previous session. Before events are registed
             try
             {
 
-                fileSystemWatcher1.Created -= FileSystemWatcher1_Changed;
-                fileSystemWatcher1.Deleted -= FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Created -= FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Deleted -= FileSystemWatcher1_Changed;
 
-                imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
-                if (imageIO.DoesAnyFileExists(Globals.WebSiteSearchDir) > 0)
-                    imageIO.DeleteAllFilesInDrectoryAndSubDirs(Globals.WebSiteSearchDir);
+                imageIO.DeleteAllFilesInDrectoryAndSubDirs(ConfigurationManager.AppSettings["WebSiteSearchDir"]);
+                if (imageIO.DoesAnyFileExists(ConfigurationManager.AppSettings["WebSiteSearchDir"]) > 0)
+                    imageIO.DeleteAllFilesInDrectoryAndSubDirs(ConfigurationManager.AppSettings["WebSiteSearchDir"]);
 
 
-                fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
-                fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Created += FileSystemWatcher1_Changed;
+                //fileSystemWatcher1.Deleted += FileSystemWatcher1_Changed;
             }
             catch (Exception ex)
             {
@@ -193,6 +224,24 @@ namespace PicsDirectoryDisplayWin.UI
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None; this.ControlBox = false;
+                return;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.ControlBox = true;
+                return;
+            }
         }
     }
 }

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PicsDirectoryDisplayWin.lib
 {
+    /// <summary>
+    /// This object stores current image directory metadata and peerimages store actual images meta data
+    /// </summary>
     public class ChitraKiAlbumAurVivaran
     {
         public string ImageName { get; set; }
@@ -16,9 +20,11 @@ namespace PicsDirectoryDisplayWin.lib
         {
             get
             {
-                return ImageDirFullName + "\\thumbs\\" + ImageName;
+                return ImageDirFullName + "\\thumbs\\" + ImageName.Replace(Path.GetExtension(ImageName),".jpg");
             }
         }
+
+    
 
         public string ImageDirName { get; set; }
         public string ImageDirFullName { get; set; }

@@ -1,0 +1,57 @@
+<html lang="en" >
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <head>
+        <meta charset="utf-8" />
+        <title>Print-a-Pic</title>
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <script src="js/script.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+			<img src="3.png"/>
+            <!-- <h1>Print-a-Pic</h1> -->
+            <!-- Credits to: www.script-tutorials.com/pure-html5-file-upload -->
+        </header>
+        <div class="container">
+            <!-- <div class="contr"><h2>Select images & click Upload</h2></div> -->
+            <div class="upload_form_cont">
+                <form id="upload_form" enctype="multipart/form-data" method="post" action="upload.php">
+                    <div>
+                        <div><label for="image_file" style="font-size : 44px;">Please select image -</label></div>
+						<hr>
+                        <div><input type="file" name="image_file" style="font-size : 36px;"  id="image_file" accept="image/*" onchange="fileSelected();" multiple></div>
+                    </div>
+					<hr>
+                    <div>
+                        <input type="button" value="Send"   onclick="startUploading()" style="font-size : 44px; "  />
+                    </div>
+                    <div id="fileinfo">
+                        <div id="filename"></div>
+                        <div id="filesize"></div>
+                        <div id="filetype"></div>
+                        <div id="filedim"></div>
+                    </div>
+                    <div id="error">You should select valid image files only!</div>
+                    <div id="error2">An error occurred while uploading the file</div>
+                    <div id="abort">The upload has been canceled by the user or the browser dropped the connection</div>
+                    <div id="warnsize">Your file is very big. We can't accept it. Please select more small file</div>
+                    <div id="progress_info">
+                        <div id="progress"></div>
+                        <div id="progress_percent">&nbsp;</div>
+                        <div class="clear_both"></div>
+                        <div>
+                            <div id="speed">&nbsp;</div>
+                            <div id="remaining">&nbsp;</div>
+                            <div id="b_transfered">&nbsp;</div>
+                            <div class="clear_both"></div>
+                        </div>
+                        <div id="upload_response"></div>
+                    </div>
+                </form>
+                <img id="preview" />
+            </div>
+        </div>
+    </body>
+</html>

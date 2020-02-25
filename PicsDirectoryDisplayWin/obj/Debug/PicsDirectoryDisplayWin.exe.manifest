@@ -78,62 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PdfSharp.dll" size="581632">
-      <assemblyIdentity name="PdfSharp" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wxigZm5aAwUruzKkf/cB9VBYtjYh7UcnVJEG+R0XZ38=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PdfSharp.Charting.dll" size="94208">
-      <assemblyIdentity name="PdfSharp.Charting" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0eigG0ynYMwODSPmc/8ILEDo3QiilqS8OR7cVKRBwvs=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\PdfSharp.Charting.resources.dll" size="4608">
-      <assemblyIdentity name="PdfSharp.Charting.resources" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="de" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wsWPG3XpLdwV8ut6PEzgHe07YHd1BCFcCEel3X5WGvc=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\PdfSharp.resources.dll" size="5120">
-      <assemblyIdentity name="PdfSharp.resources" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="de" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5e4ncMy4a8PPYVRsNJBdHjlpfkuUtJW1j25iS42e/eE=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="8521704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="3544040">
       <assemblyIdentity name="PicsDirectoryDisplayWin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8d95Q+vpFqQ7fzmNhhB+G/NZBHuQG/TLug/sL9B4vsU=</dsig:DigestValue>
+        <dsig:DigestValue>sK+0MCQbt1fxGN+wIcyOGv73yK8mkei3IY5QK25quOg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -197,13 +149,13 @@
       <dsig:DigestValue>IZhZFEv589zAbTzV0JMFRDduG5ExNU9Y9jwtzpQ0fU8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PicsDirectoryDisplayWin.exe.config" size="3067">
+  <file name="PicsDirectoryDisplayWin.exe.config" size="4714">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PfIONCG+VXa8WpA9fOOu+CNabasLt3fOy2dZg6A/x8E=</dsig:DigestValue>
+      <dsig:DigestValue>dLJK82qPfhSOEtJ27KqUkB31QZkgXRG28kkBDnCgJck=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Properties\Resources.resx" size="5817">

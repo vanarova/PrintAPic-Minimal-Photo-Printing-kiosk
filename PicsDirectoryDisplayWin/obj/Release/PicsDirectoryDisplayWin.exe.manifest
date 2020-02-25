@@ -42,62 +42,74 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PdfSharp.dll" size="581632">
-      <assemblyIdentity name="PdfSharp" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ImageProcessor.dll" size="184320">
+      <assemblyIdentity name="ImageProcessor" version="2.7.0.100" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wxigZm5aAwUruzKkf/cB9VBYtjYh7UcnVJEG+R0XZ38=</dsig:DigestValue>
+        <dsig:DigestValue>v0w5sG6jfo/fGXghzkSJ+JTXf4ene+Ut7HAD5Ufn9Y0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PdfSharp.Charting.dll" size="94208">
-      <assemblyIdentity name="PdfSharp.Charting" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.mshtml.dll" size="8032648">
+      <assemblyIdentity name="Microsoft.mshtml" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0eigG0ynYMwODSPmc/8ILEDo3QiilqS8OR7cVKRBwvs=</dsig:DigestValue>
+        <dsig:DigestValue>tgMNMgyI1wYExBjyAq/P48KMM1se7A/lMwnx1Y9gxT4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\PdfSharp.Charting.resources.dll" size="4608">
-      <assemblyIdentity name="PdfSharp.Charting.resources" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="de" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NLog.dll" size="704000">
+      <assemblyIdentity name="NLog" version="4.0.0.0" publicKeyToken="5120E14C03D0593C" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wsWPG3XpLdwV8ut6PEzgHe07YHd1BCFcCEel3X5WGvc=</dsig:DigestValue>
+        <dsig:DigestValue>4ZbAuE+hbKiVVlwKthFxXwchQl9eczQOoYP/oEn315s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\PdfSharp.resources.dll" size="5120">
-      <assemblyIdentity name="PdfSharp.resources" version="1.32.3057.0" publicKeyToken="F94615AA0424F9EB" language="de" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5e4ncMy4a8PPYVRsNJBdHjlpfkuUtJW1j25iS42e/eE=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="10224616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="3536360">
       <assemblyIdentity name="PicsDirectoryDisplayWin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0P05F8grj6NO9/tr2fCg3xddn/swA9khLPB66jrWM9Y=</dsig:DigestValue>
+        <dsig:DigestValue>zAK/f9mzcS5mzez0rKJFLKJACnTeoLAHqSGbkSU9+6Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Spire.License.dll" size="89600">
+      <assemblyIdentity name="Spire.License" version="1.3.7.46" publicKeyToken="B1144360237C8B3F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Pb9jQZFqwU5DRyZ8vSNdJM8VxHjDwSm8Oeilh1WALw4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Spire.Pdf.dll" size="22761472">
+      <assemblyIdentity name="Spire.Pdf" version="5.1.20.20046" publicKeyToken="663F351905198CB3" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jkfxf2+dTOP1MT8tWISHGEScqfRFgowkpWqxpAJn9q0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,13 +149,13 @@
       <dsig:DigestValue>IZhZFEv589zAbTzV0JMFRDduG5ExNU9Y9jwtzpQ0fU8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PicsDirectoryDisplayWin.exe.config" size="418">
+  <file name="PicsDirectoryDisplayWin.exe.config" size="4748">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>D7/sVPgLmSk3kxWZanTLX1fyDf0uwmnpxWPmCWWsRAI=</dsig:DigestValue>
+      <dsig:DigestValue>rpIa2Mybx9aPW2Jwcwvu46c8ME02dINcdGyXvIMSVKU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Properties\Resources.resx" size="5817">
