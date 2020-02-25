@@ -1,3 +1,8 @@
+# Print A Pic
+Affordable wireless mobile photo printing booth for personal/commercial purpose.
+
+
+
 # MobPrntBoooth
 
 Headless pi config steps --
