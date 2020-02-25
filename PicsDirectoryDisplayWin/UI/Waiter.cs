@@ -18,6 +18,11 @@ namespace PicsDirectoryDisplayWin
         public Waiter()
         {
             InitializeComponent();
+
+            //fullscreen
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+
         }
     }
 }

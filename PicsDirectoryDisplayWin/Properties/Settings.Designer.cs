@@ -22,5 +22,14 @@ namespace PicsDirectoryDisplayWin.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("label19")]
+        public string NoOfImages {
+            get {
+                return ((string)(this["NoOfImages"]));
+            }
+        }
     }
 }

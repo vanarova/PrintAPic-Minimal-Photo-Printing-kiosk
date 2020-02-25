@@ -1,6 +1,6 @@
 ﻿namespace PicsDirectoryDisplayWin
 {
-    partial class Animation
+    partial class PrintaPic
     {
         /// <summary>
         /// Required designer variable.
@@ -28,50 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Animation));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintaPic));
             this.DirectConnectButton = new System.Windows.Forms.Button();
             this.WifiConnect = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DirectConnectButton
             // 
+            this.DirectConnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DirectConnectButton.BackColor = System.Drawing.Color.Cyan;
+            this.DirectConnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DirectConnectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DirectConnectButton.Location = new System.Drawing.Point(153, 266);
+            this.DirectConnectButton.Location = new System.Drawing.Point(280, 265);
             this.DirectConnectButton.Margin = new System.Windows.Forms.Padding(4);
             this.DirectConnectButton.Name = "DirectConnectButton";
             this.DirectConnectButton.Size = new System.Drawing.Size(175, 80);
             this.DirectConnectButton.TabIndex = 0;
             this.DirectConnectButton.Text = "USB Text";
-            this.DirectConnectButton.UseVisualStyleBackColor = true;
+            this.DirectConnectButton.UseVisualStyleBackColor = false;
             this.DirectConnectButton.Click += new System.EventHandler(this.DirectConnectButton_Click);
             // 
             // WifiConnect
             // 
+            this.WifiConnect.BackColor = System.Drawing.Color.Cyan;
+            this.WifiConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WifiConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WifiConnect.Location = new System.Drawing.Point(454, 266);
-            this.WifiConnect.Margin = new System.Windows.Forms.Padding(4);
+            this.WifiConnect.Location = new System.Drawing.Point(489, 265);
+            this.WifiConnect.Margin = new System.Windows.Forms.Padding(30, 4, 4, 4);
             this.WifiConnect.Name = "WifiConnect";
             this.WifiConnect.Size = new System.Drawing.Size(185, 80);
             this.WifiConnect.TabIndex = 1;
             this.WifiConnect.Text = "Wifi Text";
             this.WifiConnect.UseCompatibleTextRendering = true;
-            this.WifiConnect.UseVisualStyleBackColor = true;
+            this.WifiConnect.UseVisualStyleBackColor = false;
             this.WifiConnect.Click += new System.EventHandler(this.WifiConnect_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(173, 128);
+            this.pictureBox1.Location = new System.Drawing.Point(247, 85);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 131);
+            this.pictureBox1.Size = new System.Drawing.Size(182, 173);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -79,22 +88,24 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(426, 100);
+            this.pictureBox2.Location = new System.Drawing.Point(462, 85);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(246, 159);
+            this.pictureBox2.Size = new System.Drawing.Size(256, 173);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
             this.label4.Font = new System.Drawing.Font("DevLys 010 ", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(260, 385);
+            this.label4.Location = new System.Drawing.Point(398, 364);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 35);
             this.label4.TabIndex = 19;
@@ -118,48 +129,70 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // tableLayoutPanel1
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(454, 409);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(185, 80);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Print Test";
-            this.button2.UseCompatibleTextRendering = true;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.DirectConnectButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.WifiConnect, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnClose, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.71717F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.28283F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(919, 526);
+            this.tableLayoutPanel1.TabIndex = 21;
             // 
-            // Animation
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.BackColor = System.Drawing.Color.LightCyan;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(3, 468);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(113, 55);
+            this.btnClose.TabIndex = 20;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // PrintaPic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(931, 538);
+            this.ClientSize = new System.Drawing.Size(919, 526);
             this.ControlBox = false;
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.WifiConnect);
-            this.Controls.Add(this.DirectConnectButton);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Animation";
+            this.Name = "PrintaPic";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Animation";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Animation_Load);
+            this.VisibleChanged += new System.EventHandler(this.Animation_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -171,6 +204,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnClose;
     }
 }
