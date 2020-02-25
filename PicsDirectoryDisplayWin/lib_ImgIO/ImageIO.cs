@@ -85,16 +85,35 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
 
         public void DeleteAllNonImageFilesInDrectory(string path)
         {
+            string[] files;
             if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
                 logger.Log(NLog.LogLevel.Info, "Inside DeleteAllNonImageFilesInDrectory function");
-            string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
-            foreach (string file in files)
-            {
-                if (file.ToLower().Contains(".jpg") || file.ToLower().Contains(".jpeg")
-                    || file.ToLower().Contains(".heic"))
-                    continue;
 
-                File.Delete(file);
+            //In pdf scenario, dont only images from top dir, in thumbs, there is pdf icon jpg file.
+            if (Globals.PrintSelection == Globals.PrintSize.pdf)
+            {
+                files = Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly);
+                foreach (string file in files)
+                {
+                    if (file.IndexOf(".pdf", StringComparison.OrdinalIgnoreCase) >= 0)
+                        continue;
+                    File.Delete(file);
+                }
+            }
+            else
+            {
+                files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+                foreach (string file in files)
+                {
+
+                    if (file.IndexOf(".jpg", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        file.IndexOf(".jpeg", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        file.IndexOf(".heic", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            file.IndexOf(".pdf", StringComparison.OrdinalIgnoreCase) >= 0)
+                        continue;
+
+                    File.Delete(file);
+                }
             }
         }
 
@@ -183,58 +202,67 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
                     }
                     try
                     {
-                        ImageCovertHEICToJPG_WriteBackToSameFile(item);
-                        (new ImageResizing(item.ImageFullName)).ResizeIfNeeded(item.ImageFullName);
-
-                        int exifOrientationID = 0x112;
-                        byte[] photoBytes = File.ReadAllBytes(item.ImageFullName);
-                        using (MemoryStream inStream = new MemoryStream(photoBytes))
+                        
+                        if (Globals.PrintSelection == Globals.PrintSize.pdf && item.ImageName.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
                         {
-                            using (MemoryStream outStream = new MemoryStream())
+                            //For PDFs, copy a readymade icon file of pdf.
+                            File.Copy(Globals.pdfIcon, item.ImageThumbnailFullName); //replaces thumbnail .jpg ext.
+                        }
+                        else
+                        {
+                            ImageCovertHEICToJPG_WriteBackToSameFile(item);
+                            (new ImageResizing(item.ImageFullName)).ResizeIfNeeded(item.ImageFullName);
+                            int exifOrientationID = 0x112;
+                            byte[] photoBytes = File.ReadAllBytes(item.ImageFullName);
+                            using (MemoryStream inStream = new MemoryStream(photoBytes))
                             {
-                                // Initialize the ImageFactory using the overload to preserve EXIF metadata.
-                                using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+                                using (MemoryStream outStream = new MemoryStream())
                                 {
-                                    // Load, resize, set the format and quality and save an image.
-                                    imageFactory.Load(inStream);
-                                    thmImg = imageFactory.Image.GetThumbnailImage(200, 200, null, IntPtr.Zero);
+                                    // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+                                    using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+                                    {
+                                        // Load, resize, set the format and quality and save an image.
+                                        imageFactory.Load(inStream);
+                                        thmImg = imageFactory.Image.GetThumbnailImage(200, 200, null, IntPtr.Zero);
 
-                                    using (var fs = new FileStream(item.ImageThumbnailFullName, FileMode.Create))
-                                    {
-                                        //fs.Write(result.DocumentBytes, 0, result.DocumentBytes.Length);
-                                        thmImg.Save(fs, ImageFormat.Jpeg);
-                                    }
+                                        using (var fs = new FileStream(item.ImageThumbnailFullName, FileMode.Create))
+                                        {
+                                            //fs.Write(result.DocumentBytes, 0, result.DocumentBytes.Length);
+                                            thmImg.Save(fs, ImageFormat.Jpeg);
+                                        }
 
-                                    PropertyItem prop;
-                                    thmImg.Save(item.ImageThumbnailFullName, ImageFormat.Jpeg);
+                                        PropertyItem prop;
+                                        thmImg.Save(item.ImageThumbnailFullName, ImageFormat.Jpeg);
 
-                                    //memAvailable = System.GC.GetTotalMemory(false);
+                                        //memAvailable = System.GC.GetTotalMemory(false);
 
-                                    imageFactory.ExifPropertyItems.TryGetValue(exifOrientationID, out prop);
-                                    if (Globals.PrintSelection == Globals.PrintSize.A5)
-                                    {
-                                        AdjustImageOrientation_A5(item, exifOrientationID, imageFactory, prop);
-                                    }
-                                    else if (Globals.PrintSelection == Globals.PrintSize.A4)
-                                    {
-                                        AdjustImageOrientation_A4(item, exifOrientationID, imageFactory, prop);
-                                    }
-                                    else if (Globals.PrintSelection == Globals.PrintSize.Passport)
-                                    {
-                                        //Will work for passport as well
-                                        AdjustImageOrientation_A4(item, exifOrientationID, imageFactory, prop);
-                                    }
-                                    else if (Globals.PrintSelection == Globals.PrintSize.Postcard)
-                                    {
-                                        //will work for postcard as well
-                                        AdjustImageOrientation_A5(item, exifOrientationID, imageFactory, prop);
-                                    }
+                                        imageFactory.ExifPropertyItems.TryGetValue(exifOrientationID, out prop);
+                                        if (Globals.PrintSelection == Globals.PrintSize.A5)
+                                        {
+                                            AdjustImageOrientation_A5(item, exifOrientationID, imageFactory, prop);
+                                        }
+                                        else if (Globals.PrintSelection == Globals.PrintSize.A4)
+                                        {
+                                            AdjustImageOrientation_A4(item, exifOrientationID, imageFactory, prop);
+                                        }
+                                        else if (Globals.PrintSelection == Globals.PrintSize.Passport)
+                                        {
+                                            //Will work for passport as well
+                                            AdjustImageOrientation_A4(item, exifOrientationID, imageFactory, prop);
+                                        }
+                                        else if (Globals.PrintSelection == Globals.PrintSize.Postcard)
+                                        {
+                                            //will work for postcard as well
+                                            AdjustImageOrientation_A5(item, exifOrientationID, imageFactory, prop);
+                                        }
 
                                         //memAvailable = GetMemoryUsage();
                                     }
-                                // Do something with the stream.
+                                    // Do something with the stream.
+                                }
                             }
                         }
+
                     }
                     catch (OutOfMemoryException o)
                     {

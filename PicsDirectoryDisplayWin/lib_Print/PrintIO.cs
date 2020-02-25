@@ -39,8 +39,10 @@ namespace PicsDirectoryDisplayWin.lib_Print
                 IEnumerable<FileInfo> files = new DirectoryInfo(PrintDir).EnumerateFiles();
                 foreach (var item in files)
                 {
+                    // for pdf, show page selection dialog
+                    //pdf.PrintSettings.SelectSomePages()
                     pdf.LoadFromFile(item.FullName);
-                    pdf.Print();
+                    pdf.Print(); 
                     if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
                         logger.Log(NLog.LogLevel.Info, "Printing image file :" + item.FullName);
                 }

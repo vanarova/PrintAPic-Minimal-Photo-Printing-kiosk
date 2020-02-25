@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="3036160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PicsDirectoryDisplayWin.exe" size="3037184">
       <assemblyIdentity name="PicsDirectoryDisplayWin" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nAY318tXCoZMLY+/qcFmDsvo5Xh5T5nAk7AJRCLLOgQ=</dsig:DigestValue>
+        <dsig:DigestValue>xFCI/YJf9ew61UT6DiDgZPiNlIV+H1wzDiAY8CIM3A0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -161,13 +161,13 @@
       <dsig:DigestValue>IZhZFEv589zAbTzV0JMFRDduG5ExNU9Y9jwtzpQ0fU8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PicsDirectoryDisplayWin.exe.config" size="5704">
+  <file name="PicsDirectoryDisplayWin.exe.config" size="5793">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>98Zf5jNPPeaOfTIChA3uz43YywmMw8rCQ+hXehlXJHM=</dsig:DigestValue>
+      <dsig:DigestValue>V+Ng+rljpd3kYWe3ivIAy0k3d2QTEBhkfSPDhajQrJo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Print99.pdf" size="3908">

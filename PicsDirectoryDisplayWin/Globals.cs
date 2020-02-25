@@ -42,6 +42,7 @@ namespace PicsDirectoryDisplayWin
 
         public static readonly string logDirPath = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic";
         public static readonly string logDir = logDirPath + "\\log.txt";
+        public static string pdfIcon = @"..\..\..\pics\IcoPDF.jpg";
         public static readonly string receiptDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Receipt\\";
         public static readonly string PrintDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Prints\\";
         public static readonly string ProcessedImagesDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Processed\\";
@@ -65,7 +66,7 @@ namespace PicsDirectoryDisplayWin
         private static string HorseAnim = @"..\..\..\pics\Horse_gallop.gif";
         private static string Logo = @"..\..\..\pics\HE logo.png";
         private static string TransferPics = @"..\..\..\pics\printapicsite.png";
-
+        
 
         private static Image _TransferPics;
         public static Image TransferPic
@@ -79,6 +80,7 @@ namespace PicsDirectoryDisplayWin
             }
         }
 
+      
         private static Image _LogoImg;
         public static Image LogoImg
         {

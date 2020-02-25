@@ -29,20 +29,27 @@ namespace PicsDirectoryDisplayWin.lib
             IEnumerable<FileInfo> allimgfiles = null;
             IEnumerable<FileInfo> allJpegfiles = null;
             IEnumerable<FileInfo> HEICfiles = null;
-            IEnumerable<FileInfo> PDFfiles = null;
+            //IEnumerable<FileInfo> PDFfiles = null;
             System.IO.DirectoryInfo[] subDirs = null;
             if (NoOfTotalDirsFound > Globals.MaxDirectoryToSearchLimit)
                 return;
             // First, process all the files directly under this folder
             try
             {
-                allimgfiles = root.EnumerateFiles("*.jpg");
-                allJpegfiles = root.EnumerateFiles("*.jpeg");
-                HEICfiles = root.EnumerateFiles("*.heic");
-                PDFfiles = root.EnumerateFiles("*.pdf");
-                allimgfiles = allimgfiles.Concat<FileInfo>(HEICfiles);
-                allimgfiles = allimgfiles.Concat<FileInfo>(allJpegfiles);
-
+                if (Globals.PrintSelection == Globals.PrintSize.pdf)
+                {
+                    allimgfiles = root.EnumerateFiles("*.pdf");
+                }
+                else
+                {
+                    allimgfiles = root.EnumerateFiles("*.jpg");
+                    allJpegfiles = root.EnumerateFiles("*.jpeg");
+                    HEICfiles = root.EnumerateFiles("*.heic");
+                    allimgfiles = allimgfiles.Concat<FileInfo>(HEICfiles);
+                    allimgfiles = allimgfiles.Concat<FileInfo>(allJpegfiles);
+                }
+               
+                
             }
             // This is thrown if even one of the files requires permissions greater
             // than the application provides.

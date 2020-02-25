@@ -79,6 +79,11 @@ namespace PicsDirectoryDisplayWin.lib_ImgIO
             {
                 AssumedSize_Inch = Convert.ToInt32(ConfigurationManager.AppSettings["A5ImageQuality"]);
             }
+            else if (Globals.PrintSelection == Globals.PrintSize.pdf)
+            {
+                //No Resize needed, return
+                return;
+            }
             double newImageShorterSide;
             //Assume printer will print at 300 dpi.
             double DPI300Width = _firstImageBitmapFrame.PixelWidth / 300;

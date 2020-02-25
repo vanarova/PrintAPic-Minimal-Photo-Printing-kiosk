@@ -117,7 +117,7 @@ namespace PicsDirectoryDisplayWin.UI
             PdfImage image2 = null;
             AspectRatio aspectRatio1 = AspectRatio.S4x3;
             AspectRatio aspectRatio2 = AspectRatio.S4x3;
-       
+
 
             //Call below code in pair, insode a for loop.
             //List<PdfImage> pdfImages = new List<PdfImage>();
@@ -151,7 +151,7 @@ namespace PicsDirectoryDisplayWin.UI
                     image1 = PdfImage.FromFile(SelectedImages[i].Split('|')[0]); //Take Image name from image key
                     aspectRatio1 = DetectImageAspectRatio_A4(image1);
                     SetPageMarginGeneratePDF_ImageRatio4x3_A4(Globals.PrintDir + "Print" + i + ".pdf", image1, aspectRatio1);
-                    
+
                 }
 
 
@@ -178,6 +178,17 @@ namespace PicsDirectoryDisplayWin.UI
                     SetPageMarginGeneratePDF_ImageRatio6x4_Postcard(Globals.PrintDir + "Print" + i + ".pdf", image1, image2, aspectRatio1, aspectRatio2);
                     if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
                         logger.Log(NLog.LogLevel.Info, "Generating Image PDF..");
+                }
+            }
+            else if (Globals.PrintSelection == Globals.PrintSize.pdf)
+            {
+                //TODO: If PDF file is large and have many page, a dialog to choose pages shud be displayed
+                //Also, rejected files with more then 15 pages.
+                for (int i = 0; i < SelectedImages.Count; i = i + 2)
+                {
+                    File.Copy(SelectedImages[i].Split('|')[0], Globals.PrintDir + "Print" + i + ".pdf");
+                    if (ConfigurationManager.AppSettings["Mode"] == "Diagnostic")
+                        PrintIO.PDFDocumentViewer(Globals.PrintDir + "Print" + i + ".pdf");
                 }
             }
 
