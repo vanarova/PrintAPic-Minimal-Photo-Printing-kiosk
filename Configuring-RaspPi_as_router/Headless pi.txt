@@ -1,0 +1,44 @@
+Steps to install headless PI zero + raspap + configure
+
+1. download pi lite 
+https://www.raspberrypi.org/downloads/raspbian/
+2. Burn with win32DiskImager
+3. make a file named : wpa_supplicant.conf inside boot directory, & oaste below text
+
+country=US
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="Varun Bansal"
+    psk="dl7sbb83250"
+}
+
+4. create a file named ssh in same directory.
+5. Open "Wireless network watcher" find ip of raspberry pi
+6. open putty and connect to raspberry ip address.
+7. Run: sudo apt-get update
+8. To install raspap, Run : wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
+9. Now connect raspwebui wifi and open 10.3.141.1 in browser, login: admin/secret, CHange wifi name and password to PrintAPic & 12345678
+9. open file > etc/dnsmasq.conf by command > sudo nano dnsmasq.conf
+Paste below lines --
+
+domain-needed
+interface=wlan0
+dhcp-range=10.3.141.50,10.3.141.255,255.255.255.0,12h
+address=/printapic.in/10.3.141.61
+dhcp-host=LAPTOP-7IVNCOO3,10.3.141.61
+
+Note: for redirection all ips write address=/#/10.3.141.61
+Here change laptop name to tablet name.
+
+Rest steps are in git reference
+
+
+Install and working with bluetooth -
+1. sudo apt-get install blueman
+2. To control bluetooth - 
+	- 
+
+
+
