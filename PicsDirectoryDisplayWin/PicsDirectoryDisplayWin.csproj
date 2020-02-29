@@ -147,9 +147,8 @@
     <Compile Include="lib_ImgIO\IImageResizing.cs" />
     <Compile Include="lib_ImgIO\ImageIO.cs" />
     <Compile Include="lib_ImgIO\ImageResizing.cs" />
-    <Compile Include="lib_ImgSearch\Chowkidar.cs" />
-    <Compile Include="lib_ImgSearch\ChitroKiAlbumAurVivaran.cs" />
-    <Compile Include="lib_ImgSearch\ChitraKhoj.cs" />
+    <Compile Include="lib_ImgSearch\TheImage.cs" />
+    <Compile Include="lib_ImgSearch\ImgSearch.cs" />
     <Compile Include="lib_Print\PrintIO.cs" />
     <Compile Include="lib_USB\DriveDetector.cs">
       <SubType>Form</SubType>

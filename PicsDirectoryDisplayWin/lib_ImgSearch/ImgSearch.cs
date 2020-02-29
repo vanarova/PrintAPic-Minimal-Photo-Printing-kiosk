@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace PicsDirectoryDisplayWin.lib
 {
-    public class ChitraKhoj
+    public class ImgSearch
     {
         private String SearchDirectory;
         static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
@@ -18,12 +18,12 @@ namespace PicsDirectoryDisplayWin.lib
         //private readonly int IncludeMaxImages = 20;
         //private readonly int MaxDirectoryToSearchLimit = 50;
 
-        public ChitraKhoj(string searchDirectory)
+        public ImgSearch(string searchDirectory)
         {
             SearchDirectory = searchDirectory;
         }
 
-        void WalkDirectoryTree(System.IO.DirectoryInfo root, IProgress<ChitraKiAlbumAurVivaran> progress,
+        void WalkDirectoryTree(System.IO.DirectoryInfo root, IProgress<TheImage> progress,
             Form form = null, bool InvokeRequired = false, int searchDepth =1)
         {
             IEnumerable<FileInfo> allimgfiles = null;
@@ -68,7 +68,7 @@ namespace PicsDirectoryDisplayWin.lib
 
             if (allimgfiles != null)
             {
-                int count = 0; List<ChitraKiAlbumAurVivaran> peerImages = new List<ChitraKiAlbumAurVivaran>();
+                int count = 0; List<TheImage> peerImages = new List<TheImage>();
                 int ImageLimit;
                 // if image count is lower than min images, leave this directory
                 if (allimgfiles.Count() < Globals.IncludeDirectoryContainingMinImages)
@@ -83,7 +83,7 @@ namespace PicsDirectoryDisplayWin.lib
                     ImageLimit = allimgfiles.Count();
                 foreach (System.IO.FileInfo fi in allimgfiles)
                     {
-                        peerImages.Add(new ChitraKiAlbumAurVivaran()
+                        peerImages.Add(new TheImage()
                         {
                             ImageName = fi.Name,
                             ImageFullName = fi.FullName,
@@ -100,9 +100,9 @@ namespace PicsDirectoryDisplayWin.lib
                         {
                             //Parentform.Invoke((Action<bool>)Done, true);
                             form.Invoke(
-                                new Action<IProgress<ChitraKiAlbumAurVivaran>,
+                                new Action<IProgress<TheImage>,
                                 System.IO.DirectoryInfo, IEnumerable<FileInfo>
-                                , List<ChitraKiAlbumAurVivaran>, int>
+                                , List<TheImage>, int>
                                 (
                                     Report
                                     //(prog, rt, fls, prImages, ImgLimit) =>  Report(prog, rt, fls, prImages, ImgLimit)
@@ -144,11 +144,11 @@ namespace PicsDirectoryDisplayWin.lib
             }
         }
 
-       private void Report(IProgress<ChitraKiAlbumAurVivaran> progress,
+       private void Report(IProgress<TheImage> progress,
            System.IO.DirectoryInfo directoryinfo, IEnumerable<FileInfo> files,
-           List<ChitraKiAlbumAurVivaran> peerImages, int ImageLimit)
+           List<TheImage> peerImages, int ImageLimit)
         {
-            progress.Report(new ChitraKiAlbumAurVivaran()
+            progress.Report(new TheImage()
             {
                 ImageName = "(" + (files.Count() - ImageLimit) + ") More Images",
                 ImageFullName = "..\\..\\..\\pics\\vst.png",
@@ -160,7 +160,7 @@ namespace PicsDirectoryDisplayWin.lib
 
         }
 
-       public async Task Search(IProgress<ChitraKiAlbumAurVivaran> progress,Form form = null, bool InvokeRequired = false,int searchDepth =1)
+       public async Task Search(IProgress<TheImage> progress,Form form = null, bool InvokeRequired = false,int searchDepth =1)
         {
             await Task.Run(() =>
             {

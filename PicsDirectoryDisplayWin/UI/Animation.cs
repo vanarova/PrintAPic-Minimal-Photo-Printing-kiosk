@@ -22,7 +22,7 @@ namespace PicsDirectoryDisplayWin
         int foundImageCount = 0;
         bool searchDone = false;
         int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
-        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
+        public List<TheImage> AllImages { get; set; }
         public PrintaPic()
         {
             InitializeComponent();
@@ -136,7 +136,7 @@ namespace PicsDirectoryDisplayWin
         //    //imgs.Images.Add(obj.ImageKey, Image.FromFile(obj.ImageFullName).GetThumbnailImage(250, 250, null, IntPtr.Zero));
         //}
 
-        private void ReportProgressForImageSearch(ChitraKiAlbumAurVivaran obj)
+        private void ReportProgressForImageSearch(TheImage obj)
         {
             foundImageCount = (foundImageCount + obj.ImageDirTotalImages);
             waiter.FileFoundLabelText = foundImageCount.ToString()  + " images found";

@@ -11,7 +11,7 @@ namespace PicsDirectoryDisplayWin.lib
     /// <summary>
     /// This object stores current image directory metadata and peerimages store actual images meta data
     /// </summary>
-    public class ChitraKiAlbumAurVivaran
+    public class TheImage
     {
         public string ImageName { get; set; }
         public string ImageFullName { get; set; }
@@ -35,7 +35,7 @@ namespace PicsDirectoryDisplayWin.lib
         /// <summary>
         /// List of files in a this folder. Max limit set. Only a certain number of max images are counted to increase performance.
         /// </summary>
-        public List<ChitraKiAlbumAurVivaran> PeerImages { get; set; }
+        public List<TheImage> PeerImages { get; set; }
 
         public string ImageKey { get { return ImageFullName + "|"+ImageName ; } }
     }

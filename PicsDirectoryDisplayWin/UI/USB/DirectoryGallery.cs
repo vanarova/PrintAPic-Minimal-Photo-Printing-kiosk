@@ -20,7 +20,7 @@ namespace PicsDirectoryDisplayWin
     public partial class DirectoryGallery : Form
     {
 
-        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
+        public List<TheImage> AllImages { get; set; }
         public List<string> SelectedImageKeys { get; set; }
 
         private bool SelectionChanged = false;
@@ -271,7 +271,7 @@ namespace PicsDirectoryDisplayWin
             return (Image)b;
         }
 
-        private void CreateImageList(ChitraKiAlbumAurVivaran obj)
+        private void CreateImageList(TheImage obj)
         {
             imgs.ImageSize = new Size(200, 200);
             imgs.ColorDepth = ColorDepth.Depth32Bit;
@@ -289,7 +289,7 @@ namespace PicsDirectoryDisplayWin
             }
         }
 
-        private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
+        private void ShowGallerySelectionImages(TheImage obj)
         {
             imglist.Clear();
             CreateImageList(obj);
@@ -308,7 +308,7 @@ namespace PicsDirectoryDisplayWin
         }
 
 
-        private void ShowDirectory(ChitraKiAlbumAurVivaran obj)
+        private void ShowDirectory(TheImage obj)
         {
             Button btn = (new Button()
             {
@@ -330,7 +330,7 @@ namespace PicsDirectoryDisplayWin
 
         private void DirectoryButtonClick(object sender, EventArgs e)
         {
-            ShowGallerySelectionImages(((Button)sender).Tag as ChitraKiAlbumAurVivaran);
+            ShowGallerySelectionImages(((Button)sender).Tag as TheImage);
             //throw new NotImplementedException();
         }
 

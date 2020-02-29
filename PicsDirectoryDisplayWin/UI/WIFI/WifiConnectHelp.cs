@@ -13,7 +13,7 @@ namespace PicsDirectoryDisplayWin.UI
     public partial class WifiConnectHelp : Form
     {
 
-        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
+        public List<TheImage> AllImages { get; set; }
         public Form AnimationForm { get; set; }
         public bool IamAlreadyCalledOnce = false;
 
@@ -88,7 +88,7 @@ namespace PicsDirectoryDisplayWin.UI
             if (IamAlreadyCalledOnce)
                 return;
             IamAlreadyCalledOnce = true;
-            AllImages = new List<ChitraKiAlbumAurVivaran>();
+            AllImages = new List<TheImage>();
             imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, ConfigurationManager.AppSettings["WebSiteSearchDir"],
                 this, waiter, ReportProgressForImageSearch, Done);
         }
@@ -135,7 +135,7 @@ namespace PicsDirectoryDisplayWin.UI
 
         }
 
-        private void ReportProgressForImageSearch(ChitraKiAlbumAurVivaran obj)
+        private void ReportProgressForImageSearch(TheImage obj)
         {
             foundImageCount = (foundImageCount + obj.ImageDirTotalImages);
             //TODO : write here invoke required and invoke to display images found count on form

@@ -24,7 +24,7 @@ namespace PicsDirectoryDisplayWin
     {
 
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
+        public List<TheImage> AllImages { get; set; }
         public Form WifiConnectHelpObject { get; set; }
         public Form AnimationFormObject { get; set; }
         public List<string> SelectedImageKeys { get; set; }
@@ -134,7 +134,7 @@ namespace PicsDirectoryDisplayWin
             {
                 MessageBox.Show("file watcher, Invoke needed");
             }
-            AllImages = new List<ChitraKiAlbumAurVivaran>();
+            AllImages = new List<TheImage>();
             waiter = new Waiter();
             imageIO.Wifi_CheckForImages(AllImages, InvokeRequired, ConfigurationManager.AppSettings["WebSiteSearchDir"],
                 this, waiter, ReportProgress, Done);
@@ -345,19 +345,7 @@ namespace PicsDirectoryDisplayWin
         }
 
 
-    //     if (item.Checked ==false)
-    //        {
-    //            SelectedImageKeys.Add(item.ImageKey);
-    //            item.Checked = true;
-    //            item.BackColor = SelectedColor;
-    //            item.Focused = true;
-    //            //string copyrightUnicode = "2714"; // ballot box -1F5F9
-    //            //int value = int.Parse(copyrightUnicode, System.Globalization.NumberStyles.HexNumber);
-    //            //string symbol = char.ConvertFromUtf32(value).ToString();
-    //            item.Font = SelectedFont;
-    //            item.Text = "[" + CheckSymbol + "] " + item.Text;
-    //            UpdateBillDetails(SelectedImageKeys.Count);
-    //}
+   
 
 
     private void UpdateBillDetails(int count)
@@ -410,131 +398,11 @@ namespace PicsDirectoryDisplayWin
             
         }
 
-        //private Image ResizeHighQualityImage(System.Drawing.Image image, int width, int height)
-        //{
-          
-        //    Bitmap result;
-        //    // the resized result bitmap
-        //    result = new Bitmap(width, height);
-            
-        //        // get the graphics and draw the passed image to the result bitmap
-        //        using (Graphics grphs = Graphics.FromImage(result))
-        //        {
-        //            grphs.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-        //            grphs.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-        //            grphs.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-        //            grphs.DrawImage(image, 0, 0, result.Width, result.Height);
-        //        }
-        //        //Image i = new Bitmap(result);
-        //        //// check the quality passed in
-        //        //if ((quality < 0) || (quality > 100))
-        //        //{
-        //        //    string error = string.Format("quality must be 0, 100", quality);
-        //        //    throw new ArgumentOutOfRangeException(error);
-        //        //}
-
-        //        //EncoderParameter qualityParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality);
-        //        //string lookupKey = "image/jpeg";
-        //        //var jpegCodec = ImageCodecInfo.GetImageEncoders().Where(i => i.MimeType.Equals(lookupKey)).FirstOrDefault();
-                
-        //        ////create a collection of EncoderParameters and set the quality parameter
-        //        //var encoderParams = new EncoderParameters(1);
-        //        //encoderParams.Param[0] = qualityParam;
-        //        ////save the image using the codec and the encoder parameter
-        //        //result.Save(pathToSave, jpegCodec, encoderParams);
-            
-        //    return result;
-        //}
-
-
-        /// <summary>
-        /// Resize the image to the specified width and height.
-        /// </summary>
-        /// <param name="image">The image to resize.</param>
-        /// <param name="width">The width to resize to.</param>
-        /// <param name="height">The height to resize to.</param>
-        /// <returns>The resized image.</returns>
-        //private static Bitmap ResizeImage(Image image, int width, int height)
-        //{
-        //    var destRect = new Rectangle(0, 0, width, height);
-        //    var destImage = new Bitmap(width, height);
-
-        //    destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-
-        //    using (var graphics = Graphics.FromImage(destImage))
-        //    {
-        //        graphics.CompositingMode = CompositingMode.SourceCopy;
-        //        graphics.CompositingQuality = CompositingQuality.HighQuality;
-        //        graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-        //        graphics.SmoothingMode = SmoothingMode.HighQuality;
-        //        graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-        //        using (var wrapMode = new ImageAttributes())
-        //        {
-        //            wrapMode.SetWrapMode(WrapMode.TileFlipXY);
-        //            graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
-        //        }
-        //    }
-
-        //    return destImage;
-        //}
-
-
-        //private Image resizeImage(Image imgToResize, Size size)
-        //{
-        //    if (imgToResize.Width < 100 | imgToResize.Height < 100)
-        //    {
-        //        return imgToResize;
-        //    }
-        //    int sourceWidth = imgToResize.Width;
-        //    int sourceHeight = imgToResize.Height;
-
-        //    float nPercent = 0;
-        //    float nPercentW = 0;
-        //    float nPercentH = 0;
-
-        //    nPercentW = ((float)size.Width / (float)sourceWidth);
-        //    nPercentH = ((float)size.Height / (float)sourceHeight);
-
-        //    if (nPercentH < nPercentW)
-        //        nPercent = nPercentH;
-        //    else
-        //        nPercent = nPercentW;
-
-        //    int destWidth = (int)(sourceWidth * nPercent);
-        //    int destHeight = (int)(sourceHeight * nPercent);
-
-        //    Bitmap b = new Bitmap(destWidth, destHeight);
-        //    Graphics g = Graphics.FromImage((Image)b);
-        //    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-
-        //    g.DrawImage(imgToResize, 0, 0, destWidth, destHeight);
-        //    g.Dispose();
-
-        //    return (Image)b;
-        //}
-
-        //private void CreateImageList(ChitraKiAlbumAurVivaran obj)
-        //{
-        //    imgs.ImageSize = new Size(200, 200);
-        //    imgs.ColorDepth = ColorDepth.Depth32Bit;
-        //    List<Image> images = new List<Image>();
-
-        //    foreach (var item in obj.PeerImages)
-        //    {
-        //        using (Image im = Image.FromFile(item.ImageFullName))
-        //        {
-        //            //images.Add();
-        //            var imtemp = ResizeImage(im, 200, 200);
-        //            imgs.Images.Add(item.ImageKey, imtemp);
-        //            //im.Dispose();// = null;
-        //        }
-        //    }
-        //}
+        
 
 
 
-        private void ShowGallerySelectionImages(ChitraKiAlbumAurVivaran obj)
+        private void ShowGallerySelectionImages(TheImage obj)
         {
 
             if (imglist.LargeImageList != null && imglist.LargeImageList.Images.Count > 0)
@@ -656,34 +524,12 @@ namespace PicsDirectoryDisplayWin
         private void BackTOAnimation()
         {
             Application.Exit();
-            //if (WifiConnectHelpObject != null)
-            //{
-            //    WifiConnectHelpObject.Visible = false;
-            //    ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).DeleteAllImages();
-            //    ((UI.WifiConnectHelp)(this.WifiConnectHelpObject)).IamAlreadyCalledOnce = false;
-            //}
-            //if (imglist != null && imglist.LargeImageList != null && imglist.LargeImageList.Images != null)
-            //    imglist.LargeImageList.Images.Clear();
-            //imglist.Clear();
-            //timer.Stop();
-            //timer.Dispose();
-            //this.Clos3e();
-            //this.Dispose();
-            //AnimationFormObject.Visible = true;
+           
         }
 
         private void WebSiteUploadsWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
             
-            
-            //if (fileChangedCounter == 0 && InvokeRequired)
-            //{
-            //    //System.Threading.Thread.Sleep(1000);
-            //    Invoke(new Action(()=>{ FilesChanged = true; }));
-            //}
-           
-            //fileChangedCounter++;
-
         
         }
 
@@ -694,14 +540,6 @@ namespace PicsDirectoryDisplayWin
         private void Done(bool IsWeb)
         {
 
-            //if (System.Diagnostics.Debugger.IsAttached)
-            //{
-            //    if (AllImages.Count == 0)
-            //    {
-            //        MessageBox.Show("No Image Found, Error in Image search function.");
-            //        //return;
-            //    }
-            //}
 
             foreach (var item in AllImages)
             {
@@ -717,11 +555,7 @@ namespace PicsDirectoryDisplayWin
                 }
             }
 
-            //if (AllImages.Count != 0)
-            //{
-            //    imageIO.BubbleSortImages(AllImages);
-            //    AllImages.Reverse();
-            //}
+           
 
             if (InvokeRequired)
             {
@@ -744,11 +578,7 @@ namespace PicsDirectoryDisplayWin
                
                 RefreshGalleryNotify = true;
                 CheckForMaxImageWarning();
-                //if (fileChangedCounter > 1)
-                //{// again raise event.
-                //    FilesChanged = true;
-                //}
-                //fileChangedCounter = 0;
+              
             }
             
         }
@@ -760,7 +590,7 @@ namespace PicsDirectoryDisplayWin
             //AllImages.Add(obj);
         }
 
-        private void ReportProgress(ChitraKiAlbumAurVivaran obj)
+        private void ReportProgress(TheImage obj)
         {
             foundImageCount = (foundImageCount + obj.ImageDirTotalImages);
             //TODO : write here invoke required and invoke to display images found count on form

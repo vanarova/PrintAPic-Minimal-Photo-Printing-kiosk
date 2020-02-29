@@ -21,7 +21,7 @@ namespace PicsDirectoryDisplayWin
         private static int _IncludeMaxImages = 6;
         public static PrintSize PrintSelection { get { return _PrintSelection; } }
         public static void SetPrintSelection(PrintSize printSize) { _PrintSelection = printSize; }
-
+        public  enum AspectRatio { S4x3, LessThanS4x3, GreaterThanS4x3, S6x4, LessThanS6x4, GreaterThanS6x4 };
         //public static int NoOfTotalDirsFound = 0;
         public static readonly int IncludeDirectoryContainingMinImages = 1;
         public static int IncludeMaxImages {
@@ -40,32 +40,27 @@ namespace PicsDirectoryDisplayWin
         public static readonly int PostcardImageCountInAPage = 2;
 
 
-        public static readonly string logDirPath = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic";
+    
         public static readonly string logDir = logDirPath + "\\log.txt";
-        public static string pdfIcon = @"..\..\..\pics\IcoPDF.jpg";
-        public static readonly string receiptDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Receipt\\";
+        public static readonly string logDirPath = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic";
         public static readonly string PrintDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Prints\\";
         public static readonly string ProcessedImagesDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Processed\\";
-        // @"C:\Users\Arunav\Pictures\Camera Roll";
-        //public static string WebSiteSearchDir = @"C:\inetpub\wwwroot\ps\Uploads\030357B624D9";
-        //private static int _filesInWebSearchDir;
-        //private static int _filesInThumbsDir;
-
-
+        public static readonly string receiptDir = Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "\\PrintAPic" + "\\Receipt\\";
+        public static string pdfIcon = @"..\..\..\pics\IcoPDF.jpg";
       
     }
 
         public static class GlobalImageCache
     {
        
-        private static string TableBackground = @"..\..\..\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg";
         private static string Arrow = @"..\..\..\pics\Blue_Left_Arrow_PNG_Clip_Art_Image.png";
-        private static string wifiStep = @"..\..\..\pics\3718444199423493837.png";
         private static string BrowserStep = @"..\..\..\pics\sshot1.png";
-        private static string WifiIcon = @"..\..\..\pics\3.png";
         private static string HorseAnim = @"..\..\..\pics\Horse_gallop.gif";
         private static string Logo = @"..\..\..\pics\HE logo.png";
+        private static string TableBackground = @"..\..\..\pics\Alien_Ink_2560X1600_Abstract_Background_1.jpg";
         private static string TransferPics = @"..\..\..\pics\printapicsite.png";
+        private static string WifiIcon = @"..\..\..\pics\3.png";
+        private static string wifiStep = @"..\..\..\pics\3718444199423493837.png";
         
 
         private static Image _TransferPics;

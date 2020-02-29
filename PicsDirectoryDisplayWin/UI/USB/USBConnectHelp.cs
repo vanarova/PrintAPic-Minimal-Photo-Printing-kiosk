@@ -14,7 +14,7 @@ namespace PicsDirectoryDisplayWin.UI
     public partial class USBConnectHelp : Form
     {
        
-        public List<ChitraKiAlbumAurVivaran> AllImages { get; set; }
+        public List<TheImage> AllImages { get; set; }
         public Form AnimationForm { get; set; }
         //public bool IamAlreadyCalledOnce = false;
 
@@ -87,7 +87,7 @@ namespace PicsDirectoryDisplayWin.UI
         {
             this.Visible = false;
             SimpleGallery simpleGallery = new SimpleGallery(true);
-            simpleGallery.AllImages = new List<ChitraKiAlbumAurVivaran>();
+            simpleGallery.AllImages = new List<TheImage>();
             simpleGallery.USBDriveLetter = e;
             simpleGallery.AnimationFormObject = AnimationForm;
             simpleGallery.Show();
