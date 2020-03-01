@@ -11,6 +11,7 @@ For detailed understanding refer -> [WIKI](https://github.com/vanarova/PrintAPic
 - Automatic re-arrangement of mobile pics according to selection - A4, A5, postcard, passport size
 - No Internet connection required
 - Supported format : .jpg, .pdf, .heic (iphone format)
+- Multi-Lingual, set language text from configuration file
 
 ###### Hardware Requirement :
 - Intel x86 based tablet/mini PC 
