@@ -111,58 +111,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminSettings.cs">
+    <Compile Include="UI\AdminSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminSettings.Designer.cs">
+    <Compile Include="UI\AdminSettings.Designer.cs">
       <DependentUpon>AdminSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminSettingsControl.cs">
+    <Compile Include="UI\AdminSettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminSettingsControl.Designer.cs">
+    <Compile Include="UI\AdminSettingsControl.Designer.cs">
       <DependentUpon>AdminSettingsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Diagnostics.cs">
+    <Compile Include="UI\Diagnostics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Diagnostics.Designer.cs">
+    <Compile Include="UI\Diagnostics.Designer.cs">
       <DependentUpon>Diagnostics.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Licensing.cs" />
-    <Compile Include="PrintAPicStarter.cs">
+    <Compile Include="UI\PrintAPicStarter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintAPicStarter.Designer.cs">
+    <Compile Include="UI\PrintAPicStarter.Designer.cs">
       <DependentUpon>PrintAPicStarter.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration.cs">
+    <Compile Include="UI\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration.Designer.cs">
+    <Compile Include="UI\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="SerialKey.cs">
+    <Compile Include="UI\SerialKey.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SerialKey.Designer.cs">
+    <Compile Include="UI\SerialKey.Designer.cs">
       <DependentUpon>SerialKey.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserSettings.cs" />
-    <EmbeddedResource Include="AdminSettings.resx">
+    <EmbeddedResource Include="UI\AdminSettings.resx">
       <DependentUpon>AdminSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminSettingsControl.resx">
+    <EmbeddedResource Include="UI\AdminSettingsControl.resx">
       <DependentUpon>AdminSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Diagnostics.resx">
+    <EmbeddedResource Include="UI\Diagnostics.resx">
       <DependentUpon>Diagnostics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintAPicStarter.resx">
+    <EmbeddedResource Include="UI\PrintAPicStarter.resx">
       <DependentUpon>PrintAPicStarter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -175,10 +174,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Registration.resx">
+    <EmbeddedResource Include="UI\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SerialKey.resx">
+    <EmbeddedResource Include="UI\SerialKey.resx">
       <DependentUpon>SerialKey.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

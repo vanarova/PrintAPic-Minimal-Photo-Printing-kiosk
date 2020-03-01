@@ -241,10 +241,7 @@ namespace PicsDirectoryDisplayWin.UI
             }
         }
 
-        private string InCentimeter(float value)
-        {
-            return new PdfUnitConvertor().ConvertUnits(value, PdfGraphicsUnit.Point, PdfGraphicsUnit.Centimeter).ToString();
-        }
+        
 
         private void PicsbgWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {

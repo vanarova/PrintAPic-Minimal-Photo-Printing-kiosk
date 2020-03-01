@@ -222,7 +222,7 @@ namespace PrintAPicStart
             // 
             // userSettingsBindingSource
             // 
-            this.userSettingsBindingSource.DataSource = typeof(PrintAPicStart.UserSettings);
+            
             // 
             // Main
             // 
