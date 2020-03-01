@@ -1,7 +1,7 @@
 # Print A Pic
 Affordable wireless mobile photo printing booth for personal/commercial purpose.
 
-For detailed understanding refer -> [WIKI](https://github.com/vanarova/PrintAPic-Minimal-Photo-Printing-kiosk/wiki)
+For detailed understanding refer -> [WIKI](https://github.com/vanarova/PrintAPic-Minimal-Photo-Printing-kiosk/wiki/Print-A-Pic)
 
 ###### Aim of Project PrintAPic :
 - Provide economical photo printing kiosk with minimal hardware.
