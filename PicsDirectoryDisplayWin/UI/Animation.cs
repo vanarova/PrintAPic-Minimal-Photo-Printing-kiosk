@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace PicsDirectoryDisplayWin
@@ -23,6 +24,8 @@ namespace PicsDirectoryDisplayWin
         bool searchDone = false;
         int MaxThumbnailsToGenerate = 2; // set this to controls number max thumbnails t genertae and save for each found dir.
         public List<TheImage> AllImages { get; set; }
+
+
         public PrintaPic()
         {
             InitializeComponent();
@@ -35,9 +38,11 @@ namespace PicsDirectoryDisplayWin
             this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-
-
+            if (System.Diagnostics.Debugger.IsAttached)
+                (new Info()).ShowDialog();
         }
+
+       
 
         private void DirectConnectButton_Click(object sender, EventArgs e)
         {

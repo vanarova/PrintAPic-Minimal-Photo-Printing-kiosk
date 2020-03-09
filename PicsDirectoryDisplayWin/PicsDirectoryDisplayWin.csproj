@@ -154,6 +154,12 @@
     <Compile Include="lib_USB\DriveDetector.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Info.Designer.cs">
+      <DependentUpon>Info.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PrintSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     <EmbeddedResource Include="lib_USB\DriveDetector.resx">
       <DependentUpon>DriveDetector.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Info.resx">
+      <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PrintSettings.resx">
       <DependentUpon>PrintSettings.cs</DependentUpon>
